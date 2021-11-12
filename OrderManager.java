@@ -19,7 +19,7 @@ public class OrderManager {
 		this.orderList.remove(orderIndex - 1); //remove the index - 1 order from orderList
 		System.out.println("Order #" + orderIndex +" cancelled");
 		sc.close();
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class OrderManager {
 		System.out.println("Order created. printing new order...");
 		temp.printOrder();
 		// TODO - implement OrderManager.createOrder
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void changeOrder() {
@@ -47,7 +47,7 @@ public class OrderManager {
 		temp.printOrder();
 		sc.close();
 		// TODO - implement OrderManager.changeOrder
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void printOrderList() {
@@ -57,7 +57,7 @@ public class OrderManager {
 			this.orderList.get(i).printOrder();
 			System.out.println("+++++++++++++++++++++++++++++++++++++++"); //separator between orders
 		}
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 		// TODO - implement OrderManager.viewOrderList
 	}
 

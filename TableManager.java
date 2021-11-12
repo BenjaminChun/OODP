@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -80,7 +81,7 @@ public class TableManager {
 		if (minSeats > maxCapacity) {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
 		}
-		for (int i = 0; i < availableTables.get(i).getSeatingCapacity(); i++) {
+		for (int i = 0; i < availableTables.size(); i++) {
 			if (availableTables.get(i).getSeatingCapacity() >= minSeats) {
 				if (chosenTableNo == -1) {//guard against chosen == -1
 					chosenTableNo = i;
@@ -94,8 +95,8 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + chosenTableNo + "found");
-		return chosenTableNo; //returns tableNo or -1 when no tables are found
+		System.out.println("Table " + availableTables.get(chosenTableNo).getId() + " found " + "with " + availableTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		return availableTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 		
 		// TODO - implement TableManager.findSuitableTable
 		//throw new UnsupportedOperationException();
@@ -106,8 +107,8 @@ public class TableManager {
 	 * @param tableID
 	 */
 	public void setTableToAvailable(int tableID) {
-		tableList.get(tableID+1).setStatus(Status.AVAILABLE);
-		System.out.println("Table "+ tableID + "set to Available");
+		tableList.get(tableID-1).setStatus(Status.AVAILABLE);
+		System.out.println("Table "+ tableID + " set to Available");
 		// TODO - implement TableManager.setTableToAvailable
 		//throw new UnsupportedOperationException();
 	}
@@ -117,8 +118,8 @@ public class TableManager {
 	 * @param tableID
 	 */
 	public void setTableToOccupied(int tableID) {
-		tableList.get(tableID+1).setStatus(Status.OCCUPIED);
-		System.out.println("Table "+ tableID + "set to Occupied");
+		tableList.get(tableID-1).setStatus(Status.OCCUPIED);
+		System.out.println("Table "+ tableID + " set to Occupied");
 		// TODO - implement TableManager.setTableToOccupied
 		//throw new UnsupportedOperationException();
 	}
@@ -128,8 +129,8 @@ public class TableManager {
 	 * @param tableID
 	 */
 	public void setTableToReserved(int tableID) {
-		tableList.get(tableID+1).setStatus(Status.RESERVED);
-		System.out.println("Table "+ tableID + "set to Reserved");
+		tableList.get(tableID-1).setStatus(Status.RESERVED);
+		System.out.println("Table "+ tableID + " set to Reserved");
 		// TODO - implement TableManager.setTableToReserved
 		//throw new UnsupportedOperationException();
 	}
@@ -146,9 +147,16 @@ public class TableManager {
 	}
 	
 	public void printTables(ArrayList<Table> tableList){
-		System.out.println("\nHere is the list of " + tableList.get(0).getStatus() + " tables : ");
-		for (int i=0; i<tableList.size(); i++){
-			System.out.println("Table " + tableList.get(i).getId());
+		if (tableList.isEmpty()){
+			System.out.println("No Tables found\n");
+			return;
+		}
+		else{
+			System.out.println("\nHere is the list of " + tableList.get(0).getStatus() + " tables : ");
+			for (int i=0; i<tableList.size(); i++){
+				System.out.println("Table " + tableList.get(i).getId());
+			}
+			
 		}
 		System.out.println("\n");
 	}
