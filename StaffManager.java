@@ -124,4 +124,8 @@ public class StaffManager {
 		}
 		return staffFound;
 	}
+
+	public Staff getStaff(int index){
+		return this.staffList.get(index);
+	}
 }
