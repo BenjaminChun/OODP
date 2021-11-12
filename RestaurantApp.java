@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class RestaurantApp {
 
-	private ReservationManager reservationManager;
-	private OrderManager orderManager;
-	private TableManager tableManager;
-	private StaffManager staffManager;
-	private MenuManager menuManager;
+	public static ReservationManager globalReservationManager;
+	public static OrderManager globalOrderManager;
+	public static TableManager globalTableManager;
+	public static StaffManager globalStaffManager;
+	public static MenuManager globalMenuManager;
 	/**
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MenuManager globalMenuManager = new MenuManager();
-		StaffManager globalStaffManager = new StaffManager();
-		ReservationManager globalReservationManager = new ReservationManager();
-		TableManager globalTableManager = new TableManager();
-		InvoiceManager globalInvoiceManager = new InvoiceManager();
-		OrderManager globalOrderManager = new OrderManager();
+		globalMenuManager = new MenuManager();
+		globalStaffManager = new StaffManager();
+		globalReservationManager = new ReservationManager();
+		globalTableManager = new TableManager();
+		globalInvoiceManager = new InvoiceManager();
+		globalOrderManager = new OrderManager();
 
 		System.out.println("Hello welcome to RRPS:");
 		int choice = 1;
