@@ -7,7 +7,7 @@ public class ReservationManager {
 
 	public ReservationManager() {
 		// TODO - implement ReservationManager.ReservationManager
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -21,9 +21,11 @@ public class ReservationManager {
 				return res;
 			}
 		}
+		System.out.println("Reservation not found");
+		return null;
 
 		// KIV whether need this or not
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void printInterface(){
@@ -138,7 +140,7 @@ public class ReservationManager {
 		Reservation reservation = new Reservation(contact, dateAndArrivalTime, numPax, name);
 		reservationList.add(reservation);
 
-		throw new UnsupportedOperationException(); 
+		//throw new UnsupportedOperationException(); 
 	}
 
 	/**
@@ -166,7 +168,7 @@ public class ReservationManager {
 		else{
 			reservationList.remove(contactFound);	
 		}
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void checkAndRemoveExpired() {
@@ -178,6 +180,6 @@ public class ReservationManager {
 				reservationList.remove(currentReservation);
 			}
 		}
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 }
