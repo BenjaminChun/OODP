@@ -5,10 +5,7 @@ public class MenuItem {
 	protected String name;
 	protected double price;
 
-	public MenuItem() {
-		// TODO - implement MenuItem.MenuItem
-		//throw new UnsupportedOperationException();
-	}
+	public MenuItem(){ }
 
 	public void print(){ //should be overridden
 		System.out.println("Debug: wrong");
