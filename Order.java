@@ -5,20 +5,21 @@ public class Order {
 
 	private ArrayList<OrderItem> orderItemList;
 	private Staff s;
-	//private Date date; not sure if needed
 	private OrderDetails orderDetails;
 
 	/**
 	 * 
 	 * @param s
 	 */
-	public Order(Staff s) {
-		// TODO - implement Order.Order
+	public Order() {
 		this.orderItemList = new ArrayList<OrderItem>();
-		//this.orderItemList.add(globalMenuManager.getMenuItem(0), 5) globalMenuManager needs to be implemented before Order
-		this.s = s;
+		RestaurantApp.globalStaffManager.displayList();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Who's taking this order?");
+		int choice = sc.nextInt();
+		sc.nextLine();
+		this.s = RestaurantApp.globalStaffManager.getStaff(choice-1);
 		this.orderDetails = new OrderDetails(this);
-		//throw new UnsupportedOperationException();
 	}
 
 	public void makeNewOrder(){
@@ -32,7 +33,6 @@ public class Order {
 				this.addToOrder(); 
 			}
 		}
-		sc.close();
 	}
 
 	public void updateOrder(){
@@ -42,30 +42,23 @@ public class Order {
 		int choice = sc.nextInt();
 		if (choice == 1) this.addToOrder();
 		else this.deleteFromOrder();
-		sc.close();
 	}
 
 	public void addToOrder() { //calls createOrderItem from OrderItem and adds it to orderItemList
-		// TODO - implement Order.addToOrder
 		OrderItem temp = new OrderItem();
 		temp.createOrderItem();
 		this.orderItemList.add(temp);
-		//throw new UnsupportedOperationException();
 	}
 
 	public void deleteFromOrder() {
-		// TODO - implement Order.deleteFromOrder
 		Scanner sc = new Scanner(System.in);
 		this.printOrder();
 		System.out.println("Which order item would you like to delete?");
 		int orderItemIndex = sc.nextInt();
 		this.orderItemList.remove(orderItemIndex - 1); //delete the index - 1 orderItem from this order
-		sc.close();
-		//throw new UnsupportedOperationException();
 	}
 
 	public double calculateBasePrice() {
-		// TODO - implement Order.calculateBasePrice
 		int orderSize = this.orderItemList.size();
 		double basePrice = 0;
 		for(int i = 0; i<orderSize; i++){
@@ -75,7 +68,6 @@ public class Order {
 	}
 
 	public void printOrder() {
-		// TODO - implement Order.printOrder
 		int orderSize = this.orderItemList.size();
 		//System.out.println("Staff EID: " + this.s.getEmployeeID());
 		System.out.println("Staff Name: " + this.s.getName());//should this be a print function of staff?
@@ -85,7 +77,6 @@ public class Order {
 			this.orderItemList.get(i).printOrderItem();
 			System.out.println("----------------------------------------------");
 		}
-		//throw new UnsupportedOperationException();
 	}
 
 	// public void updateOrder() { 
