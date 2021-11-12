@@ -1,0 +1,167 @@
+import java.util.Scanner;
+
+public class RestaurantApp {
+
+	private ReservationManager reservationManager;
+	private OrderManager orderManager;
+	private TableManager tableManager;
+	private StaffManager staffManager;
+	private MenuManager menuManager;
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		MenuManager globalMenuManager = new MenuManager();
+		StaffManager globalStaffManager = new StaffManager();
+		ReservationManager globalReservationManager = new ReservationManager();
+		TableManager globalTableManager = new TableManager();
+		InvoiceManager globalInvoiceManager = new InvoiceManager();
+		OrderManager globalOrderManager = new OrderManager();
+
+		System.out.println("Hello welcome to RRPS:");
+		int choice = 1;
+		Scanner sc = new Scanner(System.in);
+		do{
+			System.out.println("Main Menu: ");
+			System.out.println("Please choose an option:");
+			System.out.println(
+					"\n{Main menu} .__________. \n" +
+					"Which do you wish to access?\n" +
+					"1. Menu Manager\n" +
+					"2. Table Manager\n" +
+					"3. Order Manager\n" +
+					"4. Reservation Manager\n" +
+					"5. Sales Report\n" +
+					"6. Staff Manager\n\n" +
+					"Enter 0 to cancel");
+
+			choice = sc.nextInt(); 
+			System.out.println();
+			switch (choice){
+				case 1://menumanager
+					System.out.println("What do you want to do? :-) \n" + 
+					"1. Print Menu\n" +
+					"2. Add Item\n" +
+					"3. Remove Item from Menu\n" +
+					"4. Update Item\n\n" +
+					"ENTER 0 TO QUIT\n");
+					int menuChoice = 0;
+					menuChoice = sc.nextInt();
+					switch (menuChoice) {
+						case 1:
+							globalMenuManager.printMenu();
+							break;
+						case 2:
+							globalMenuManager.addItem();
+							break;
+						case 3:
+							globalMenuManager.removeItem();
+							break;
+						case 4:
+							globalMenuManager.updateItem();
+							break;
+						}
+					break;
+				case 2:
+					int tableChoice = 0;
+					do {
+						System.out.println("What do you want to do? :-) \n" + 
+						"1. Print Available Tables\n" +
+						"2. Print Occupied Tables\n" +
+						"3. Print Reserved Tables\n" +
+						"4. Find and Assign a suitable Table\n\n"+
+						"ENTER 0 TO QUIT\n");
+						
+						tableChoice = sc.nextInt();
+						switch (tableChoice) {
+							case 1:
+								globalTableManager.printTables(globalTableManager.getAvailableTables());
+								break;
+							case 2:
+								globalTableManager.printTables(globalTableManager.getOccupiedTables());
+								break;
+							case 3:
+								globalTableManager.printTables(globalTableManager.getReservedTables());
+								break;
+							case 4:
+								int tableNum = globalTableManager.findSuitableTable();
+								globalTableManager.setTableToOccupied(tableNum);
+								break;
+							}
+					} while (tableChoice!=0);
+					break;
+					
+
+				case 3:
+					int orderChoice = 0;
+					do {
+						System.out.println("What do you want to do? :-) \n" + 
+						"1. Create Order\n" +
+						"2. Cancel Order\n" +
+						"3. Change Order\n" +
+						"4. Print Order List\n\n"+
+						"ENTER 0 TO QUIT\n");
+						
+						orderChoice = sc.nextInt();
+						switch (orderChoice) {
+							case 1:
+								//globalOrderManager.createOrder(s);
+								break;
+							case 2:
+								globalOrderManager.cancelOrder();
+								break;
+							case 3:
+								globalOrderManager.changeOrder();
+								break;
+							case 4:
+								globalOrderManager.printOrderList();
+								break;
+							}
+					} while (orderChoice!=0);
+					break;
+				case 4:
+					//reservationManager.ReservationInterface();
+					break;
+				case 5:
+					SalesReport salesReport = new SalesReport(globalInvoiceManager);
+					salesReport.printSalesReport();
+					break;
+				case 6:
+					//staffManager(staffManager);
+					break;
+			}
+		} while (choice != 0);
+
+		
+
+		// TODO - implement RestaurantApp.main
+		//throw new UnsupportedOperationException();
+	/*
+	public MenuManager MenuManager() {
+		// TODO - implement RestaurantApp.MenuManager
+		//throw new UnsupportedOperationException();
+	}
+
+	public OrderManager OrderManager() {
+		// TODO - implement RestaurantApp.OrderManager
+		//throw new UnsupportedOperationException();
+	}
+
+	public TableManager TableManager() {
+		// TODO - implement RestaurantApp.TableManager
+		//throw new UnsupportedOperationException();
+	}
+
+	public ReservationManager ReservationManager() {
+		// TODO - implement RestaurantApp.ReservationManager
+		throw new UnsupportedOperationException();
+	}
+
+	public StaffManager StaffManager() {
+		// TODO - implement RestaurantApp.StaffManager
+		throw new UnsupportedOperationException();
+	}
+	*/
+}
+}
