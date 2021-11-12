@@ -14,7 +14,12 @@ public class Customer {
 
 	public double getDiscount() {
 		// TODO - implement Customer.getDiscount
-		throw new UnsupportedOperationException();
+		// assuming members receive 10% discount off basePrice
+		if (this.membership == true){
+			return 0.1;
+		}
+		else return 1;
+		//throw new UnsupportedOperationException();
 	}
 
 	public int getContact() {
