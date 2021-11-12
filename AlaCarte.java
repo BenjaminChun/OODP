@@ -7,9 +7,6 @@ public class AlaCarte extends MenuItem {
 		this.description = description;
 		this.name = name;
 		this.price = price;
-
-		// TODO - implement AlaCarte.AlaCarte
-		//throw new UnsupportedOperationException();
 	}
 
 	public void update() {
@@ -30,10 +27,12 @@ public class AlaCarte extends MenuItem {
 			break;
 			case 2:
 			System.out.println("What is the new description?");
+			sc.nextLine();
 			this.description = sc.nextLine();
 			break;
 			case 3:
 			System.out.println("What is the new name?");
+			sc.nextLine();
 			this.name = sc.nextLine();
 			break;
 			case 4:
@@ -43,9 +42,6 @@ public class AlaCarte extends MenuItem {
 		}
 		System.out.println("Ala Carte item updated, printing updated item...");
 		this.print();
-		sc.close();
-		// TODO - implement AlaCarte.update
-		//throw new UnsupportedOperationException();
 	}
 	public void print(){
 		System.out.println(this.Type);
@@ -83,11 +79,9 @@ public class AlaCarte extends MenuItem {
 		this.price = sc.nextDouble();
 		System.out.println("New Ala Carte item added. printing new item...");
 		this.print();
-		sc.close();
 	}
 
 	public type getType() {
-		// TODO - implement AlaCarte.getType
 		return this.Type;
 	}
 
@@ -96,13 +90,10 @@ public class AlaCarte extends MenuItem {
 	 * @param type
 	 */
 	public void setType(type type) {
-		// TODO - implement AlaCarte.setType
 		this.Type = type;
-		//throw new UnsupportedOperationException();
 	}
 
 	public String getName() {
-		// TODO - implement AlaCarte.getName
 		return this.name;
 	}
 
@@ -111,13 +102,10 @@ public class AlaCarte extends MenuItem {
 	 * @param name
 	 */
 	public void setName(String name) {
-		// TODO - implement AlaCarte.setName
 		this.name = name;
-		//throw new UnsupportedOperationException();
 	}
 
 	public String getDescription() {
-		// TODO - implement AlaCarte.getDescription
 		return this.description;
 	}
 
@@ -126,13 +114,10 @@ public class AlaCarte extends MenuItem {
 	 * @param description
 	 */
 	public void setDescription(String description) {
-		// TODO - implement AlaCarte.setDescription
 		this.description = description;
-		//throw new UnsupportedOperationException();
 	}
 
 	public double getPrice() {
-		// TODO - implement AlaCarte.getPrice
 		return this.price;
 	}
 
@@ -141,9 +126,7 @@ public class AlaCarte extends MenuItem {
 	 * @param price
 	 */
 	public void setPrice(double price) {
-		// TODO - implement AlaCarte.setPrice
 		this.price = price;
-		//throw new UnsupportedOperationException();
 	}
 
 }
