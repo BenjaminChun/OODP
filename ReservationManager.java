@@ -32,12 +32,14 @@ public class ReservationManager {
 		Scanner sc = new Scanner(System.in);
 		int choice;
 		do {
+			System.out.println("Reservation Manager Class");
 			System.out.println("(1) Create Reservation");
 			System.out.println("(2) Check Reservation");
 			System.out.println("(3) Remove Reservation");
 			System.out.println("(4) Remove Expired Reservation(s)");
-			System.out.print("\t Enter the number of your choice: ");
+			System.out.print("Enter the number of your choice: ");
 			choice = sc.nextInt();
+			System.out.println();
 			sc.nextLine();
 			int contactNumber;
 			switch (choice) {
