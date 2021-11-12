@@ -56,7 +56,6 @@ public class StaffManager {
 					break;
 			}
 		} while (choice < 3);
-		break; //fix pls
 	}
 
 	public boolean checkValidJob(String job){
