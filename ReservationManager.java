@@ -9,24 +9,10 @@ public class ReservationManager {
 		// TODO - implement ReservationManager.ReservationManager
 		//throw new UnsupportedOperationException();
 		reservationList = new ArrayList<Reservation>();
-	}
-
-	/**
-	 * 
-	 * @param contact
-	 */
-	public Reservation getReservation(int contact) {
-		// TODO - implement ReservationManager.getReservation
-		for (Reservation res : reservationList){
-			if(res.getContact()==contact){
-				return res;
-			}
-		}
-		System.out.println("Reservation not found");
-		return null;
-
-		// KIV whether need this or not
-		//throw new UnsupportedOperationException();
+		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "bmj"));
+		reservationList.add(new Reservation(91550027, "19-03-2021 18:15", 4, "thk"));
+		reservationList.add(new Reservation(91550026, "03-01-2021 18:15", 4, "cwj"));
+		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 4, "tzk"));
 	}
 
 	public void printInterface(){
@@ -38,6 +24,7 @@ public class ReservationManager {
 			System.out.println("(2) Check Reservation");
 			System.out.println("(3) Remove Reservation");
 			System.out.println("(4) Remove Expired Reservation(s)");
+			System.out.println("(5) Print Reservation List");
 			System.out.print("Enter the number of your choice: ");
 			choice = sc.nextInt();
 			System.out.println();
@@ -111,25 +98,12 @@ public class ReservationManager {
 					this.checkAndRemoveExpired();
 					System.out.println("Expired reservations have been removed.");
 					break;
-			}
-		} while (choice < 4);
-	}
 
-
-	public Reservation checkExist(int contact){
-		// TODO - implement ReservationManager.checkExist
-		Reservation contactFound = null;
-		boolean contactMatch;
-		for(Reservation res : reservationList){
-			contactMatch=res.checkContact(contact);
-			if(contactMatch==true){
-				contactFound=res;
-				break;
+				case 5:
+					this.printReservationList();
 			}
-		}
-		return contactFound;
+		} while (choice < 5);
 	}
-	
 
 	/**
 	 * 
@@ -147,7 +121,7 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException(); 
 	}
 
-	/**
+		/**
 	 * 
 	 * @param contact
 	 */
@@ -160,14 +134,27 @@ public class ReservationManager {
 		else{
 			contactFound.printReservation();	
 		}
-		
+	}
+
+	public Reservation checkExist(int contact){
+		// TODO - implement ReservationManager.checkExist
+		Reservation contactFound = null;
+		boolean contactMatch;
+		for(Reservation res : reservationList){
+			contactMatch=res.checkContact(contact);
+			if(contactMatch==true){
+				contactFound=res;
+				break;
+			}
+		}
+		return contactFound;
 	}
 
 	public void removeReservation(int contact) {
 		// TODO - implement ReservationManager.removeReservation
 		Reservation contactFound=checkExist(contact);
 		if(contactFound==null){
-			System.out.println("no such reservation found!");
+			System.out.println("No such reservation found!");
 		}
 		else{
 			reservationList.remove(contactFound);	
@@ -185,5 +172,29 @@ public class ReservationManager {
 			}
 		}
 		//throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param contact
+	 */
+	public Reservation getReservation(int contact) {
+		// TODO - implement ReservationManager.getReservation
+		for (Reservation res : reservationList){
+			if(res.getContact()==contact){
+				return res;
+			}
+		}
+		System.out.println("Reservation not found");
+		return null;
+
+		// KIV whether need this or not
+		//throw new UnsupportedOperationException();
+	}
+
+	public void printReservationList(){
+		for (Reservation res : reservationList){
+			res.printReservation();
+		}
 	}
 }
