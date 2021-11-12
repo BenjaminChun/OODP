@@ -121,7 +121,7 @@ public class RestaurantApp {
 					} while (orderChoice!=0);
 					break;
 				case 4:
-					//reservationManager.ReservationInterface();
+					globalReservationManager.printInterface();
 					break;
 				case 5:
 					SalesReport salesReport = new SalesReport(globalInvoiceManager);

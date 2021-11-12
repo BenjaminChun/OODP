@@ -34,9 +34,9 @@ public class Reservation {
 		//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
 	    Date curDateTime = new Date(); 
 	    //curDateTime = formatter.format(curDateTime);
-	    long minutesDifference = getDateDiff(this.expiryDateTime, curDateTime, TimeUnit.MINUTES);
+	    long minDiff = getDateDiff(this.expiryDateTime, curDateTime, TimeUnit.MINUTES);
 	    
-	    if (minutesDifference > 15) {
+	    if (minDiff > 15) {
 	    	this.isExpired = true;
 	    }
 	    
@@ -58,9 +58,6 @@ public class Reservation {
 		
 		try {
 			date = sdf.parse(DateTime);
-		}catch(Exception e)
-		{
-			System.out.println(e);
 		}
 
 		return date;
