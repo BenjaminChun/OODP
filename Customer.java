@@ -5,9 +5,21 @@ public class Customer {
 	private boolean membership;
 	private int contact;
 
+	public Customer(String name, String gender, boolean membership, int contact){
+		this.name = name;
+		this.gender = gender;
+		this.membership = membership;
+		this.contact = contact;
+	}
+
 	public double getDiscount() {
 		// TODO - implement Customer.getDiscount
-		throw new UnsupportedOperationException();
+		// assuming members receive 10% discount off basePrice
+		if (this.membership == true){
+			return 0.1;
+		}
+		else return 1;
+		//throw new UnsupportedOperationException();
 	}
 
 	public int getContact() {
