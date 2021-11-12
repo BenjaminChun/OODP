@@ -55,7 +55,7 @@ public class Staff {
 		this.staffID = staffID;
 	}
 
-	public String getJobTitle() {
+	public jobTitle getJobTitle() {
 		return this.job;
 	}
 
