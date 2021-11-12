@@ -18,7 +18,7 @@ public class Order {
 		//this.orderItemList.add(globalMenuManager.getMenuItem(0), 5) globalMenuManager needs to be implemented before Order
 		this.s = s;
 		this.orderDetails = new OrderDetails(this);
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void makeNewOrder(){
@@ -50,7 +50,7 @@ public class Order {
 		OrderItem temp = new OrderItem();
 		temp.createOrderItem();
 		this.orderItemList.add(temp);
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public void deleteFromOrder() {
@@ -61,7 +61,7 @@ public class Order {
 		int orderItemIndex = sc.nextInt();
 		this.orderItemList.remove(orderItemIndex - 1); //delete the index - 1 orderItem from this order
 		sc.close();
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public double calculateBasePrice() {
@@ -77,7 +77,7 @@ public class Order {
 	public void printOrder() {
 		// TODO - implement Order.printOrder
 		int orderSize = this.orderItemList.size();
-		System.out.println("Staff EID: " + this.s.getEmployeeID());
+		//System.out.println("Staff EID: " + this.s.getEmployeeID());
 		System.out.println("Staff Name: " + this.s.getName());//should this be a print function of staff?
 
 		for(int i = 0; i<orderSize; i++){
@@ -85,7 +85,7 @@ public class Order {
 			this.orderItemList.get(i).printOrderItem();
 			System.out.println("----------------------------------------------");
 		}
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	// public void updateOrder() { 
