@@ -27,7 +27,7 @@ public class Reservation {
 		this.numPax = numPax;
 		this.name = name;
 		this.expiryDateTime = convertExpiryDateTime(this.dateAndArrivalTime);
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public boolean getIsExpired() {

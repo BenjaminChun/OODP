@@ -8,6 +8,7 @@ public class ReservationManager {
 	public ReservationManager() {
 		// TODO - implement ReservationManager.ReservationManager
 		//throw new UnsupportedOperationException();
+		reservationList = new ArrayList<Reservation>();
 	}
 
 	/**
@@ -32,7 +33,7 @@ public class ReservationManager {
 		Scanner sc = new Scanner(System.in);
 		int choice;
 		do {
-			System.out.println("Reservation Manager Class");
+			System.out.println("\nReservation Manager Class");
 			System.out.println("(1) Create Reservation");
 			System.out.println("(2) Check Reservation");
 			System.out.println("(3) Remove Reservation");
@@ -48,13 +49,13 @@ public class ReservationManager {
 					System.out.print("\t Please enter Name: ");
 					String name = sc.nextLine();
 
-					System.out.println("\t Please enter Contact No: ");
+					System.out.print("\t Please enter Contact No: ");
 					contactNumber = sc.nextInt();
 					//String errorPrompt = "\t Please enter a valid contact number eg. 90578213";
 					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
 					
 					//System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
-					System.out.println("\t Please enter date and time(dd-MM-yyyy HH:mm:ss)");
+					System.out.print("\t Please enter date and time(dd-MM-yyyy HH:mm:ss): ");
 					sc.nextLine();
 					String dateTime = sc.nextLine();
 					/*while(!DateHandling.isThisDateValid(dateTime)) {
@@ -82,12 +83,12 @@ public class ReservationManager {
 					}
 					dateTime=time;*/
 
-					System.out.println("\t Please enter Number of pax: ");
+					System.out.print("\t Please enter Number of pax: ");
 					int pax = sc.nextInt();
 					//String inPrompt = "\t Please enter Number of pax: ";
 					//int pax = UserInput.getIntFromRange(1, 10, inPrompt, null);
 					
-					this.createReservation(contactNumber, dateTime, pax,name);
+					this.createReservation(contactNumber, dateTime, pax, name);
 					break;
 					
 				case 2:
