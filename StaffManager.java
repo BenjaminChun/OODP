@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class StaffManager {
 
@@ -10,7 +11,7 @@ public class StaffManager {
 	}
 	
 
-	public printInterface(){
+	public void printInterface(){
 		Scanner sc = new Scanner(System.in);
 		int staffID;
 		int choice;
@@ -30,7 +31,7 @@ public class StaffManager {
 					staffID = sc.nextInt();
 					
 					System.out.println("\t Please enter gender");
-					char gender = sc.nextLine();
+					char gender = sc.nextLine().charAt(0);
 					
 
 					boolean validJob = false;
@@ -55,7 +56,7 @@ public class StaffManager {
 					break;
 			}
 		} while (choice < 3);
-		break;
+		break; //fix pls
 	}
 
 	public boolean checkValidJob(String job){
