@@ -35,7 +35,7 @@ public class StaffManager {
 					
 
 					boolean validJob = false;
-					String job;
+					String job = new String();
 					while (validJob == false){
 						System.out.println("\t Please enter job position: ");
 						job = sc.nextLine();
