@@ -58,6 +58,8 @@ public class Reservation {
 		
 		try {
 			date = sdf.parse(DateTime);
+		}catch(Exception e){
+			System.out.println(e);
 		}
 
 		return date;
