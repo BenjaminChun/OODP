@@ -5,7 +5,7 @@ public class Order {
 
 	private ArrayList<OrderItem> orderItemList;
 	private Staff s;
-	//private Date date; not sure if needed
+	//private Date date; not sure if needed hello
 	private OrderDetails orderDetails;
 
 	/**
