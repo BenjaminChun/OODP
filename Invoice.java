@@ -5,9 +5,11 @@ public class Invoice {
 	private double bill;
 	public static double GST = 0.8;
 
-	public Invoice(OrderDetails orderDetails, Customer customer){
+	public Invoice(OrderDetails orderDetails){
+		Customer newCustomer = new Customer();
+		this.customer = newCustomer;
+		//ask for input for customer
 		this.orderDetails = orderDetails;
-		this.customer = customer;
 		this.bill = 0;
 		getFinalPrice();
 	}
