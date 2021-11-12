@@ -14,15 +14,13 @@ public class OrderDetails {
 	 * @param order
 	 */
 	public OrderDetails(Order order) {
-		// TODO - implement OrderDetails.OrderDetails
 		this.date = LocalDate.now(); //stores the date of the object creation
 		this.time = LocalTime.now(); // stores the time of the object creation, can also specify the fields manually
 		this.order = order;
+		Invoice invoice = new Invoice(this);
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What table is this order for? (1 - 10)");
 		this.tableID = sc.nextInt(); //maybe need to minus 1, not sure what this tableId is for
-		sc.close();
-		throw new UnsupportedOperationException();
 	}
 
 	public int getTableID() {
@@ -38,14 +36,11 @@ public class OrderDetails {
 	}
 
 	public Order getOrder() {
-		// TODO - implement OrderDetails.getOrder
 		return this.order;
 	}
 
 	public void setOrder(Order o) {
-		// TODO - implement OrderDetails.setOrder
 		this.order = o;
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -90,13 +85,10 @@ public class OrderDetails {
 		System.out.println("Order for Table Number: "+this.tableID);//depending on how we store tableID, this may need to +1
 		System.out.println("Order details: ");
 		this.order.printOrder();
-		// TODO - implement OrderDetails.printOrderDetails
-		throw new UnsupportedOperationException();
 	}
 
 	public double calculatePrice() {
 		return this.order.calculateBasePrice(); // return the basePrice of a particular order
-		// TODO - implement OrderDetails.calculatePrice
 	}
 
 }
