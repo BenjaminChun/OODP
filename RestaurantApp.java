@@ -7,6 +7,8 @@ public class RestaurantApp {
 	public static TableManager globalTableManager;
 	public static StaffManager globalStaffManager;
 	public static MenuManager globalMenuManager;
+	public static InvoiceManager globalInvoiceManager;
+
 	/**
 	 * 
 	 * @param args
