@@ -38,6 +38,7 @@ public class ReservationManager {
 			System.out.println("(4) Remove Expired Reservation(s)");
 			System.out.print("\t Enter the number of your choice: ");
 			choice = sc.nextInt();
+			sc.nextLine();
 			int contactNumber;
 			switch (choice) {
 				case 1: 
