@@ -5,27 +5,20 @@ public class PromoSetPack extends MenuItem {
 	private String description;
 	private String name;
 	private double price;
-	private MenuManager globalMenuManager;
 
 	public PromoSetPack(){
 		this.Type = type.PROMO;
 		this.promo = new ArrayList<	>();
-		
 	}
-	public PromoSetPack(String description, String name, double price , MenuManager globalMenuManager) {
-		// TODO - implement PromoSetPack.PromoSetPack
+	public PromoSetPack(String description, String name, double price){ 
 		this.Type = type.PROMO; 
 		this.description = description;
 		this.name = name;
 		this.price = price;
 		this.promo = new ArrayList<MenuItem>();
-		this.globalMenuManager = globalMenuManager;
-
-		throw new UnsupportedOperationException();
 	}
 
 	public void update() {
-		// TODO - implement PromoSetPack.update
 		Scanner sc = new Scanner(System.in); // maybe can implement a while loop
 		System.out.println("What would you like to update?");
 		System.out.println("1. Description 2. name 3. price 4. add items to Package 5. delete items from package");
@@ -49,7 +42,6 @@ public class PromoSetPack extends MenuItem {
 			case 5:
 			if (this.promo.isEmpty()){
 				System.out.println("error"); 
-				sc.close();
 				return;
 			} 
 			this.print();
@@ -60,8 +52,6 @@ public class PromoSetPack extends MenuItem {
 		}
 		System.out.println("Promo Set Package updated, printing updated item...");
 		this.print();
-		sc.close();
-		throw new UnsupportedOperationException();
 	}
 
 	public void print(){
@@ -78,11 +68,10 @@ public class PromoSetPack extends MenuItem {
 	}
 	public void addPromoItem(){
 		Scanner sc = new Scanner(System.in);
-		globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
+		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
 		System.out.println("Which item would you like to add?");
 		int menuIndex = sc.nextInt();
-		this.promo.add(globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
-		sc.close();
+		this.promo.add(RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
 	}
 	/**
 	 * 
@@ -107,12 +96,9 @@ public class PromoSetPack extends MenuItem {
 				this.addPromoItem();
 			}
 		}
-		sc.close();
-		throw new UnsupportedOperationException();
 	}
 
 	public type getType() {
-		// TODO - implement PromoSetPack.getType
 		return this.Type;
 	}
 
@@ -121,13 +107,10 @@ public class PromoSetPack extends MenuItem {
 	 * @param type
 	 */
 	public void setType(type type) {
-		// TODO - implement PromoSetPack.setType
 		this.Type = type;
-		throw new UnsupportedOperationException();
 	}
 
 	public String getName() {
-		// TODO - implement PromoSetPack.getName
 		return this.name;
 	}
 
@@ -136,13 +119,10 @@ public class PromoSetPack extends MenuItem {
 	 * @param name
 	 */
 	public void setName(String name) {
-		// TODO - implement PromoSetPack.setName
 		this.name = name;
-		throw new UnsupportedOperationException();
 	}
 
 	public String getDescription() {
-		// TODO - implement PromoSetPack.getDescription
 		return this.description;
 	}
 
@@ -151,13 +131,10 @@ public class PromoSetPack extends MenuItem {
 	 * @param description
 	 */
 	public void setDescription(String description) {
-		// TODO - implement PromoSetPack.setDescription
 		this.description = description;
-		throw new UnsupportedOperationException();
 	}
 
 	public double getPrice() {
-		// TODO - implement PromoSetPack.getPrice
 		return this.price;
 	}
 
@@ -166,9 +143,7 @@ public class PromoSetPack extends MenuItem {
 	 * @param price
 	 */
 	public void setPrice(double price) {
-		// TODO - implement PromoSetPack.setPrice
 		this.price = price;
-		throw new UnsupportedOperationException();
 	}
 
 }
