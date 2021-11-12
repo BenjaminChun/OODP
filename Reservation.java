@@ -31,7 +31,7 @@ public class Reservation {
 	}
 
 	public boolean getIsExpired() {
-		//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
+		//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");  
 	    Date curDateTime = new Date(); 
 	    //curDateTime = formatter.format(curDateTime);
 	    long minDiff = getDateDiff(this.expiryDateTime, curDateTime, TimeUnit.MINUTES);
@@ -54,7 +54,7 @@ public class Reservation {
 	
 	public Date convertToDate(String DateTime) {
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		
 		try {
 			date = sdf.parse(DateTime);
@@ -72,7 +72,7 @@ public class Reservation {
 	}
 	
 	public void printReservation() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm"); 
 		
 		System.out.println("Reservation Details for " + name + ":\r\n"
 				+ "Contact Number: " + contact + "\r\n"

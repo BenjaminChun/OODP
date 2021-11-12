@@ -55,7 +55,7 @@ public class ReservationManager {
 					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
 					
 					//System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
-					System.out.print("\t Please enter date and time(dd-MM-yyyy HH:mm:ss): ");
+					System.out.print("\t Please enter date and time(dd-MM-yyyy HH:mm): ");
 					sc.nextLine();
 					String dateTime = sc.nextLine();
 					/*while(!DateHandling.isThisDateValid(dateTime)) {
