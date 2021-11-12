@@ -102,7 +102,7 @@ public class ReservationManager {
 				case 5:
 					this.printReservationList();
 			}
-		} while (choice < 5);
+		} while (choice < 6);
 	}
 
 	/**
@@ -193,6 +193,7 @@ public class ReservationManager {
 	}
 
 	public void printReservationList(){
+		System.out.println("Reservation List");
 		for (Reservation res : reservationList){
 			res.printReservation();
 		}
