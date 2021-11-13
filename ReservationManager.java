@@ -128,9 +128,9 @@ public class ReservationManager {
 	 * 
 	 * @param contact
 	 */
-	public void checkReservation(int contact){
+	public void checkReservation(int contactNumber){
 		//TODO - implement ReservationManager.checkReservation
-		Reservation contactFound=checkExist(contact);
+		Reservation contactFound=checkExist(contactNumber);
 		System.out.print("\n");
 		if(contactFound==null){
 			System.out.println("No such reservation found!");

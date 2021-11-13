@@ -11,9 +11,6 @@ public class Invoice {
 		//ask for input for customer
 		this.orderDetails = orderDetails;
 		this.bill = 0;
-		getFinalPrice();
-		System.out.println(this.bill);
-		//RestaurantApp.globalInvoiceManager.addToInvoiceList(this);
 	}
 
 	public OrderDetails getOrderDetails() {
