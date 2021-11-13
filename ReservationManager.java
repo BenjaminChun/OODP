@@ -6,7 +6,7 @@ public class ReservationManager {
 	private ArrayList<Reservation> reservationList;
 
 	public ReservationManager() {
-		// TODO - implement ReservationManager.ReservationManager wqwerqr
+		// TODO - implement ReservationManager.ReservationManager 
 		//throw new UnsupportedOperationException();
 		reservationList = new ArrayList<Reservation>();
 		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
@@ -38,61 +38,31 @@ public class ReservationManager {
 
 					System.out.print("\t Please enter contact number: ");
 					contactNumber = sc.nextInt();
-					//String errorPrompt = "\t Please enter a valid contact number eg. 90578213";
-					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
 					
-					//System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
 					System.out.print("\t Please enter date (dd-MM-yyyy): ");
 					sc.nextLine();
 					String date = sc.nextLine();
 
 					System.out.print("\t Please enter time (HH:mm): ");
 					String time = sc.nextLine();
-					/*while(!DateHandling.isThisDateValid(dateTime)) {
-						System.out.print("\t Please enter a valid date in the format (dd/MM/yyyy): ");
-						dateTime = sc.nextLine();
-					}*/
-					/*while(!DateHandling.withinOneMonth(dateTime)) {
-						System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
-						dateTime = sc.nextLine();
-						while(!DateHandling.isThisDateValid(dateTime)) {
-							System.out.print("\t Please enter a valid date in the format (dd/MM/yyyy): ");
-							dateTime = sc.nextLine();
-						}
-					}*/
 					
-					/*System.out.print("\t Please enter a time(HH:mm) between AM Session(11:00 to 15:00) or PM Session(18:00 to 22:00): ");
-					
-					String time = sc.nextLine();
-					time = dateTime + " " + time;
-					
-					while(!DateHandling.isThisTimeValid(time)) {
-						System.out.print("\t Please enter a time(HH:mm) between AM Session(11:00 to 15:00) or PM Session(18:00 to 22:00): ");
-						time = sc.nextLine();
-						time = dateTime + " " + time;
-					}
-					dateTime=time;*/
 
 					System.out.print("\t Please enter number of pax: ");
 					int pax = sc.nextInt();
-					//String inPrompt = "\t Please enter Number of pax: ";
-					//int pax = UserInput.getIntFromRange(1, 10, inPrompt, null);
 					
 					this.createReservation(contactNumber, date + " " + time, pax, name);
 					break;
 					
 				case 2:
 					System.out.print("\t Please enter contact number to check reservation: ");
-					//inputPrompt = "\t Please enter contact number to check reservation: ";
-					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
+					
 					contactNumber = sc.nextInt();
 					this.checkReservation(contactNumber);
 					break;
 					
 				case 3:
 					System.out.print("\t Please enter contact number to remove reservation: ");
-					//inputPrompt = "\t Please enter contact number to check reservation: ";
-					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
+					
 					contactNumber = sc.nextInt();
 					this.removeReservation(contactNumber);
 					break;
@@ -109,12 +79,12 @@ public class ReservationManager {
 	}
 
 	/**
-	 * 
-	 * @param contact
-	 * @param date
-	 * @param arrivalTime
-	 * @param numPax
-	 * @param name
+	 * Creating a Reservation
+	 * @param contact Contact number of person creating reservation.
+	 * @param date Date of reservation.
+	 * @param arrivalTime Arrival Time of Reservation.
+	 * @param numPax Number of pax of people doing the reservation.
+	 * @param name Name of person booking the reservation.
 	 */
 	public void createReservation(int contact, String dateAndArrivalTime, int numPax, String name) {
 		// TODO - implement ReservationManager.createReservation
@@ -125,8 +95,8 @@ public class ReservationManager {
 	}
 
 		/**
-	 * 
-	 * @param contact
+	 * Checking reservation using contact number of person who booked it
+	 * @param contact Contact number of person whose 
 	 */
 	public void checkReservation(int contactNumber){
 		//TODO - implement ReservationManager.checkReservation
@@ -140,6 +110,11 @@ public class ReservationManager {
 		}
 	}
 
+	
+	/** Checking if the reservation exists 
+	 * @param contactNumber
+	 * @return Reservation
+	 */
 	public Reservation checkExist(int contactNumber){
 		// TODO - implement ReservationManager.checkExist
 		Reservation contactFound = null;
@@ -154,6 +129,10 @@ public class ReservationManager {
 		return contactFound;
 	}
 
+	
+	/** 
+	 * @param contactNumber
+	 */
 	public void removeReservation(int contactNumber) {
 		// TODO - implement ReservationManager.removeReservation
 		Reservation reservationFound=checkExist(contactNumber);
