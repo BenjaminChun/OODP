@@ -141,4 +141,8 @@ public class StaffManager {
 	public Staff getStaff(int index){
 		return this.staffList.get(index);
 	}
+
+	public int getSizeOfStaffList(){
+		return this.staffList.size();
+	}
 }
