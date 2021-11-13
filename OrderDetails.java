@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class OrderDetails {
 
@@ -19,9 +20,28 @@ public class OrderDetails {
 		this.order = order;
 		RestaurantApp.globalInvoiceManager.createInvoice(this);
 		Scanner sc = new Scanner(System.in);
-		System.out.println("What table is this order for? (1 - 10)");
-		this.tableID = sc.nextInt(); //maybe need to minus 1, not sure what this tableId is for
-		sc.nextLine();
+		ArrayList<Table> availTables = RestaurantApp.globalTableManager.getAvailableTables(); //get a list of available table
+		RestaurantApp.globalTableManager.printTables(availTables);
+		System.out.println("What table ID is this order for?");
+		try {
+			int id = sc.nextInt(); //maybe need to minus 1, not sure what this tableId is for
+			sc.nextLine();
+			boolean tableFound = false;
+			for (int i = 0; i < availTables.size(); i++){
+				if(availTables.get(i).getId() == id){
+					tableFound = true;
+				}
+			}
+			if (!tableFound){
+				throw new IncorrectTableIDException("Table ID "+id+" is not found in available table list!");
+			}
+			this.tableID = id;
+			RestaurantApp.globalTableManager.setTableToOccupied(id);
+		} catch (IncorrectTableIDException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	public int getTableID() {
