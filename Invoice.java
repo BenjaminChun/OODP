@@ -6,6 +6,14 @@ public class Invoice {
 	public static double GST = 0.08;
 	public static double ServiceCharge = 0.1;
 
+	/**
+	 * Invoice Constructor to instantiate an instance of Invoice
+	 * 
+	 * Takes in parameter orderDetails of Class OrderDetails
+	 * instantiate attributes to default values to be updated later on
+	 * 
+	 * @param orderDetails instance of orderDetails that corresponds to the instance of invoice being constructed
+	 */
 	public Invoice(OrderDetails orderDetails){
 		Customer newCustomer = new Customer();
 		this.customer = newCustomer;
@@ -14,6 +22,11 @@ public class Invoice {
 		this.bill = 0;
 	}
 
+	/**
+	 * getOrderDetails is a simple getter function for attribute orderDetails
+	 * 
+	 * @return attribute orderDetails 
+	 */
 	public OrderDetails getOrderDetails() {
 		return this.orderDetails;
 	}
@@ -26,6 +39,10 @@ public class Invoice {
 		this.orderDetails = orderDetails;
 	}
 
+	
+	/** 
+	 * @return Customer
+	 */
 	public Customer getCustomer() {
 		return this.customer;
 	}
@@ -42,6 +59,10 @@ public class Invoice {
 		System.out.println(this.orderDetails.getTableID());
 	}
 
+	
+	/** 
+	 * @return double
+	 */
 	private double calculateBaseTotal() {
 		double baseTotal = 0;
 		//find list of orderitem
@@ -61,8 +82,6 @@ public class Invoice {
 	private double getPriceAfterDiscount(double basePrice) {
 		basePrice *= (1-this.getCustomer().getDiscount());
 		return basePrice;
-		// TODO - implement InvoiceManager.getPriceAfterDiscount
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -73,8 +92,6 @@ public class Invoice {
 		double finalPrice = (1 + GST + ServiceCharge) * getPriceAfterDiscount(calculateBaseTotal());
 		this.bill = finalPrice;
 		return finalPrice;
-		// TODO - implement InvoiceManager.getFinalPrice
-		//throw new UnsupportedOperationException();
 	}
 
 	public void printInvoice(){
