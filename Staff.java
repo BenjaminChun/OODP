@@ -29,10 +29,10 @@ public class Staff {
 	/**
 	 * Creates Staff with name, gender, jobPosition and staffID inputs.
 	 * jobPosition must match the jobs in jobTitles class.
-	 * @param name this Staff's name.
-	 * @param gender this Staff's gender.
-	 * @param jobPosition this Staff's job.
-	 * @param staffID this Staff's ID.
+	 * @param name This Staff's name.
+	 * @param gender This Staff's gender.
+	 * @param jobPosition This Staff's job.
+	 * @param staffID This Staff's ID.
 	 */
 	public Staff(String name, char gender, String jobPosition, int staffID ){
 		this.name=name;
@@ -41,6 +41,9 @@ public class Staff {
 		this.staffID=staffID;
 	}
 
+	/**
+	 * Print this Staff's information (name, staffID, gender, job).
+	 */
 	public void printStaffInformation(){
 		System.out.println("Staff information for " + name + ":\r\n"
 				+ "Staff ID: " + staffID + "\r\n"
@@ -48,30 +51,42 @@ public class Staff {
 				+ "Job Title: " + job + "\r\n");
 	}
 
+	/**
+	 * Get the name of this Staff.
+	 * @return This Staff's name.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * 
-	 * @param name
+	 * Set the name of the Staff.
+	 * @param name Name to be set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Get the gender of the Staff.
+	 * @return This Staff's gender.
+	 */
 	public char getGender() {
 		return this.gender;
 	}
 
 	/**
-	 * 
-	 * @param gender
+	 * Set the gender of the Staff.
+	 * @param gender Gender to be set.
 	 */
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getStaffID() {
 		return this.staffID;
 	}

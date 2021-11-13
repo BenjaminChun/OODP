@@ -85,11 +85,11 @@ public class Reservation {
 	}
 
 	/**
-	 * Get the time difference between 2 Date objects in minutes
+	 * Get the time difference between 2 Date objects in minutes.
 	 * @param date1 First date to be compared.
 	 * @param date2 Second date to be compared.
 	 * @param timeUnit The timeunit that will be returned Eg. MINUTES.
-	 * @return the time difference in minutes.
+	 * @return The time difference in minutes.
 	 */
 	public long getTimeDiff(Date date1, Date date2, TimeUnit timeUnit) {
 	    long diffInMillies = date2.getTime() - date1.getTime();
@@ -99,7 +99,7 @@ public class Reservation {
 	/**
 	 * Converts a String in the format "dd-MM-yyyy HH:mm" into a Date object.
 	 * @param DateTime String to be converted into Date object.
-	 * @return the date object after conversion.
+	 * @return The date object after conversion.
 	 */
 	public Date convertToDate(String DateTime) {
 		Date date = new Date();
@@ -117,7 +117,7 @@ public class Reservation {
 	/**
 	 * Adds 15minutes to a Date object to get the expiry date and time of a Reservation.
 	 * @param DateTime The date and time of the Reservation.
-	 * @return the expiry date and time.
+	 * @return The expiry date and time.
 	 */
 	public Date convertExpiryDateTime(Date DateTime) {
 		long timeInSecs = DateTime.getTime();
@@ -128,7 +128,7 @@ public class Reservation {
 	/**
 	 * Given an contactNumber input, check if this Reservation's contact
 	 * matches the input.
-	 * @param contactNumber the contact number to check with Reservation's contact
+	 * @param contactNumber The contact number to check with Reservation's contact.
 	 * @return true if the contact number matches.
 	 */	
 	public boolean checkContact(int contactNumber){
@@ -154,7 +154,7 @@ public class Reservation {
 
 	/**
 	 * Get the expiry date and time of Reservation.
-	 * @return the expiry date and time.
+	 * @return The expiry date and time.
 	 */
 	public Date getExpiryDateTime() {
 		return this.expiryDateTime;
@@ -162,7 +162,7 @@ public class Reservation {
 	
 	/**
 	 * Get the contact number of the person who made the Reservation.
-	 * @return contact number of person.
+	 * @return Contact number of person.
 	 */
 	public int getContact() {
 		return this.contact;
@@ -170,7 +170,7 @@ public class Reservation {
 
 	/**
 	 * Get the number of pax of the Reservation.
-	 * @return the number of pax.
+	 * @return The number of pax.
 	 */
 	public int getNumPax(){
 		return this.numPax;

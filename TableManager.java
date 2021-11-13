@@ -41,7 +41,7 @@ public class TableManager {
 
 	/**
 	 * Creates a TableManager with an input Table ArrayList
-	 * @param tableList this TableManager's tableList
+	 * @param tableList This TableManager's tableList
 	 */
 	public TableManager(ArrayList<Table> tableList) {
 		this.tableList = tableList;
@@ -50,7 +50,7 @@ public class TableManager {
 	/**
 	 * Finds the tables that have Status.AVAILABLE and add
 	 * them into a Table ArrayList to be returned.
-	 * @return toReturnList the Table ArrayList of available tables.
+	 * @return The Table ArrayList of available tables.
 	 */
 	public ArrayList<Table> getAvailableTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
@@ -68,7 +68,7 @@ public class TableManager {
 	/**
 	 * Finds the tables that have Status.OCCUPIED and add
 	 * them into a Table ArrayList to be returned.
-	 * @return toReturnList the Table ArrayList of occupied tables.
+	 * @return The Table ArrayList of occupied tables.
 	 */
 	public ArrayList<Table> getOccupiedTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
@@ -86,7 +86,7 @@ public class TableManager {
 	/**
 	 * Finds the tables that have Status.RESERVED and add
 	 * them into a Table ArrayList to be returned.
-	 * @return toReturnList the Table ArrayList of reserved tables.
+	 * @return The Table ArrayList of reserved tables.
 	 */
 	public ArrayList<Table> getReservedTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
@@ -104,8 +104,8 @@ public class TableManager {
 	/**
 	 * Gets the user input for the number of seats required
 	 * when they come to the restaurant.
-	 * @return minSeats the minimum number of seats to fulfil
-	 * 					the number of pax.
+	 * @return The minimum number of seats to fulfil
+	 * 			the number of pax.
 	 */
 	public int getUserInput(){
 		System.out.println("How many seats required?");
@@ -121,8 +121,8 @@ public class TableManager {
 	/**
 	 * Find an available Table that matches the minimum number of seats
 	 * required by a customer.
-	 * @param minSeats the minimum number of seats required
-	 * @return the tableID of the table found.
+	 * @param minSeats The minimum number of seats required.
+	 * @return The tableID of the table found.
 	 */
 	public int findSuitableTableFromAvailable(int minSeats) {
 		ArrayList<Table> availableTables = getAvailableTables();
@@ -151,8 +151,8 @@ public class TableManager {
 	/**
 	 * Find a reserved Table that matches the minimum 
 	 * number of seats stated.
-	 * @param minSeats the minimum number of seats
-	 * @return the tableID of the table found.
+	 * @param minSeats The minimum number of seats.
+	 * @return The tableID of the table found.
 	 */
 	public int findSuitableTableFromReserved(int minSeats) {
 		ArrayList<Table> reservedTables = getReservedTables();
@@ -181,8 +181,8 @@ public class TableManager {
 	/**
 	 * Find an occupied Table that matches the minimum 
 	 * number of seats stated.
-	 * @param minSeats the minimum number of seats
-	 * @return the tableID of the table found.
+	 * @param minSeats The minimum number of seats.
+	 * @return The tableID of the table found.
 	 */
 	public int findSuitableTableFromOccupied(int minSeats) {
 		ArrayList<Table> occupiedTables = getOccupiedTables();
@@ -209,8 +209,8 @@ public class TableManager {
 	}
 
 	/**
-	 * Set the Table's status to available
-	 * @param tableID the ID of the table to be changed to available
+	 * Set the Table's status to available.
+	 * @param tableID The ID of the table to be changed to available.
 	 */
 	public void setTableToAvailable(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.AVAILABLE);
@@ -220,8 +220,8 @@ public class TableManager {
 	}
 
 	/**
-	 * Set the Table's status to occupied
-	 * @param tableID the ID of the table to be changed to occupied
+	 * Set the Table's status to occupied.
+	 * @param tableID The ID of the table to be changed to occupied.
 	 */
 	public void setTableToOccupied(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.OCCUPIED);
@@ -231,8 +231,8 @@ public class TableManager {
 	}
 
 	/**
-	 * Set the Table's status to reserved
-	 * @param tableID the ID of the table to be changed to reserved
+	 * Set the Table's status to reserved.
+	 * @param tableID The ID of the table to be changed to reserved.
 	 */
 	public void setTableToReserved(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.RESERVED);
@@ -240,8 +240,8 @@ public class TableManager {
 	}
 
 	/**
-	 * Prints the Tables in the tableList
-	 * @param tableList the tableList to be printed
+	 * Prints the Tables in the tableList.
+	 * @param tableList The tableList to be printed.
 	 */
 	public void printTables(ArrayList<Table> tableList){
 		if (tableList.isEmpty()){

@@ -133,7 +133,7 @@ public class ReservationManager {
 	
 	/** Checking if reservation exists.
 	 * @param contactNumber Contact number to be checked with reservationList.
-	 * @return Reservation
+	 * @return The Reservation that is being searched for.
 	 */
 	public Reservation checkExist(int contactNumber){
 
@@ -151,7 +151,7 @@ public class ReservationManager {
 
 	
 	/** 
-	 * Removing a reservation from reservationList with an input contactNumber
+	 * Removing a reservation from reservationList with an input contactNumber.
 	 */
 	public void removeReservation() {
 		Scanner sc = new Scanner(System.in);
@@ -173,7 +173,7 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Checks and remove expired Reservations
+	 * Checks and remove expired Reservations.
 	 */
 	public void checkAndRemoveExpired() {
 
@@ -199,8 +199,8 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Getting Reservation object
-	 * @param contact the reservation made by this contact number.
+	 * Getting Reservation object.
+	 * @param contact The reservation made by this contact number.
 	 */
 	public Reservation getReservation(int contact) {
 		// TODO - implement ReservationManager.getReservation
