@@ -41,7 +41,6 @@ public class ReservationManager {
 			choice = sc.nextInt();
 			System.out.println();
 			sc.nextLine();
-			int contactNumber;
 			switch (choice) {
 				case 1: 					
 					this.createReservation();
