@@ -136,7 +136,7 @@ public class RestaurantApp {
 					salesReport.printSalesReport();
 					break;
 				case 6:
-					//staffManager(staffManager);
+					globalStaffManager.printInterface();
 					break;
 			}
 		} while (choice != 0);
