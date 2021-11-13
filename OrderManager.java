@@ -52,11 +52,13 @@ public class OrderManager {
 
 	public void printOrderList() {
 		int orderListSize = this.orderList.size();
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
 		for(int i = 0; i<orderListSize; i++){
-			System.out.print((i+1) + ". ");
+			System.out.println("Order Number "+ (i+1) + ": ");
 			this.orderList.get(i).printOrder();
-			System.out.println("+++++++++++++++++++++++++++++++++++++++"); //separator between orders
+			System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++"); //separator between orders
 		}
+		System.out.println();
 		//throw new UnsupportedOperationException();
 		// TODO - implement OrderManager.viewOrderList
 	}
