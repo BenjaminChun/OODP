@@ -3,7 +3,8 @@ public class Invoice {
 	private OrderDetails orderDetails;
 	private Customer customer;
 	private double bill;
-	public static double GST = 0.8;
+	public static double GST = 0.08;
+	public static double ServiceCharge = 0.1;
 
 	public Invoice(OrderDetails orderDetails){
 		Customer newCustomer = new Customer();
@@ -69,7 +70,7 @@ public class Invoice {
 	 * @param discountedPrice
 	 */
 	public double getFinalPrice() {
-		double finalPrice = (1 + GST) * getPriceAfterDiscount(calculateBaseTotal());
+		double finalPrice = (1 + GST + ServiceCharge) * getPriceAfterDiscount(calculateBaseTotal());
 		this.bill = finalPrice;
 		return finalPrice;
 		// TODO - implement InvoiceManager.getFinalPrice
@@ -77,16 +78,23 @@ public class Invoice {
 	}
 
 	public void printInvoice(){
-		String result = "Invoice Receipt for " + this.getOrderDetails().getTableID() + this.getOrderDetails().getDate() + this.orderDetails.getTime();
+		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() + this.orderDetails.getTime();
 		System.out.println(result); //print heading
+		System.out.println("Menu Item Name : Quantity * Price");
 		System.out.println("=====================================");
 		for (int i = 0; i<this.getOrderDetails().getOrder().getOrderItemList().size(); i++) {
-			result = this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() + this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" + this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice();
+			result = this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() + " : "+ this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" + this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice();
 			System.out.println(result);
 		}
-		result = "after discount of " + this.customer.getDiscount();
-		System.out.println(result); 
+		System.out.println();
+		System.out.println("Subtotal : " + this.calculateBaseTotal());
+		System.out.println("Member Discount : " + this.customer.getDiscount()*calculateBaseTotal());
+		System.out.println("Taxes (GST+ServiceCharge) : " + this.getPriceAfterDiscount(this.calculateBaseTotal())*(ServiceCharge + GST));
+		this.getFinalPrice();
 		result = "Total = " + this.bill;
 		System.out.println(result); //print heading
+		System.out.println("=====================================");
+
+		RestaurantApp.globalTableManager.setTableToAvailable(this.getOrderDetails().getTableID());
 	}
 }

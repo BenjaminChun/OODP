@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class InvoiceManager {
 	
-	public static double GST = 0.8;
+	public static double GST = 0.08;
 	private ArrayList<Invoice> invoiceList;
 	private Invoice currentInvoice;
 	
@@ -52,7 +52,7 @@ public class InvoiceManager {
 
 	public void chooseInvoice() {
 		//ask for userinput for invoice to pay
-		System.out.println("List of Orders, please choose the invoice to be paid for: ");
+		System.out.println("List of Orders, please choose the invoice to be paid for based on index given: ");
 		for (int i=0; i<invoiceList.size(); i++){
 			String str = "" + (i+1) + ". ";
 			System.out.print(str + "Table ");
@@ -64,10 +64,8 @@ public class InvoiceManager {
 		sc.nextLine();
 		//assign invoice as currentInvoice
 		currentInvoice = invoiceList.get(index-1);
-		System.out.print("This is the bill for invoice");
-		System.out.println(index+1);
-		System.out.print("$");
-		System.out.println(getFinalPrice());
+		//print invoice here
+		currentInvoice.printInvoice();
 		// TODO - implement InvoiceManager.chooseInvoice
 		//throw new UnsupportedOperationException();
 	}
@@ -81,16 +79,18 @@ public class InvoiceManager {
 		invoiceList.add(temp);
 	}
 
-	public void printInvoiceList(){
-		if (this.invoiceList.isEmpty()){
-			System.out.println("Empty Invoice List");
-			return;
+	/*public void printInvoice(){
+		String result = "Invoice Receipt ";
+		System.out.println(result); //print heading
+		System.out.println("=====================================");
+		System.out.println("Menu Item Name : Quantity * Price");
+		for (int i = 0; i<currentInvoice.getOrderDetails().getOrder().getOrderItemList().size(); i++) {
+			System.out.println(currentInvoice.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() +": " +currentInvoice.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" + currentInvoice.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice());
 		}
-		else {
-			for (int i = 0; i<invoiceList.size(); i++){
-				System.out.print(i + ". ");
-			}
-		}
-	}
-
+		result = "after discount of " + currentInvoice.getCustomer().getDiscount();
+		System.out.println(result); 
+		result = "Total = " + currentInvoice.getFinalPrice();
+		System.out.println(result); //print heading
+	}*/
+	
 }
