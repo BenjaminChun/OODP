@@ -130,12 +130,12 @@ public class TableManager {
 		if (minSeats > maxCapacity) {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
 		}
-		for (int i = 0; i < reservedTables.size(); i++) {
-			if (reservedTables.get(i).getSeatingCapacity() >= minSeats) {
+		for (int i = 0; i < occupiedTables.size(); i++) {
+			if (occupiedTables.get(i).getSeatingCapacity() >= minSeats) {
 				if (chosenTableNo == -1) {//guard against chosen == -1
 					chosenTableNo = i;
 				}
-				else if (reservedTables.get(i).getSeatingCapacity() < reservedTables.get(chosenTableNo).getSeatingCapacity()){
+				else if (occupiedTables.get(i).getSeatingCapacity() < occupiedTables.get(chosenTableNo).getSeatingCapacity()){
 					chosenTableNo = i; //it is more than seats required and less than prev chosen tables
 				}
 			}
@@ -144,8 +144,8 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
-		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
+		System.out.println("Table " + occupiedTables.get(chosenTableNo).getId() + " found " + "with " + occupiedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		return occupiedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
 	/**
