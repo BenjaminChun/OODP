@@ -30,6 +30,7 @@ public class StaffManager {
 			System.out.println("(3) Print Staff List");
 			System.out.print("\t Enter the number of your choice: ");
 			choice = sc.nextInt();
+			sc.nextLine();
 			switch (choice) {
 				case 1: 
 					System.out.println("\t Adding Staff ..");
@@ -38,6 +39,7 @@ public class StaffManager {
 
 					System.out.println("\t Please enter Staff ID: ");
 					staffID = sc.nextInt();
+					sc.nextLine();
 					
 					System.out.println("\t Please enter gender");
 					char gender = sc.nextLine().charAt(0);
@@ -57,6 +59,7 @@ public class StaffManager {
 				case 2:
 					System.out.println("\t Please enter staff ID of the staff you wish to remove: ");
 					staffID = sc.nextInt();
+					sc.nextLine();
 					deleteStaff(staffID);
 					break;
 					
