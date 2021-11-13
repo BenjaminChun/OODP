@@ -1,8 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Represents a Reservation Manager in the restaurant.
+ * A Reservation Manager can create, check and cancel reservations.
+ * @author
+ * @version
+ * @since 
+ */
 public class ReservationManager {
-
+	/**
+	 * The list of all reservations made.
+	 */
 	private ArrayList<Reservation> reservationList;
 
 	public ReservationManager() { 
@@ -12,6 +20,12 @@ public class ReservationManager {
 		reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
 		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
 	}
+
+	/**
+	 * Prints a selection of choices for user to pick. 
+	 * User can either create a reservation, check their reservation status or cancel their current reservation.
+	 * Reservation manager can also remove expired reservations present in the list.
+	 */
 
 	public void printInterface(){
 		Scanner sc = new Scanner(System.in);
@@ -77,11 +91,12 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Creating a Reservation
-	 * @param contact Contact number of person creating reservation.
+	 * Creating a Reservation with a customer's contact number, date of reservation to be made, expected time of arrival and 
+	 * 
+	 * @param contact Contact number of person creating the reservation.
 	 * @param date Date of reservation.
-	 * @param arrivalTime Arrival Time of Reservation.
-	 * @param numPax Number of pax of people doing the reservation.
+	 * @param arrivalTime Time to arrive for reservation.
+	 * @param numPax Number of people for reservation to be booked for.
 	 * @param name Name of person booking the reservation.
 	 */
 	public void createReservation(int contact, String dateAndArrivalTime, int numPax, String name) {
@@ -108,7 +123,7 @@ public class ReservationManager {
 	}
 
 	
-	/** Method to check if the reservation exists 
+	/** Checking if reservation exists.
 	 * @param contactNumber Contact number to be checked with reservationList.
 	 * @return Reservation
 	 */
