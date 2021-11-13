@@ -1,14 +1,31 @@
 import java.util.Scanner;
-
+/**
+ * Represents a Customer in the Restaurant. 
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class Customer {
-
+	/**
+	 * The name of this Customer.
+	 */
 	private String name;
+	/**
+	 * The gender of this Customer.
+	 */
 	private char gender;
+	/**
+	 * The membership status of this Customer.
+	 */
 	private boolean membership;
+	/**
+	 * The contact number of this Customer.
+	 */
 	private int contact;
-
+	/**
+	 * Read input to determine customer attributes.
+	 */
 	public Customer(){
-		//read input to determine customer attributes
 		System.out.println("What's the customer's name?");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.nextLine();
@@ -29,6 +46,13 @@ public class Customer {
 		this.contact = contact;
 	}
 
+	/**
+	 * Create a new Customer with given name.
+	 * @param name This Customer's name.
+	 * @param gender This Customer's gender.
+	 * @param membership This Customer's membership.
+	 * @param contact This Customer's contact number.
+	 */
 	public Customer(String name, char gender, boolean membership, int contact){
 		this.name = name;
 		this.gender = gender;
@@ -36,6 +60,10 @@ public class Customer {
 		this.contact = contact;
 	}
 
+	
+	/** Gets the discount of this customer.
+	 * @return this Customer's discount price.
+	 */
 	public double getDiscount() {
 		// TODO - implement Customer.getDiscount
 		// assuming members receive 10% discount off basePrice
@@ -46,12 +74,17 @@ public class Customer {
 		//throw new UnsupportedOperationException();
 	}
 
+	
+	/** 
+	 * Gets the contact number of this Customer.
+	 * @return int
+	 */
 	public int getContact() {
 		return this.contact;
 	}
 
 	/**
-	 * 
+	 * Sets the contact number of this Customer.
 	 * @param contact
 	 */
 	public void setContact(int contact) {
