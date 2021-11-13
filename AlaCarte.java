@@ -14,11 +14,13 @@ public class AlaCarte extends MenuItem {
 		System.out.println("What would you like to update?");
 		System.out.println("1. Type 2. Description 3. name 4. price");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		switch(choice){
 			case 1:
 			System.out.println("What is its type");
 			System.out.println("1. Main Course 2. Drinks 3. Desserts");
 			int typeChoice = sc.nextInt();
+			sc.nextLine();
 			switch(typeChoice){
 				case 1: this.Type = type.MAINCOURSE; break;
 				case 2: this.Type = type.DRINKS; break;
@@ -27,12 +29,10 @@ public class AlaCarte extends MenuItem {
 			break;
 			case 2:
 			System.out.println("What is the new description?");
-			sc.nextLine();
 			this.description = sc.nextLine();
 			break;
 			case 3:
 			System.out.println("What is the new name?");
-			sc.nextLine();
 			this.name = sc.nextLine();
 			break;
 			case 4:
@@ -44,10 +44,11 @@ public class AlaCarte extends MenuItem {
 		this.print();
 	}
 	public void print(){
-		System.out.println(this.Type);
-		System.out.println(this.name);
-		System.out.println(this.description);
-		System.out.println("$"+this.price);
+		System.out.println("Type: "+this.Type);
+		System.out.println("Name: "+this.name);
+		System.out.println("Description: "+this.description);
+		System.out.println("$"+this.price+"0");
+		System.out.println();
 	}
 	/**
 	 * 
