@@ -43,45 +43,20 @@ public class ReservationManager {
 			sc.nextLine();
 			int contactNumber;
 			switch (choice) {
-				case 1: 
-					System.out.println("\t Creating Reservation ..");
-					System.out.print("\t Please enter name: ");
-					String name = sc.nextLine();
-
-					System.out.print("\t Please enter contact number: ");
-					contactNumber = sc.nextInt();
-					
-					System.out.print("\t Please enter date (dd-MM-yyyy): ");
-					sc.nextLine();
-					String date = sc.nextLine();
-
-					System.out.print("\t Please enter time (HH:mm): ");
-					String time = sc.nextLine();
-					
-
-					System.out.print("\t Please enter number of pax: ");
-					int pax = sc.nextInt();
-					
-					this.createReservation(contactNumber, date + " " + time, pax, name);
+				case 1: 					
+					this.createReservation();
 					break;
 					
 				case 2:
-					System.out.print("\t Please enter contact number to check reservation: ");
-					
-					contactNumber = sc.nextInt();
-					this.checkReservation(contactNumber);
+					this.checkReservation();
 					break;
 					
 				case 3:
-					System.out.print("\t Please enter contact number to remove reservation: ");
-					
-					contactNumber = sc.nextInt();
-					this.removeReservation(contactNumber);
+					this.removeReservation();
 					break;
 					
 				case 4: 
 					this.checkAndRemoveExpired();
-					System.out.println("Expired reservations have been removed.");
 					break;
 
 				case 5:
@@ -99,9 +74,28 @@ public class ReservationManager {
 	 * @param numPax Number of people for reservation to be booked for.
 	 * @param name Name of person booking the reservation.
 	 */
-	public void createReservation(int contact, String dateAndArrivalTime, int numPax, String name) {
+	public void createReservation() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\t Creating Reservation ..");
+		System.out.print("\t Please enter name: ");
+		String name = sc.nextLine();
+
+		System.out.print("\t Please enter contact number: ");
+		int contactNumber = sc.nextInt();
 		
-		Reservation reservation = new Reservation(contact, dateAndArrivalTime, numPax, name);
+		System.out.print("\t Please enter date (dd-MM-yyyy): ");
+		sc.nextLine();
+		String date = sc.nextLine();
+
+		System.out.print("\t Please enter time (HH:mm): ");
+		String time = sc.nextLine();
+		
+
+		System.out.print("\t Please enter number of pax: ");
+		int pax = sc.nextInt();
+
+
+		Reservation reservation = new Reservation(contactNumber, date + " " + time, pax, name);
 		reservationList.add(reservation);
 
 	}
@@ -110,8 +104,12 @@ public class ReservationManager {
 	 * Checking reservation using contact number of person who booked it.
 	 * @param contact Contact number of person whose reservation is booked under. 
 	 */
-	public void checkReservation(int contactNumber){
+	public void checkReservation(){
 		//TODO - implement ReservationManager.checkReservation
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\t Please enter contact number to check reservation: ");		
+		int contactNumber = sc.nextInt();
+
 		Reservation reservationFound=checkExist(contactNumber);
 		System.out.print("\n");
 		if(reservationFound==null){
@@ -145,7 +143,10 @@ public class ReservationManager {
 	/** Removing a reservation from reservationList
 	 * @param contactNumber Contact number to be checked with reservationList
 	 */
-	public void removeReservation(int contactNumber) {
+	public void removeReservation() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\t Please enter contact number to remove reservation: ");
+		int contactNumber = sc.nextInt();
 
 		Reservation reservationFound=checkExist(contactNumber);
 		if(reservationFound==null){
@@ -171,6 +172,7 @@ public class ReservationManager {
 			}
 			currentIndex++;
 		}
+		System.out.println("Expired reservations have been removed.");
 		//throw new UnsupportedOperationException();
 	}
 

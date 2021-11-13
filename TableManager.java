@@ -62,12 +62,7 @@ public class TableManager {
 		// TODO - implement TableManager.getReservedTables
 		//throw new UnsupportedOperationException();
 	}
-
-	/**
-	 * 
-	 * @param minSeats
-	 */
-	public int findSuitableTable() {
+	public int getUserInput(){
 		System.out.println("How many seats required?");
 		Scanner sc = new Scanner(System.in);
 		int minSeats = sc.nextInt();
@@ -75,7 +70,13 @@ public class TableManager {
 			System.out.println("Sorry at most 10 seats only.");
 			minSeats = sc.nextInt();
 		}
-		
+		return minSeats;
+	}
+	/**
+	 * 
+	 * @param minSeats
+	 */
+	public int findSuitableTableFromAvailable(int minSeats) {
 		ArrayList<Table> availableTables = getAvailableTables();
 		int chosenTableNo = -1; //set this to be updated, and returned
 		if (minSeats > maxCapacity) {
@@ -97,9 +98,54 @@ public class TableManager {
 		}
 		System.out.println("Table " + availableTables.get(chosenTableNo).getId() + " found " + "with " + availableTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
 		return availableTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
-		
-		// TODO - implement TableManager.findSuitableTable
-		//throw new UnsupportedOperationException();
+	}
+
+	public int findSuitableTableFromReserved(int minSeats) {
+		ArrayList<Table> reservedTables = getReservedTables();
+		int chosenTableNo = -1; //set this to be updated, and returned
+		if (minSeats > maxCapacity) {
+			System.out.println("No suitable Table found, max Capacity per table is only 10!");
+		}
+		for (int i = 0; i < reservedTables.size(); i++) {
+			if (reservedTables.get(i).getSeatingCapacity() >= minSeats) {
+				if (chosenTableNo == -1) {//guard against chosen == -1
+					chosenTableNo = i;
+				}
+				else if (reservedTables.get(i).getSeatingCapacity() < reservedTables.get(chosenTableNo).getSeatingCapacity()){
+					chosenTableNo = i; //it is more than seats required and less than prev chosen tables
+				}
+			}
+		}
+		if (chosenTableNo == -1) {
+			System.out.println("No suitable Table for " + minSeats);
+			return chosenTableNo;
+		}
+		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
+	}
+
+	public int findSuitableTableFromOccupied(int minSeats) {
+		ArrayList<Table> occupiedTables = getOccupiedTables();
+		int chosenTableNo = -1; //set this to be updated, and returned
+		if (minSeats > maxCapacity) {
+			System.out.println("No suitable Table found, max Capacity per table is only 10!");
+		}
+		for (int i = 0; i < reservedTables.size(); i++) {
+			if (reservedTables.get(i).getSeatingCapacity() >= minSeats) {
+				if (chosenTableNo == -1) {//guard against chosen == -1
+					chosenTableNo = i;
+				}
+				else if (reservedTables.get(i).getSeatingCapacity() < reservedTables.get(chosenTableNo).getSeatingCapacity()){
+					chosenTableNo = i; //it is more than seats required and less than prev chosen tables
+				}
+			}
+		}
+		if (chosenTableNo == -1) {
+			System.out.println("No suitable Table for " + minSeats);
+			return chosenTableNo;
+		}
+		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
 	/**
