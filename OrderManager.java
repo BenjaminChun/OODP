@@ -11,15 +11,22 @@ public class OrderManager {
 	}
 
 	public void cancelOrder() {
-		// TODO - implement OrderManager.cancelOrder
 		Scanner sc = new Scanner(System.in);
 		this.printOrderList();
-		System.out.println("Which order would you like to cancel?");
-		int orderIndex = sc.nextInt();
-		sc.nextLine();
-		this.orderList.remove(orderIndex - 1); //remove the index - 1 order from orderList
-		System.out.println("Order #" + orderIndex +" cancelled");
-		//throw new UnsupportedOperationException();
+		try {
+			System.out.println("Which order would you like to cancel?");
+			int orderIndex = sc.nextInt();
+			sc.nextLine();
+			if (orderIndex <= 0 || orderIndex > this.orderList.size()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.orderList.size());
+			}
+			this.orderList.remove(orderIndex - 1); //remove the index - 1 order from orderList
+			System.out.println("Order #" + orderIndex +" cancelled");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	/**
@@ -39,15 +46,23 @@ public class OrderManager {
 	public void changeOrder() {
 		Scanner sc = new Scanner(System.in);
 		this.printOrderList();
-		System.out.println("Which order would you like to change?");
-		int changeChoice = sc.nextInt();
-		sc.nextLine();
-		Order temp = this.orderList.get(changeChoice-1);
-		temp.updateOrder();
-		System.out.println("Order ipdated. printing updated order...");
-		temp.printOrder();
-		// TODO - implement OrderManager.changeOrder
-		//throw new UnsupportedOperationException();
+		try {
+			System.out.println("Which order would you like to change?");
+			int changeChoice = sc.nextInt();
+			sc.nextLine();
+			if (changeChoice <= 0 || changeChoice > this.orderList.size()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.orderList.size());
+			}
+			Order temp = this.orderList.get(changeChoice-1);
+			temp.updateOrder();
+			System.out.println("Order ipdated. printing updated order...");
+			temp.printOrder();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
+		
 	}
 
 	public void printOrderList() {

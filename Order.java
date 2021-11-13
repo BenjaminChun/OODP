@@ -15,10 +15,19 @@ public class Order {
 		this.orderItemList = new ArrayList<OrderItem>();
 		RestaurantApp.globalStaffManager.displayList();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Who's taking this order?");
-		int choice = sc.nextInt();
-		sc.nextLine();
-		this.s = RestaurantApp.globalStaffManager.getStaff(choice-1);
+		try {
+			System.out.println("Who's taking this order?");
+			int choice = sc.nextInt();
+			sc.nextLine();
+			if (choice <= 0 || choice > RestaurantApp.globalStaffManager.getSizeOfStaffList()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+RestaurantApp.globalStaffManager.getSizeOfStaffList());
+			}
+			this.s = RestaurantApp.globalStaffManager.getStaff(choice-1);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 		this.orderDetails = new OrderDetails(this);
 	}
 
@@ -55,10 +64,19 @@ public class Order {
 	public void deleteFromOrder() {
 		Scanner sc = new Scanner(System.in);
 		this.printOrder();
-		System.out.println("Which order item would you like to delete?");
-		int orderItemIndex = sc.nextInt();
-		sc.nextLine();
-		this.orderItemList.remove(orderItemIndex - 1); //delete the index - 1 orderItem from this order
+		try {
+			System.out.println("Which order item would you like to delete?");
+			int orderItemIndex = sc.nextInt();
+			sc.nextLine();
+			if (orderItemIndex <= 0 || orderItemIndex > this.orderItemList.size()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.orderItemList.size());
+			}
+			this.orderItemList.remove(orderItemIndex - 1); //delete the index - 1 orderItem from this order
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	public double calculateBasePrice() {
