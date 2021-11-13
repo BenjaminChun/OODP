@@ -5,9 +5,7 @@ public class ReservationManager {
 
 	private ArrayList<Reservation> reservationList;
 
-	public ReservationManager() {
-		// TODO - implement ReservationManager.ReservationManager 
-		//throw new UnsupportedOperationException();
+	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
 		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
 		reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
@@ -87,16 +85,15 @@ public class ReservationManager {
 	 * @param name Name of person booking the reservation.
 	 */
 	public void createReservation(int contact, String dateAndArrivalTime, int numPax, String name) {
-		// TODO - implement ReservationManager.createReservation
+		
 		Reservation reservation = new Reservation(contact, dateAndArrivalTime, numPax, name);
 		reservationList.add(reservation);
 
-		//throw new UnsupportedOperationException(); 
 	}
 
 		/**
-	 * Checking reservation using contact number of person who booked it
-	 * @param contact Contact number of person whose 
+	 * Checking reservation using contact number of person who booked it.
+	 * @param contact Contact number of person whose reservation is booked under. 
 	 */
 	public void checkReservation(int contactNumber){
 		//TODO - implement ReservationManager.checkReservation
@@ -111,12 +108,12 @@ public class ReservationManager {
 	}
 
 	
-	/** Checking if the reservation exists 
-	 * @param contactNumber
+	/** Method to check if the reservation exists 
+	 * @param contactNumber Contact number to be checked with reservationList.
 	 * @return Reservation
 	 */
 	public Reservation checkExist(int contactNumber){
-		// TODO - implement ReservationManager.checkExist
+
 		Reservation contactFound = null;
 		boolean contactMatch;
 		for(Reservation res : reservationList){
@@ -130,11 +127,11 @@ public class ReservationManager {
 	}
 
 	
-	/** 
-	 * @param contactNumber
+	/** Removing a reservation from reservationList
+	 * @param contactNumber Contact number to be checked with reservationList
 	 */
 	public void removeReservation(int contactNumber) {
-		// TODO - implement ReservationManager.removeReservation
+
 		Reservation reservationFound=checkExist(contactNumber);
 		if(reservationFound==null){
 			System.out.println("No such reservation found!");
@@ -146,7 +143,7 @@ public class ReservationManager {
 	}
 
 	public void checkAndRemoveExpired() {
-		// TODO - implement ReservationManager.checkAndRemoveExpired
+		
 		int reservationListSize = reservationList.size();
 		boolean expired = false;	
 		int currentIndex = 0;	
@@ -176,7 +173,6 @@ public class ReservationManager {
 		System.out.println("Reservation not found");
 		return null;
 
-		// KIV whether need this or not
 		//throw new UnsupportedOperationException();
 	}
 
