@@ -8,6 +8,15 @@ public class StaffManager {
 	public StaffManager() {
 		// TODO - implement StaffManager.StaffManager
 		//throw new UnsupportedOperationException();
+		this.staffList = new ArrayList<Staff>();
+		Staff staff1 = new Staff("Han Kang", 'M', "MANAGER", 1);
+		Staff staff2 = new Staff("Ming Jun", 'F', "CASHIER", 2);
+		Staff staff3 = new Staff("Zheng Kai", 'F', "SERVER", 3);
+		Staff staff4 = new Staff("Benjamin", 'M', "CHEF", 4);
+		this.staffList.add(staff1);
+		this.staffList.add(staff2);
+		this.staffList.add(staff3);
+		this.staffList.add(staff4);
 	}
 	
 
@@ -106,8 +115,12 @@ public class StaffManager {
 		// TODO - implement StaffManager.displayList
 		//throw new UnsupportedOperationException();
 		System.out.println("Staff List:");
+		int index = 1;
 		for (Staff staff : staffList){
+			System.out.println("Staff "+index+":");
+			System.out.println("---------------------------------------");
 			staff.printStaffInformation();
+			index++;
 		}
 	}
 
