@@ -9,10 +9,10 @@ public class ReservationManager {
 		// TODO - implement ReservationManager.ReservationManager
 		//throw new UnsupportedOperationException();
 		reservationList = new ArrayList<Reservation>();
-		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "bmj"));
-		reservationList.add(new Reservation(91550027, "19-03-2021 18:15", 4, "thk"));
-		reservationList.add(new Reservation(91550026, "03-01-2021 18:15", 4, "cwj"));
-		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 4, "tzk"));
+		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
+		reservationList.add(new Reservation(91550027, "19-03-2021 18:15", 4, "Tan Han Kang"));
+		reservationList.add(new Reservation(91550026, "03-01-2021 18:15", 4, "Chun Wei Jie"));
+		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 4, "Tan Zheng Kai"));
 	}
 
 	public void printInterface(){
@@ -79,7 +79,7 @@ public class ReservationManager {
 					break;
 					
 				case 2:
-					System.out.println("\t Please enter contact number to check reservation: ");
+					System.out.print("\t Please enter contact number to check reservation: ");
 					//inputPrompt = "\t Please enter contact number to check reservation: ";
 					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
 					contactNumber = sc.nextInt();
@@ -87,7 +87,7 @@ public class ReservationManager {
 					break;
 					
 				case 3:
-					System.out.println("\t Please enter contact number to check reservation: ");
+					System.out.print("\t Please enter contact number to check reservation: ");
 					//inputPrompt = "\t Please enter contact number to check reservation: ";
 					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
 					contactNumber = sc.nextInt();
