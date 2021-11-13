@@ -128,7 +128,7 @@ public class RestaurantApp {
 					globalReservationManager.printInterface();
 					break;
 				case 5:
-					SalesReport salesReport = new SalesReport(globalInvoiceManager);
+					SalesReport salesReport = new SalesReport();
 					salesReport.printSalesReport();
 					break;
 				case 6:

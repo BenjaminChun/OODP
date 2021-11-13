@@ -1,21 +1,21 @@
 public class SaleItem {
 
-	private MenuItem menuItem;
+	private OrderItem orderItem;
 	private int quantity;
 
 	/**
 	 * 
 	 * @param menuItem
 	 */
-	public SaleItem(MenuItem menuItem , int quantity) {
-		menuItem = menuItem;
-		quantity = quantity;
+	public SaleItem(OrderItem orderItem , int quantity) {
+		this.orderItem = orderItem;
+		this.quantity = quantity;
 		// TODO - implement SaleItem.SaleItem
 		//throw new UnsupportedOperationException();
 	}
 
-	public MenuItem getMenuItem() {
-		return this.menuItem;
+	public OrderItem getOrderItem() {
+		return this.orderItem;
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class SaleItem {
 	 * @param menuItem
 	 */
 	public void setMenuItem(MenuItem menuItem) {
-		this.menuItem = menuItem;
+		this.orderItem = orderItem;
 	}
 
 	public int getQuantity() {

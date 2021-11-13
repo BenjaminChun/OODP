@@ -15,7 +15,7 @@ public class SalesReport {
 	 * @param endDate
 	 * @param invoiceList
 	 */
-	public SalesReport(InvoiceManager invoiceManager){
+	public SalesReport(){
 		Scanner sc = new Scanner(System.in);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy"); 
 		System.out.println("Start Date of Report: (d/MM/yyyy)\n");
@@ -24,9 +24,13 @@ public class SalesReport {
   		LocalDate startDate = LocalDate.parse(date, formatter);
 		System.out.println("End Date of Report: (d/MM/yyyy)\n");
 		String date1 = sc.nextLine();
-		this.invoiceList = invoiceManager.getInvoiceList();
+		LocalDate endDate = LocalDate.parse(date1, formatter);
+		this.invoiceList = RestaurantApp.globalInvoiceManager.getInvoiceList();
 		this.startDate = startDate;
 		this.endDate = endDate;
+		System.out.println(endDate);
+		System.out.println(startDate);
+		System.out.println(this.endDate.isAfter(this.startDate));
 		this.invoiceList = selectRelevantInvoice();
 		this.saleItemList = generateSaleItemList();
 		this.totalRevenue = generateRevenue();
@@ -46,10 +50,11 @@ public class SalesReport {
 
 	public ArrayList<Invoice> selectRelevantInvoice() {
 		//find array size and then loop thru
-		if (invoiceList == null){
+		if (invoiceList.isEmpty()){
 			System.out.println("No Invoices are present");
 			return null;
 		}
+		
 		int arrSize = invoiceList.size();
 		ArrayList<Invoice> returnList = new ArrayList<Invoice>(); 
 		for (int i = 0; i < arrSize; i++) {
@@ -79,19 +84,27 @@ public class SalesReport {
 			//within each invoice, traverse thru all items
 			//find the orderitemlist for this invoice
 			orderItemList = invoiceList.get(indexOfList).getOrderDetails().getOrder().getOrderItemList();
+			if (orderItemList.isEmpty()){
+				System.out.println("Empty InvoiceList");
+				return null;
+			}
 			for (int indexOfOrderItem = 0 ; indexOfOrderItem < orderItemList.size(); indexOfOrderItem++) {
 				//while traversing items, check if it is within saleitem list
 				//if it is, add to quantity, if isnt then add to saleitem list
 				finishedForLoop = true;
 				for (int indexOfSaleItem = 0; indexOfSaleItem < returnList.size(); indexOfSaleItem++) {
-					if (orderItemList.get(indexOfOrderItem).getMenuItem().getName() == returnList.get(indexOfSaleItem).getMenuItem().getName()) {//check if equal
+					System.out.println(indexOfSaleItem);
+					System.out.println(orderItemList.get(indexOfOrderItem).getMenuItem().getName());
+					System.out.println(returnList.get(indexOfSaleItem).getOrderItem().getMenuItem().getName());
+					if (orderItemList.get(indexOfOrderItem).getMenuItem().getName() == returnList.get(indexOfSaleItem).getOrderItem().getMenuItem().getName()) {//check if equal
 						returnList.get(indexOfSaleItem).incrementQuantity(orderItemList.get(indexOfOrderItem).getQuantity()); //increment by amt in orderitem
 						finishedForLoop = false;
 						break;
 					}
 				}
 				if (finishedForLoop == true){ //add new saleitem to returnlist
-					SaleItem toBeAdded = new SaleItem(orderItemList.get(indexOfOrderItem).getMenuItem() , orderItemList.get(indexOfOrderItem).getQuantity());
+					SaleItem toBeAdded = new SaleItem(orderItemList.get(indexOfOrderItem) , orderItemList.get(indexOfOrderItem).getQuantity());
+					toBeAdded.getOrderItem();
 					returnList.add(toBeAdded);
 				}
 			}
@@ -104,12 +117,12 @@ public class SalesReport {
 	public double generateRevenue() {
 		//initialise revenue variable
 		double revenue = 0;
-		if (saleItemList == null){
+		if (saleItemList.isEmpty()){
 			System.out.println("No sale items currently");
 			return 0;
 		}
 		for (int indexOfSaleItemList = 0 ; indexOfSaleItemList < saleItemList.size() ; indexOfSaleItemList++) {
-			revenue += (saleItemList.get(indexOfSaleItemList).getMenuItem().getPrice() * saleItemList.get(indexOfSaleItemList).getQuantity());
+			revenue += (saleItemList.get(indexOfSaleItemList).getOrderItem().getMenuItem().getPrice() * saleItemList.get(indexOfSaleItemList).getQuantity());
 		}
 		return revenue;
 		// TODO - implement SalesReport.generateRevenue
@@ -122,7 +135,7 @@ public class SalesReport {
 		System.out.println("=====================================");
 		if (saleItemList != null){
 			for (int index=0; index < this.saleItemList.size(); index++) {
-				result = this.saleItemList.get(index).getMenuItem().getName() + " - " +  this.saleItemList.get(index).getQuantity();
+				result = this.saleItemList.get(index).getOrderItem().getMenuItem().getName() + " - " +  this.saleItemList.get(index).getQuantity();
 				System.out.println(result); 
 			}
 		}
