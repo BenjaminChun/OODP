@@ -157,6 +157,8 @@ public class ReservationManager {
 			System.out.println("No such reservation found!");
 		}
 		else{
+			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(reservationFound.getNumPax());
+			RestaurantApp.globalTableManager.setTableToAvailable(tableID);
 			reservationList.remove(reservationFound);	
 		}
 		//throw new UnsupportedOperationException();
@@ -167,10 +169,14 @@ public class ReservationManager {
 		int reservationListSize = reservationList.size();
 		boolean expired = false;	
 		int currentIndex = 0;	
+		Reservation currentReservation;
 		for (int counter = 0; counter < reservationListSize; counter++)
 		{
-			expired = reservationList.get(currentIndex).getIsExpired();
+			currentReservation = reservationList.get(currentIndex);
+			expired = currentReservation.getIsExpired();
 			if (expired == true){
+				int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(currentReservation.getNumPax());
+				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
 				reservationList.remove(currentIndex);
 				continue;
 			}
