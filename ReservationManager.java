@@ -140,12 +140,12 @@ public class ReservationManager {
 		}
 	}
 
-	public Reservation checkExist(int contact){
+	public Reservation checkExist(int contactNumber){
 		// TODO - implement ReservationManager.checkExist
 		Reservation contactFound = null;
 		boolean contactMatch;
 		for(Reservation res : reservationList){
-			contactMatch=res.checkContact(contact);
+			contactMatch=res.checkContact(contactNumber);
 			if(contactMatch==true){
 				contactFound=res;
 				break;
