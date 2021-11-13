@@ -12,6 +12,7 @@ public class Invoice {
 		this.orderDetails = orderDetails;
 		this.bill = 0;
 		getFinalPrice();
+		RestaurantApp.globalInvoiceManager.addToInvoiceList(this);
 	}
 
 	public OrderDetails getOrderDetails() {
