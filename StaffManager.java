@@ -1,10 +1,25 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents the StaffManager.
+ * Manages the Staff in the restaurant.
+ * @author Benjamin Chun Wei Jie
+ * @version 15
+ * @since 2021-11-13
+ */
 public class StaffManager {
 
+	/**
+	 * ArrayList of Staff to store the Staff working
+	 * in the restaurant.
+	 */
 	private ArrayList<Staff> staffList;
 
+	/**
+	 * Creates the StaffManager storing the list of staff
+	 * that works at the restaurant.
+	 */
 	public StaffManager() {
 		// TODO - implement StaffManager.StaffManager
 		//throw new UnsupportedOperationException();
@@ -19,7 +34,9 @@ public class StaffManager {
 		this.staffList.add(staff4);
 	}
 	
-
+	/**
+	 * Prints the interface for the user to interact with.
+	 */
 	public void printInterface(){
 		Scanner sc = new Scanner(System.in);
 		int staffID;
@@ -70,6 +87,11 @@ public class StaffManager {
 		} while (choice < 3);
 	}
 
+	/**
+	 * Check if the input job is a valid jobTitle.
+	 * @param job The job that is provided as input.
+	 * @return true if the job is valid.
+	 */
 	public boolean checkValidJob(String job){
 		switch(job){
 			case "MANAGER": return true;
@@ -82,11 +104,11 @@ public class StaffManager {
 	}
 
 	/**
-	 * 
-	 * @param name
-	 * @param gender
-	 * @param staffTitle
-	 * @param ID
+	 * Add new Staff to the ArrayList of Staff
+	 * @param name The name of Staff to be added.
+	 * @param gender The gender of Staff to be added.
+	 * @param staffTitle The jobTitle of Staff to be added.
+	 * @param ID The staffID of Staff to be added.
 	 */
 	public void addStaff(String name, char gender, String staffTitle, int ID) {
 		// TODO - implement StaffManager.addStaff
@@ -95,11 +117,9 @@ public class StaffManager {
 		staffList.add(newStaff);
 	}
 
-	
-
 	/**
-	 * 
-	 * @param ID
+	 * Delete Staff from the ArrayList of Staff.
+	 * @param ID The staffID of the Staff to be removed.
 	 */
 	public void deleteStaff(int ID) {
 		// TODO - implement StaffManager.deleteStaff
@@ -114,6 +134,9 @@ public class StaffManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Prints out the ArrayList of Staff.
+	 */
 	public void displayList() {
 		// TODO - implement StaffManager.displayList
 		//throw new UnsupportedOperationException();
