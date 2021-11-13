@@ -10,10 +10,9 @@ public class SalesReport {
 	private ArrayList<SaleItem> saleItemList;
 
 	/**
+	 * default Constructor for SalesReport Class
 	 * 
-	 * @param startDate
-	 * @param endDate
-	 * @param invoiceList
+	 * this constructor will initialise the Sales Report and ask for attributes in SalesReport in order to construct it
 	 */
 	public SalesReport(){
 		Scanner sc = new Scanner(System.in);
@@ -35,19 +34,15 @@ public class SalesReport {
 		this.saleItemList = generateSaleItemList();
 		this.totalRevenue = generateRevenue();
 	}
-	public SalesReport(LocalDate startDate, LocalDate endDate, ArrayList<Invoice> invoiceList) {
-		//typical constructor
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.invoiceList = invoiceList; 
-		//i think need call the selectRelevantInvoice to get the invoice list for constructing right
-		invoiceList = selectRelevantInvoice();
-		saleItemList = generateSaleItemList();
-		totalRevenue = generateRevenue();
-		// TODO - implement SalesReport.SalesReport
-		//throw new UnsupportedOperationException();
-	}
+	
 
+	/**
+	 * selectRelevantInvoice will filter out from the invoices that are within our requested timeframe
+	 * 
+	 * the timeframe is dictated by the attributes of SalesReport instance
+	 * 
+	 * @return the arraylist of invoice objects which fit between the start and end Date
+	 */
 	public ArrayList<Invoice> selectRelevantInvoice() {
 		//find array size and then loop thru
 		if (invoiceList.isEmpty()){
@@ -66,10 +61,12 @@ public class SalesReport {
 			}
 		}
 		return returnList;
-		// TODO - implement SalesReport.selectRelevantInvoice
-		//throw new UnsupportedOperationException();
 	}
-
+	/**
+	 * generateSaleItemList will collate and return the quantity of each orderItem that was purchased between the timeframe
+	 * 
+	 * @return the arraylist of sale items with their quantity sold throughout timeframe according to the attributes startDate and endDate
+	 */
 	public ArrayList<SaleItem> generateSaleItemList() {
 		if (invoiceList == null) {
 			System.out.println("No Invoices are present");
@@ -110,10 +107,13 @@ public class SalesReport {
 			}
 		}
 		return returnList;
-		// TODO - implement SalesReport.generateSaleItemList
-		//throw new UnsupportedOperationException();
-	}
 
+	}
+	/**
+	 * generateRevenue loops through the saleItems in the saleItemList and adds the price sold to calculate the total revenue in timeframe
+	 * 
+	 * @return revenue earned from the timeframe
+	 */
 	public double generateRevenue() {
 		//initialise revenue variable
 		double revenue = 0;
@@ -125,10 +125,13 @@ public class SalesReport {
 			revenue += (saleItemList.get(indexOfSaleItemList).getOrderItem().getMenuItem().getPrice() * saleItemList.get(indexOfSaleItemList).getQuantity());
 		}
 		return revenue;
-		// TODO - implement SalesReport.generateRevenue
-		// throw new UnsupportedOperationException();
 	}
-
+	/**
+	 * printSalesReport is the printer function for SalesReport instance
+	 * 
+	 * it loops through all the salesItems in the list and prints their name together with the quantity sold
+	 * before printing the total revenue in timeframe
+	 */
 	public void printSalesReport(){
 		String result = "Sales Report: " + this.startDate + " - " + this.endDate;
 		System.out.println(result); //print heading
@@ -138,6 +141,10 @@ public class SalesReport {
 				result = this.saleItemList.get(index).getOrderItem().getMenuItem().getName() + " - " +  this.saleItemList.get(index).getQuantity();
 				System.out.println(result); 
 			}
+		}
+		else{
+			System.out.println("No salesItem in salesItemList/n");
+			return;
 		}
 		System.out.println("=====================================");
 		result = "Revenue = " + this.totalRevenue;
