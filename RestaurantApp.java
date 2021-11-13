@@ -88,7 +88,8 @@ public class RestaurantApp {
 								globalTableManager.printTables(globalTableManager.getReservedTables());
 								break;
 							case 4:
-								int tableNum = globalTableManager.findSuitableTable();
+								int minSeats = globalTableManager.getUserInput();
+								int tableNum = globalTableManager.findSuitableTableFromReserved(minSeats);
 								globalTableManager.setTableToOccupied(tableNum);
 								break;
 							}
@@ -136,7 +137,7 @@ public class RestaurantApp {
 					salesReport.printSalesReport();
 					break;
 				case 6:
-					//staffManager(staffManager);
+					globalStaffManager.printInterface();
 					break;
 			}
 		} while (choice != 0);

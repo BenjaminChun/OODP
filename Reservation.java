@@ -13,22 +13,44 @@ import java.util.concurrent.TimeUnit;
 
 public class Reservation {
 
-	
+	/**
+	 * The date and Arrival time of the Reservation.
+	 */
 	private Date dateAndArrivalTime;
+
+	/**
+	 * The number of pax per Reservation.
+	 */
 	private int numPax;
+
+	/**
+	 * The name of the person who booked the Reservation.
+	 */
 	private String name;
+
+	/** 
+	 * The contact of the perso who booked the Reservation.
+	 */
 	private int contact;
+
+	/** 
+	 * Boolean attribute to check if the Reservation has expired.
+	 */
 	private boolean isExpired;
+
+	/**
+	 * Date object to get the date and time that the Reservation expires.
+	 */
 	private Date expiryDateTime;
 
 	/**
 	 * Creates a new Reservation with the given contact
 	 * date and arrival time, number of pax and name of 
 	 * person who made the reservation.
-	 * @param contact This Reservation's contact number (person who booked the Reservation)
-	 * @param dateAndArrivalTime This Reservation's date and booking time
-	 * @param numPax This Reservation's number of pax
-	 * @param name This Reservation's name (person who booked the Reservation)
+	 * @param contact This Reservation's contact number (person who booked the Reservation).
+	 * @param dateAndArrivalTime This Reservation's date and booking time.
+	 * @param numPax This Reservation's number of pax.
+	 * @param name This Reservation's name (person who booked the Reservation).
 	 */
 	public Reservation(int contact, String dateAndArrivalTime, int numPax, String name) {
 		// TODO - implement Reservations.Reservations
@@ -40,6 +62,12 @@ public class Reservation {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Get the current date and time and check if the Reservation has expired.
+	 * Reservation is considered expired if it has been more than 15
+	 * minutes past the Reservation date and time.
+	 * @return true if Reservation has expired.
+	 */
 	public boolean getIsExpired() {
 		//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");  
 	    Date curDateTime = new Date(); 
@@ -55,12 +83,24 @@ public class Reservation {
 	    
 		return this.isExpired;
 	}
-	
+
+	/**
+	 * Get the time difference between 2 Date objects in minutes
+	 * @param date1 First date to be compared.
+	 * @param date2 Second date to be compared.
+	 * @param timeUnit The timeunit that will be returned Eg. MINUTES.
+	 * @return the time difference in minutes.
+	 */
 	public long getTimeDiff(Date date1, Date date2, TimeUnit timeUnit) {
 	    long diffInMillies = date2.getTime() - date1.getTime();
 	    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 	}
 	
+	/**
+	 * Converts a String in the format "dd-MM-yyyy HH:mm" into a Date object.
+	 * @param DateTime String to be converted into Date object.
+	 * @return the date object after conversion.
+	 */
 	public Date convertToDate(String DateTime) {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -74,6 +114,11 @@ public class Reservation {
 		return date;
 	}
 	
+	/**
+	 * Adds 15minutes to a Date object to get the expiry time of a Reservation.
+	 * @param DateTime
+	 * @return
+	 */
 	public Date convertExpiryDateTime(Date DateTime) {
 		long timeInSecs = DateTime.getTime();
 		Date Add15Mins = new Date (timeInSecs + (15*60*1000));
