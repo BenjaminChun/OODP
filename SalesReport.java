@@ -18,7 +18,7 @@ public class SalesReport {
 	public SalesReport(){
 		Scanner sc = new Scanner(System.in);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy"); 
-		System.out.println("Start Date of Report: (d/MM/yyyy)\n");
+		System.out.println("Start Date of Report: (d/MM/yyyy)\n"); 
 		String date = sc.nextLine();
   		//convert String to LocalDate
 		try {
@@ -40,9 +40,6 @@ public class SalesReport {
 			System.exit(0);
 		}
 		this.invoiceList = RestaurantApp.globalInvoiceManager.getInvoiceList();
-		System.out.println(endDate);
-		System.out.println(startDate);
-		System.out.println(this.endDate.isAfter(this.startDate));
 		this.invoiceList = selectRelevantInvoice();
 		this.saleItemList = generateSaleItemList();
 		this.totalRevenue = generateRevenue();

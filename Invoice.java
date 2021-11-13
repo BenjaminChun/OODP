@@ -113,5 +113,6 @@ public class Invoice {
 		System.out.println("=====================================");
 
 		RestaurantApp.globalTableManager.setTableToAvailable(this.getOrderDetails().getTableID());
+		System.out.println("");
 	}
 }

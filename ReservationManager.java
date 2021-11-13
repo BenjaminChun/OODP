@@ -75,28 +75,33 @@ public class ReservationManager {
 	 */
 	public void createReservation() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\t Creating Reservation ..");
-		System.out.print("\t Please enter name: ");
+		System.out.println("Creating Reservation ..");
+		System.out.print("Please enter name: ");
 		String name = sc.nextLine();
 
-		System.out.print("\t Please enter contact number: ");
+		System.out.print("Please enter contact number: ");
 		int contactNumber = sc.nextInt();
 		
-		System.out.print("\t Please enter date (dd-MM-yyyy): ");
+		System.out.print("Please enter date (dd-MM-yyyy): ");
 		sc.nextLine();
 		String date = sc.nextLine();
 
-		System.out.print("\t Please enter time (HH:mm): ");
+		System.out.print("Please enter time (HH:mm): ");
 		String time = sc.nextLine();
 		
-
-		System.out.print("\t Please enter number of pax: ");
-		int pax = sc.nextInt();
-
+		int pax = RestaurantApp.globalTableManager.getUserInput();
+		int tableID = RestaurantApp.globalTableManager.findSuitableTableFromAvailable(pax);
+		if (tableID == -1){
+			System.out.println("Sorry, there are no more tables available for " + pax + "pax.");
+			return;
+		}
+		else {
+			RestaurantApp.globalTableManager.setTableToReserved(tableID);
+		}
 
 		Reservation reservation = new Reservation(contactNumber, date + " " + time, pax, name);
 		reservationList.add(reservation);
-
+		System.out.println("Reservation successfully created.");
 	}
 
 		/**
