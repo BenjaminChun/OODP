@@ -38,6 +38,7 @@ public class MenuManager {
 		this.printMenu();
 		System.out.println("Which item would you like to delete?");
 		int menuIndex = sc.nextInt();
+		sc.nextLine();
 		this.menuList.remove(menuIndex - 1); //delete the index - 1 menuItem from menu
 	}
 
@@ -50,6 +51,7 @@ public class MenuManager {
 		this.printMenu();
 		System.out.println("Which item would you like to update");
 		int updateChoice = sc.nextInt();
+		sc.nextLine();
 		MenuItem temp = this.menuList.get(updateChoice-1);
 		temp.update(); //call the correct update method in respective subclasses, not sure if you need to re insert into arraylist. 
 	}
@@ -57,12 +59,13 @@ public class MenuManager {
 	public void printMenu() {
 		int menuSize = this.menuList.size();
 		System.out.println();
-		System.out.println("----------------------------------------------");
+		System.out.println("--------------------MENU----------------------");
 		for(int i = 0; i<menuSize; i++){
-			System.out.print((i+1) + ". ");
+			System.out.println((i+1) + ". ");
 			this.menuList.get(i).print();
 			System.out.println("----------------------------------------------");
 		}
+		System.out.println();
 	}
 
 	/**
