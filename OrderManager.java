@@ -26,8 +26,8 @@ public class OrderManager {
 	 * 
 	 * @param s
 	 */
-	public void createOrder(Staff s) { //either we take in a Staff argument or ask for user input here to indicate staff eid and check from globalStaffManager
-		Order temp = new Order(s);
+	public void createOrder() { //either we take in a Staff argument or ask for user input here to indicate staff eid and check from globalStaffManager
+		Order temp = new Order();
 		temp.makeNewOrder(); //order obj calls makeNewOrder that adds orderItems to the arrayList
 		this.orderList.add(temp);
 		System.out.println("Order created. printing new order...");
