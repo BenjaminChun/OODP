@@ -33,10 +33,10 @@ public class ReservationManager {
 			switch (choice) {
 				case 1: 
 					System.out.println("\t Creating Reservation ..");
-					System.out.print("\t Please enter Name: ");
+					System.out.print("\t Please enter name: ");
 					String name = sc.nextLine();
 
-					System.out.print("\t Please enter Contact No: ");
+					System.out.print("\t Please enter contact number: ");
 					contactNumber = sc.nextInt();
 					//String errorPrompt = "\t Please enter a valid contact number eg. 90578213";
 					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
@@ -73,7 +73,7 @@ public class ReservationManager {
 					}
 					dateTime=time;*/
 
-					System.out.print("\t Please enter Number of pax: ");
+					System.out.print("\t Please enter number of pax: ");
 					int pax = sc.nextInt();
 					//String inPrompt = "\t Please enter Number of pax: ";
 					//int pax = UserInput.getIntFromRange(1, 10, inPrompt, null);
@@ -90,7 +90,7 @@ public class ReservationManager {
 					break;
 					
 				case 3:
-					System.out.print("\t Please enter contact number to check reservation: ");
+					System.out.print("\t Please enter contact number to remove reservation: ");
 					//inputPrompt = "\t Please enter contact number to check reservation: ";
 					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
 					contactNumber = sc.nextInt();
