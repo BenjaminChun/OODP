@@ -2,12 +2,30 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents a TableManager that will be in charge of the
+ * operations done on Table objects.
+ * @author Benjamin Chun Wei Jie
+ * @version 13
+ * @since 2021-11-13
+ */
 public class TableManager {
 	
+	/**
+	 * ArrayList of Table objects
+	 */
 	private ArrayList<Table> tableList;
+
+	/**
+	 * Maximum capacity for a group of customer
+	 */
 	private static int maxCapacity = 10;
+
+	/**
+	 * Creates a TableManager object that has an ArrayList
+	 * of Table objects.
+	 */
 	public TableManager() {
-		
 		ArrayList<Table> tableList = new ArrayList<Table>();
 		tableList.add(new Table(1, 2, Status.AVAILABLE));
 		tableList.add(new Table(2, 4, Status.AVAILABLE));
@@ -20,10 +38,20 @@ public class TableManager {
 		tableList.add(new Table(9, 10, Status.AVAILABLE));
 		this.tableList = tableList;
 	}
+
+	/**
+	 * Creates a TableManager with an input Table ArrayList
+	 * @param tableList this TableManager's tableList
+	 */
 	public TableManager(ArrayList<Table> tableList) {
 		this.tableList = tableList;
 	}
 	
+	/**
+	 * Finds the tables that have Status.AVAILABLE and add
+	 * them into a Table ArrayList to be returned.
+	 * @return toReturnList the Table ArrayList of available tables.
+	 */
 	public ArrayList<Table> getAvailableTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
 		//loop thru all tables to get available ones
@@ -37,6 +65,11 @@ public class TableManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Finds the tables that have Status.OCCUPIED and add
+	 * them into a Table ArrayList to be returned.
+	 * @return toReturnList the Table ArrayList of occupied tables.
+	 */
 	public ArrayList<Table> getOccupiedTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
 		//loop thru all tables to get available ones
@@ -50,6 +83,11 @@ public class TableManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Finds the tables that have Status.RESERVED and add
+	 * them into a Table ArrayList to be returned.
+	 * @return toReturnList the Table ArrayList of reserved tables.
+	 */
 	public ArrayList<Table> getReservedTables() {
 		ArrayList<Table> toReturnList = new ArrayList<Table>();
 		//loop thru all tables to get available ones
@@ -62,6 +100,13 @@ public class TableManager {
 		// TODO - implement TableManager.getReservedTables
 		//throw new UnsupportedOperationException();
 	}
+
+	/**
+	 * Gets the user input for the number of seats required
+	 * when they come to the restaurant.
+	 * @return minSeats the minimum number of seats to fulfil
+	 * 					the number of pax.
+	 */
 	public int getUserInput(){
 		System.out.println("How many seats required?");
 		Scanner sc = new Scanner(System.in);
@@ -72,9 +117,12 @@ public class TableManager {
 		}
 		return minSeats;
 	}
+
 	/**
-	 * 
-	 * @param minSeats
+	 * Find an available Table that matches the minimum number of seats
+	 * required by a customer.
+	 * @param minSeats the minimum number of seats required
+	 * @return the tableID of the table found.
 	 */
 	public int findSuitableTableFromAvailable(int minSeats) {
 		ArrayList<Table> availableTables = getAvailableTables();
@@ -100,6 +148,12 @@ public class TableManager {
 		return availableTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
+	/**
+	 * Find a reserved Table that matches the minimum 
+	 * number of seats stated.
+	 * @param minSeats the minimum number of seats
+	 * @return the tableID of the table found.
+	 */
 	public int findSuitableTableFromReserved(int minSeats) {
 		ArrayList<Table> reservedTables = getReservedTables();
 		int chosenTableNo = -1; //set this to be updated, and returned
@@ -124,6 +178,12 @@ public class TableManager {
 		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
+	/**
+	 * Find an occupied Table that matches the minimum 
+	 * number of seats stated.
+	 * @param minSeats the minimum number of seats
+	 * @return the tableID of the table found.
+	 */
 	public int findSuitableTableFromOccupied(int minSeats) {
 		ArrayList<Table> occupiedTables = getOccupiedTables();
 		int chosenTableNo = -1; //set this to be updated, and returned
@@ -149,8 +209,8 @@ public class TableManager {
 	}
 
 	/**
-	 * 
-	 * @param tableID
+	 * Set the Table's status to available
+	 * @param tableID the ID of the table to be changed to available
 	 */
 	public void setTableToAvailable(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.AVAILABLE);
@@ -160,8 +220,8 @@ public class TableManager {
 	}
 
 	/**
-	 * 
-	 * @param tableID
+	 * Set the Table's status to occupied
+	 * @param tableID the ID of the table to be changed to occupied
 	 */
 	public void setTableToOccupied(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.OCCUPIED);
@@ -171,14 +231,18 @@ public class TableManager {
 	}
 
 	/**
-	 * 
-	 * @param tableID
+	 * Set the Table's status to reserved
+	 * @param tableID the ID of the table to be changed to reserved
 	 */
 	public void setTableToReserved(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.RESERVED);
 		System.out.println("Table "+ tableID + " set to Reserved");
 	}
-	
+
+	/**
+	 * Prints the Tables in the tableList
+	 * @param tableList the tableList to be printed
+	 */
 	public void printTables(ArrayList<Table> tableList){
 		if (tableList.isEmpty()){
 			System.out.println("No Tables found\n");
