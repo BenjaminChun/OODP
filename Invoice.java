@@ -13,7 +13,7 @@ public class Invoice {
 		this.bill = 0;
 		getFinalPrice();
 		System.out.println(this.bill);
-		RestaurantApp.globalInvoiceManager.addToInvoiceList(this);
+		//RestaurantApp.globalInvoiceManager.addToInvoiceList(this);
 	}
 
 	public OrderDetails getOrderDetails() {
