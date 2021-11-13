@@ -60,14 +60,21 @@ public class InvoiceManager {
 		}
 		Scanner sc = new Scanner(System.in);
 		//NOTE THAT orderId corresponds to position in invoiceList
-		int index = sc.nextInt();
-		sc.nextLine();
-		//assign invoice as currentInvoice
-		currentInvoice = invoiceList.get(index-1);
-		//print invoice here
-		currentInvoice.printInvoice();
-		// TODO - implement InvoiceManager.chooseInvoice
-		//throw new UnsupportedOperationException();
+		try {
+			//assign invoice as currentInvoice
+			int index = sc.nextInt();
+			sc.nextLine();
+			if (index <= 0 || index > this.invoiceList.size()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.invoiceList.size());
+			}
+			currentInvoice = invoiceList.get(index-1);
+			//print invoice here
+			currentInvoice.printInvoice();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	public ArrayList<Invoice> getInvoiceList() {
