@@ -15,10 +15,10 @@ public class ReservationManager {
 
 	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
-		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
-		reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
-		reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
-		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
+		// reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
+		// reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
+		// reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
+		// reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class ReservationManager {
 
 		Reservation reservation = new Reservation(contactNumber, date + " " + time, pax, name);
 		reservationList.add(reservation);
-		System.out.println("Reservation successfully created.");
+		System.out.println("Reservation created successfully.");
 	}
 
 		/**
@@ -111,7 +111,7 @@ public class ReservationManager {
 	public void checkReservation(){
 		//TODO - implement ReservationManager.checkReservation
 		Scanner sc = new Scanner(System.in);
-		System.out.print("\t Please enter contact number to check reservation: ");		
+		System.out.print("Please enter contact number to check reservation: ");		
 		int contactNumber = sc.nextInt();
 
 		Reservation reservationFound=checkExist(contactNumber);
@@ -149,7 +149,7 @@ public class ReservationManager {
 	 */
 	public void removeReservation() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("\t Please enter contact number to remove reservation: ");
+		System.out.print("Please enter contact number to remove reservation: ");
 		int contactNumber = sc.nextInt();
 
 		Reservation reservationFound=checkExist(contactNumber);
@@ -157,10 +157,12 @@ public class ReservationManager {
 			System.out.println("No such reservation found!");
 		}
 		else{
+			System.out.println("Changing reserved table to available...");
 			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(reservationFound.getNumPax());
 			RestaurantApp.globalTableManager.setTableToAvailable(tableID);
 			reservationList.remove(reservationFound);	
 		}
+		System.out.println("Reservation removed successfully.");
 		//throw new UnsupportedOperationException();
 	}
 
@@ -175,6 +177,7 @@ public class ReservationManager {
 			currentReservation = reservationList.get(currentIndex);
 			expired = currentReservation.getIsExpired();
 			if (expired == true){
+				System.out.println("Changing reserved table to available...");
 				int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(currentReservation.getNumPax());
 				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
 				reservationList.remove(currentIndex);
@@ -182,7 +185,7 @@ public class ReservationManager {
 			}
 			currentIndex++;
 		}
-		System.out.println("Expired reservations have been removed.");
+		System.out.println("Expired reservation(s) have been removed.");
 		//throw new UnsupportedOperationException();
 	}
 
