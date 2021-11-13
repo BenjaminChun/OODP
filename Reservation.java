@@ -34,8 +34,8 @@ public class Reservation {
 		//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");  
 	    Date curDateTime = new Date(); 
 	    //curDateTime = formatter.format(curDateTime);
-	    long minDiff = getDateDiff(this.expiryDateTime, curDateTime, TimeUnit.MINUTES);
-	    if (minDiff > 0) {
+	    long minutesDiff = getTimeDiff(this.dateAndArrivalTime, curDateTime, TimeUnit.MINUTES);
+	    if (minutesDiff > 15) {
 	    	this.isExpired = true;
 	    }
 	    
@@ -46,7 +46,7 @@ public class Reservation {
 		return this.isExpired;
 	}
 	
-	public long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+	public long getTimeDiff(Date date1, Date date2, TimeUnit timeUnit) {
 	    long diffInMillies = date2.getTime() - date1.getTime();
 	    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 	}
