@@ -96,7 +96,7 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + availableTables.get(chosenTableNo).getId() + " found " + "with " + availableTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		System.out.println("Table " + availableTables.get(chosenTableNo).getId() + " found " + "with " + availableTables.get(chosenTableNo).getSeatingCapacity() + " seats");
 		return availableTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
@@ -120,7 +120,7 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats");
 		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
@@ -144,7 +144,7 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + occupiedTables.get(chosenTableNo).getId() + " found " + "with " + occupiedTables.get(chosenTableNo).getSeatingCapacity() + " seats\n");
+		System.out.println("Table " + occupiedTables.get(chosenTableNo).getId() + " found " + "with " + occupiedTables.get(chosenTableNo).getSeatingCapacity() + " seats");
 		return occupiedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
 	}
 
