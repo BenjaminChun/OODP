@@ -18,6 +18,7 @@ public class OrderDetails {
 		this.time = LocalTime.now(); // stores the time of the object creation, can also specify the fields manually
 		this.order = order;
 		Invoice invoice = new Invoice(this);
+		RestaurantApp.globalInvoiceManager.addToInvoiceList(invoice);
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What table is this order for? (1 - 10)");
 		this.tableID = sc.nextInt(); //maybe need to minus 1, not sure what this tableId is for
