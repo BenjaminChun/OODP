@@ -23,6 +23,7 @@ public class PromoSetPack extends MenuItem {
 		System.out.println("What would you like to update?");
 		System.out.println("1. Description 2. name 3. price 4. add items to Package 5. delete items from package");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		switch(choice){
 			case 1:
 			System.out.println("What is the new description?");
@@ -47,6 +48,7 @@ public class PromoSetPack extends MenuItem {
 			this.print();
 			System.out.println("Which item would you like to delete?");
 			int promoIndex = sc.nextInt();
+			sc.nextLine();
 			this.promo.remove(promoIndex - 1); //delete the index - 1 promoItem from promoPackage
 			break;
 		}
@@ -56,21 +58,23 @@ public class PromoSetPack extends MenuItem {
 
 	public void print(){
 		int ListLength = this.promo.size();
-		System.out.println(this.Type);
-		System.out.println(this.name);
-		System.out.println(this.description);
-		System.out.println("$"+this.price);
+		System.out.println("Type: "+this.Type);
+		System.out.println("Name: "+this.name);
+		System.out.println("Description: "+this.description);
+		System.out.println("$"+this.price+"0");
 		System.out.println("Featured dishes:");
 		for (int i =0; i<ListLength; i++){
-			System.out.print((i+1) + ". ");
+			System.out.print("\t"+(i+1) + ". ");
 			System.out.println(this.promo.get(i).getName()); //print name of ala-carte item in promo array
 		}
+		System.out.println();
 	}
 	public void addPromoItem(){
 		Scanner sc = new Scanner(System.in);
 		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
 		System.out.println("Which item would you like to add?");
 		int menuIndex = sc.nextInt();
+		sc.nextLine();
 		this.promo.add(RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
 	}
 	/**
@@ -92,6 +96,7 @@ public class PromoSetPack extends MenuItem {
 			System.out.println("What would you like to do?");
 			System.out.println("1. add items 2. quit");
 			createChoice = sc.nextInt();
+			sc.nextLine();
 			if (createChoice == 1){
 				this.addPromoItem();
 			}
