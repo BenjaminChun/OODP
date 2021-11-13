@@ -29,6 +29,7 @@ public class Order {
 			System.out.println("What would you like to do?");
 			System.out.println("1. add order items 2. quit");
 			createChoice = sc.nextInt();
+			sc.nextLine();
 			if (createChoice == 1){
 				this.addToOrder(); 
 			}
