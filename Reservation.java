@@ -3,6 +3,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/** 
+ * Represents a reservation object  
+ */
+
 public class Reservation {
 
 	private Date dateAndArrivalTime;
