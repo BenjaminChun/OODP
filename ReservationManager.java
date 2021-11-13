@@ -89,15 +89,19 @@ public class ReservationManager {
 		System.out.print("\t Please enter time (HH:mm): ");
 		String time = sc.nextLine();
 		
-		int minSeats = RestaurantApp.globalTableManager.getUserInput();
-		RestaurantApp.globalTableManager.findSuitableTableFromAvailable(minSeats);
-		System.out.print("\t Please enter number of pax: ");
-		int pax = sc.nextInt();
-
+		int pax = RestaurantApp.globalTableManager.getUserInput();
+		int tableID = RestaurantApp.globalTableManager.findSuitableTableFromAvailable(pax);
+		if (tableID == -1){
+			System.out.println("Sorry, there are no more tables available for " + pax + "pax.");
+			return;
+		}
+		else {
+			RestaurantApp.globalTableManager.setTableToReserved(tableID);
+		}
 
 		Reservation reservation = new Reservation(contactNumber, date + " " + time, pax, name);
 		reservationList.add(reservation);
-
+		System.out.println("Reservation successfully created.");
 	}
 
 		/**
