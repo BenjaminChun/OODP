@@ -33,6 +33,7 @@ public class MenuItem {
 		System.out.println("What kind of menu item would you like to create?");
 		System.out.println("1. Ala Carte 2. Promo Set Package");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		if (choice ==1){
 			AlaCarte temp = new AlaCarte();
 			temp.createAlacarte();
