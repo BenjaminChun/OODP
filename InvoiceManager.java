@@ -63,6 +63,7 @@ public class InvoiceManager {
 		Scanner sc = new Scanner(System.in);
 		//NOTE THAT orderId corresponds to position in invoiceList
 		int index = sc.nextInt();
+		sc.nextLine();
 		//assign invoice as currentInvoice
 		currentInvoice = invoiceList.get(index-1);
 		System.out.print("This is the bill for invoice");

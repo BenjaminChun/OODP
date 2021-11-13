@@ -16,9 +16,9 @@ public class OrderManager {
 		this.printOrderList();
 		System.out.println("Which order would you like to cancel?");
 		int orderIndex = sc.nextInt();
+		sc.nextLine();
 		this.orderList.remove(orderIndex - 1); //remove the index - 1 order from orderList
 		System.out.println("Order #" + orderIndex +" cancelled");
-		sc.close();
 		//throw new UnsupportedOperationException();
 	}
 
@@ -41,11 +41,11 @@ public class OrderManager {
 		this.printOrderList();
 		System.out.println("Which order would you like to change?");
 		int changeChoice = sc.nextInt();
+		sc.nextLine();
 		Order temp = this.orderList.get(changeChoice-1);
 		temp.updateOrder();
 		System.out.println("Order ipdated. printing updated order...");
 		temp.printOrder();
-		sc.close();
 		// TODO - implement OrderManager.changeOrder
 		//throw new UnsupportedOperationException();
 	}
