@@ -7,7 +7,7 @@ public class InvoiceManager {
 	private Invoice currentInvoice;
 	
 	public InvoiceManager() {
-		ArrayList<Invoice> invoiceList = new ArrayList<Invoice>();
+		this.invoiceList = new ArrayList<Invoice>();
 		currentInvoice = null;
 	}
 	
@@ -76,8 +76,9 @@ public class InvoiceManager {
 		return this.invoiceList;
 	}
 	//need a way to add to invoicelist
-	public void addToInvoiceList(Invoice newInvoice) {
-		invoiceList.add(newInvoice);
+	public void createInvoice(OrderDetails od) {
+		Invoice temp = new Invoice(od);
+		invoiceList.add(temp);
 	}
 
 	public void printInvoiceList(){
