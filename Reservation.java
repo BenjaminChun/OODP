@@ -4,11 +4,16 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /** 
- * Represents a reservation object  
+ * Represents a Reservation object that customers can make.
+ * Contains the essential details of a reservation.
+ * @author Beh Ming Jun
+ * @version 10
+ * @since 2021-11-13
  */
 
 public class Reservation {
 
+	
 	private Date dateAndArrivalTime;
 	private int numPax;
 	private String name;
@@ -17,12 +22,13 @@ public class Reservation {
 	private Date expiryDateTime;
 
 	/**
-	 * 
-	 * @param contact
-	 * @param date
-	 * @param arrivalTime
-	 * @param numPax
-	 * @param name
+	 * Creates a new Reservation with the given contact
+	 * date and arrival time, number of pax and name of 
+	 * person who made the reservation.
+	 * @param contact This Reservation's contact number (person who booked the Reservation)
+	 * @param dateAndArrivalTime This Reservation's date and booking time
+	 * @param numPax This Reservation's number of pax
+	 * @param name This Reservation's name (person who booked the Reservation)
 	 */
 	public Reservation(int contact, String dateAndArrivalTime, int numPax, String name) {
 		// TODO - implement Reservations.Reservations

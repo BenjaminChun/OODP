@@ -5,9 +5,7 @@ public class ReservationManager {
 
 	private ArrayList<Reservation> reservationList;
 
-	public ReservationManager() {
-		// TODO - implement ReservationManager.ReservationManager
-		//throw new UnsupportedOperationException();
+	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
 		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
 		reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
@@ -38,61 +36,31 @@ public class ReservationManager {
 
 					System.out.print("\t Please enter contact number: ");
 					contactNumber = sc.nextInt();
-					//String errorPrompt = "\t Please enter a valid contact number eg. 90578213";
-					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
 					
-					//System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
 					System.out.print("\t Please enter date (dd-MM-yyyy): ");
 					sc.nextLine();
 					String date = sc.nextLine();
 
 					System.out.print("\t Please enter time (HH:mm): ");
 					String time = sc.nextLine();
-					/*while(!DateHandling.isThisDateValid(dateTime)) {
-						System.out.print("\t Please enter a valid date in the format (dd/MM/yyyy): ");
-						dateTime = sc.nextLine();
-					}*/
-					/*while(!DateHandling.withinOneMonth(dateTime)) {
-						System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
-						dateTime = sc.nextLine();
-						while(!DateHandling.isThisDateValid(dateTime)) {
-							System.out.print("\t Please enter a valid date in the format (dd/MM/yyyy): ");
-							dateTime = sc.nextLine();
-						}
-					}*/
 					
-					/*System.out.print("\t Please enter a time(HH:mm) between AM Session(11:00 to 15:00) or PM Session(18:00 to 22:00): ");
-					
-					String time = sc.nextLine();
-					time = dateTime + " " + time;
-					
-					while(!DateHandling.isThisTimeValid(time)) {
-						System.out.print("\t Please enter a time(HH:mm) between AM Session(11:00 to 15:00) or PM Session(18:00 to 22:00): ");
-						time = sc.nextLine();
-						time = dateTime + " " + time;
-					}
-					dateTime=time;*/
 
 					System.out.print("\t Please enter number of pax: ");
 					int pax = sc.nextInt();
-					//String inPrompt = "\t Please enter Number of pax: ";
-					//int pax = UserInput.getIntFromRange(1, 10, inPrompt, null);
 					
 					this.createReservation(contactNumber, date + " " + time, pax, name);
 					break;
 					
 				case 2:
 					System.out.print("\t Please enter contact number to check reservation: ");
-					//inputPrompt = "\t Please enter contact number to check reservation: ";
-					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
+					
 					contactNumber = sc.nextInt();
 					this.checkReservation(contactNumber);
 					break;
 					
 				case 3:
 					System.out.print("\t Please enter contact number to remove reservation: ");
-					//inputPrompt = "\t Please enter contact number to check reservation: ";
-					//errorPrompt = "\t Please enter a valid contact number e.g.88767378";
+					
 					contactNumber = sc.nextInt();
 					this.removeReservation(contactNumber);
 					break;
@@ -109,24 +77,23 @@ public class ReservationManager {
 	}
 
 	/**
-	 * 
-	 * @param contact
-	 * @param date
-	 * @param arrivalTime
-	 * @param numPax
-	 * @param name
+	 * Creating a Reservation
+	 * @param contact Contact number of person creating reservation.
+	 * @param date Date of reservation.
+	 * @param arrivalTime Arrival Time of Reservation.
+	 * @param numPax Number of pax of people doing the reservation.
+	 * @param name Name of person booking the reservation.
 	 */
 	public void createReservation(int contact, String dateAndArrivalTime, int numPax, String name) {
-		// TODO - implement ReservationManager.createReservation
+		
 		Reservation reservation = new Reservation(contact, dateAndArrivalTime, numPax, name);
 		reservationList.add(reservation);
 
-		//throw new UnsupportedOperationException(); 
 	}
 
 		/**
-	 * 
-	 * @param contact
+	 * Checking reservation using contact number of person who booked it.
+	 * @param contact Contact number of person whose reservation is booked under. 
 	 */
 	public void checkReservation(int contactNumber){
 		//TODO - implement ReservationManager.checkReservation
@@ -140,8 +107,13 @@ public class ReservationManager {
 		}
 	}
 
+	
+	/** Method to check if the reservation exists 
+	 * @param contactNumber Contact number to be checked with reservationList.
+	 * @return Reservation
+	 */
 	public Reservation checkExist(int contactNumber){
-		// TODO - implement ReservationManager.checkExist
+
 		Reservation contactFound = null;
 		boolean contactMatch;
 		for(Reservation res : reservationList){
@@ -154,8 +126,12 @@ public class ReservationManager {
 		return contactFound;
 	}
 
+	
+	/** Removing a reservation from reservationList
+	 * @param contactNumber Contact number to be checked with reservationList
+	 */
 	public void removeReservation(int contactNumber) {
-		// TODO - implement ReservationManager.removeReservation
+
 		Reservation reservationFound=checkExist(contactNumber);
 		if(reservationFound==null){
 			System.out.println("No such reservation found!");
@@ -167,7 +143,7 @@ public class ReservationManager {
 	}
 
 	public void checkAndRemoveExpired() {
-		// TODO - implement ReservationManager.checkAndRemoveExpired
+
 		int reservationListSize = reservationList.size();
 		boolean expired = false;	
 		int currentIndex = 0;	
@@ -183,7 +159,7 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 	}
 
-	/**
+	/**Getting Reservation
 	 * 
 	 * @param contact
 	 */
@@ -197,7 +173,6 @@ public class ReservationManager {
 		System.out.println("Reservation not found");
 		return null;
 
-		// KIV whether need this or not
 		//throw new UnsupportedOperationException();
 	}
 
