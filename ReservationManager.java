@@ -6,7 +6,7 @@ public class ReservationManager {
 	private ArrayList<Reservation> reservationList;
 
 	public ReservationManager() {
-		// TODO - implement ReservationManager.ReservationManager wqwerqr
+		// TODO - implement ReservationManager.ReservationManager
 		//throw new UnsupportedOperationException();
 		reservationList = new ArrayList<Reservation>();
 		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
