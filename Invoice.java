@@ -115,23 +115,23 @@ public class Invoice {
 	}
 
 	public void printInvoice(){
-		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() + this.orderDetails.getTime();
+		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() +" "+ this.orderDetails.getTime();
 		System.out.println(result); //print heading
 		System.out.println("Menu Item Name : Quantity * Price");
 		System.out.println("=====================================");
 		for (int i = 0; i<this.getOrderDetails().getOrder().getOrderItemList().size(); i++) {
-			result = this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() + " : "+ this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" + this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice();
-			System.out.println(result);
+			result = this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() + " : "+ this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" ;
+			System.out.print(result);
+			System.out.printf("%.2f",this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice());
+			System.out.println();
 		}
 		System.out.println();
-		System.out.println("Subtotal : " + this.calculateBaseTotal());
-		System.out.println("Member Discount : " + this.customer.getDiscount()*calculateBaseTotal());
-		System.out.println("Taxes (GST+ServiceCharge) : " + this.getPriceAfterDiscount(this.calculateBaseTotal())*(ServiceCharge + GST));
+		System.out.printf("Subtotal : $%.2f\n", this.calculateBaseTotal());
+		System.out.printf("Member Discount : $%.2f\n", this.customer.getDiscount()*calculateBaseTotal());
+		System.out.printf("Taxes (GST+ServiceCharge) : $%.2f\n", this.getPriceAfterDiscount(this.calculateBaseTotal())*(ServiceCharge + GST));
 		this.getFinalPrice();
-		result = "Total = " + this.bill;
-		System.out.println(result); //print heading
+		System.out.printf("Total : $%.2f\n", this.bill); //print total
 		System.out.println("=====================================");
-
 		RestaurantApp.globalTableManager.setTableToAvailable(this.getOrderDetails().getTableID());
 		System.out.println("");
 	}

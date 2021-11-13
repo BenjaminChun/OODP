@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class OrderDetails {
 
@@ -15,16 +17,35 @@ public class OrderDetails {
 	 * @param order
 	 */
 	public OrderDetails(Order order) {
-		this.date = LocalDate.now(); //stores the date of the object creation
-		this.time = LocalTime.now(); // stores the time of the object creation, can also specify the fields manually
+		Scanner sc = new Scanner(System.in);
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d/MM/yyyy"); 
+		System.out.println("Date of order: (d/MM/yyyy)\n");
+		String tempDate = sc.nextLine();
+  		//convert String to LocalDate
+		try {
+			this.date = LocalDate.parse(tempDate, dateFormatter);
+		} catch (DateTimeParseException e) {
+			System.out.println("Please follow the correct format for inputting of date!");
+			System.out.println("program exiting...");
+			System.exit(0);
+		}
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+		System.out.println("Time of order: HH:mm\n");
+		String tempTime = sc.nextLine();
+		try {
+			this.time = LocalTime.parse(tempTime, timeFormatter);
+		} catch (DateTimeParseException e) {
+			System.out.println("Please follow the correct format for inputting of time!");
+			System.out.println("program exiting...");
+			System.exit(0);
+		}
 		this.order = order;
 		RestaurantApp.globalInvoiceManager.createInvoice(this);
-		Scanner sc = new Scanner(System.in);
 		ArrayList<Table> availTables = RestaurantApp.globalTableManager.getAvailableTables(); //get a list of available table
 		RestaurantApp.globalTableManager.printTables(availTables);
 		System.out.println("What table ID is this order for?");
 		try {
-			int id = sc.nextInt(); //maybe need to minus 1, not sure what this tableId is for
+			int id = sc.nextInt();
 			sc.nextLine();
 			boolean tableFound = false;
 			for (int i = 0; i < availTables.size(); i++){
@@ -103,7 +124,7 @@ public class OrderDetails {
 	public void printOrderDetails() {
 		System.out.println("Date of Order: "+this.date);
 		System.out.println("Time of Order: "+this.time);
-		System.out.println("Order for Table Number: "+this.tableID);//depending on how we store tableID, this may need to +1
+		System.out.println("Order for Table Number: "+this.tableID);
 		System.out.println("Order details: ");
 		this.order.printOrder();
 	}

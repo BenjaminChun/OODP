@@ -167,4 +167,12 @@ public class Reservation {
 	public int getContact() {
 		return this.contact;
 	}
+
+	/**
+	 * Get the number of pax of the Reservation.
+	 * @return the number of pax.
+	 */
+	public int getNumPax(){
+		return this.numPax;
+	}
 }
