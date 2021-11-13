@@ -86,9 +86,9 @@ public class Reservation {
 	public int getContact() {
 		return this.contact;
 	}
-	public boolean checkContact(int contact){
+	public boolean checkContact(int contactNumber){
 		boolean contactMatch=false;
-		if(this.contact==contact){
+		if(this.contact==contactNumber){
 			contactMatch=true;
 		}
 		return contactMatch;

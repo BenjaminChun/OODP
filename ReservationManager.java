@@ -130,13 +130,13 @@ public class ReservationManager {
 	 */
 	public void checkReservation(int contactNumber){
 		//TODO - implement ReservationManager.checkReservation
-		Reservation contactFound=checkExist(contactNumber);
+		Reservation reservationFound=checkExist(contactNumber);
 		System.out.print("\n");
-		if(contactFound==null){
+		if(reservationFound==null){
 			System.out.println("No such reservation found!");
 		}
 		else{
-			contactFound.printReservation();	
+			reservationFound.printReservation();	
 		}
 	}
 
