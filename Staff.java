@@ -1,10 +1,39 @@
+/**
+ * Represents the Staff working at the restaurant.
+ * @author Benjamin Chun Wei Jie
+ * @version 13
+ * @since 2021-11-13
+ */
 public class Staff {
 
+	/**
+	 * The name of the Staff.
+	 */
 	private String name;
+
+	/**
+	 * The gender of the Staff.
+	 */
 	private char gender;
+
+	/**
+	 * The ID of the staff.
+	 */
 	private int staffID;
+
+	/**
+	 * The job title of the Staff.
+	 */
 	private jobTitle job;
 
+	/**
+	 * Creates Staff with name, gender, jobPosition and staffID inputs.
+	 * jobPosition must match the jobs in jobTitles class.
+	 * @param name this Staff's name.
+	 * @param gender this Staff's gender.
+	 * @param jobPosition this Staff's job.
+	 * @param staffID this Staff's ID.
+	 */
 	public Staff(String name, char gender, String jobPosition, int staffID ){
 		this.name=name;
 		this.gender=gender;

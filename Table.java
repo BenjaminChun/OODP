@@ -28,9 +28,9 @@ public class Table {
 	 * Creates a Table object.
 	 * The table can only have 2/4/6/8/10 seats.
 	 * Table status can only be chosen from the Status class.
-	 * @param tableID ID of the Table
-	 * @param seatingCapacity seatingCapacity of the Table
-	 * @param status status of the Table
+	 * @param tableID this Table's ID
+	 * @param seatingCapacity this Table's seating capacity.
+	 * @param status this Table's status.
 	 */
 	public Table(int tableID, int seatingCapacity, Status status) {
 		this.tableID = tableID;
