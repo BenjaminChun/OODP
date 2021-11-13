@@ -143,7 +143,7 @@ public class ReservationManager {
 	}
 
 	public void checkAndRemoveExpired() {
-		
+
 		int reservationListSize = reservationList.size();
 		boolean expired = false;	
 		int currentIndex = 0;	
@@ -159,7 +159,7 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 	}
 
-	/**
+	/**Getting Reservation
 	 * 
 	 * @param contact
 	 */
