@@ -1,18 +1,34 @@
+/**
+ * Represents the Invoice of a customer.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class Invoice {
-
+	/**
+	 * The order details of this invoice.
+	 */
 	private OrderDetails orderDetails;
+	/**
+	 * The customer who requested this invoice.
+	 */
 	private Customer customer;
+	/**
+	 * The bill of this invoice.
+	 */
 	private double bill;
+	/**
+	 * The GST of this invoice.
+	 */
 	public static double GST = 0.08;
+	/**
+	 * The service charge of this invoice.
+	 */
 	public static double ServiceCharge = 0.1;
 
 	/**
-	 * Invoice Constructor to instantiate an instance of Invoice
-	 * 
-	 * Takes in parameter orderDetails of Class OrderDetails
-	 * instantiate attributes to default values to be updated later on
-	 * 
-	 * @param orderDetails instance of orderDetails that corresponds to the instance of invoice being constructed
+	 * Creates a new Invoice with given order details.
+	 * @param orderDetails this Invoice's order details
 	 */
 	public Invoice(OrderDetails orderDetails){
 		Customer newCustomer = new Customer();
@@ -23,17 +39,16 @@ public class Invoice {
 	}
 
 	/**
-	 * getOrderDetails is a simple getter function for attribute orderDetails
-	 * 
-	 * @return attribute orderDetails 
+	 * Gets the order details of this Invoice
+	 * @return this Invoice's order details.  
 	 */
 	public OrderDetails getOrderDetails() {
 		return this.orderDetails;
 	}
 
 	/**
-	 * 
-	 * @param orderDetails
+	 * Changes the order details of this Invoice.
+	 * @param orderDetails This Invoice's order details.
 	 */
 	public void setOrderDetails(OrderDetails orderDetails) {
 		this.orderDetails = orderDetails;
@@ -41,27 +56,32 @@ public class Invoice {
 
 	
 	/** 
-	 * @return Customer
+	 * Gets the order details of this Invoice. 
+	 * @return this Invoice's customer.
 	 */
 	public Customer getCustomer() {
 		return this.customer;
 	}
 
 	/**
-	 * 
-	 * @param customer
+	 * Changes the customer of this Invoice.
+	 * @param customer This Invoice's customer.
 	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
+	/**
+	 * 
+	 */
 	public void print(){
 		System.out.println(this.orderDetails.getTableID());
 	}
 
 	
 	/** 
-	 * @return double
+	 * 
+	 * @return 
 	 */
 	private double calculateBaseTotal() {
 		double baseTotal = 0;
@@ -76,7 +96,7 @@ public class Invoice {
 	}
 
 	/**
-	 * 
+	 * Gets the base price of this Invoice.  
 	 * @param basePrice
 	 */
 	private double getPriceAfterDiscount(double basePrice) {
@@ -85,7 +105,7 @@ public class Invoice {
 	}
 
 	/**
-	 * 
+	 * Gets the final price of this Invoice. 
 	 * @param discountedPrice
 	 */
 	public double getFinalPrice() {
