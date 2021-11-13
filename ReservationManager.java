@@ -89,7 +89,8 @@ public class ReservationManager {
 		System.out.print("\t Please enter time (HH:mm): ");
 		String time = sc.nextLine();
 		
-
+		int minSeats = RestaurantApp.globalTableManager.getUserInput();
+		RestaurantApp.globalTableManager.findSuitableTableFromAvailable(minSeats);
 		System.out.print("\t Please enter number of pax: ");
 		int pax = sc.nextInt();
 
