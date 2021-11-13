@@ -1,6 +1,7 @@
 import java.util.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 public class SalesReport {
 
 	private LocalDate startDate;
@@ -20,13 +21,25 @@ public class SalesReport {
 		System.out.println("Start Date of Report: (d/MM/yyyy)\n");
 		String date = sc.nextLine();
   		//convert String to LocalDate
-  		LocalDate startDate = LocalDate.parse(date, formatter);
+		try {
+			LocalDate startDate = LocalDate.parse(date, formatter);
+			this.startDate = startDate;
+		} catch (DateTimeParseException e) {
+			System.out.println("Please follow the correct format for inputting of date!");
+			System.out.println("program exiting...");
+			System.exit(0);
+		}
 		System.out.println("End Date of Report: (d/MM/yyyy)\n");
 		String date1 = sc.nextLine();
-		LocalDate endDate = LocalDate.parse(date1, formatter);
+		try {
+			LocalDate endDate = LocalDate.parse(date1, formatter);
+			this.endDate = endDate;
+		} catch (DateTimeParseException e) {
+			System.out.println("Please follow the correct format for inputting of date!");
+			System.out.println("program exiting...");
+			System.exit(0);
+		}
 		this.invoiceList = RestaurantApp.globalInvoiceManager.getInvoiceList();
-		this.startDate = startDate;
-		this.endDate = endDate;
 		System.out.println(endDate);
 		System.out.println(startDate);
 		System.out.println(this.endDate.isAfter(this.startDate));
