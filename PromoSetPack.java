@@ -61,7 +61,7 @@ public class PromoSetPack extends MenuItem {
 		System.out.println("Type: "+this.Type);
 		System.out.println("Name: "+this.name);
 		System.out.println("Description: "+this.description);
-		System.out.println("$"+this.price+"0");
+		System.out.printf("$%.2f\n", this.price);
 		System.out.println("Featured dishes:");
 		for (int i =0; i<ListLength; i++){
 			System.out.print("\t"+(i+1) + ". ");
