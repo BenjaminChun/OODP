@@ -164,13 +164,19 @@ public class ReservationManager {
 
 	public void checkAndRemoveExpired() {
 		// TODO - implement ReservationManager.checkAndRemoveExpired
+		ArrayList<Reservation> removalList = new ArrayList<Reservation>();
 		boolean expiry = false;
 		for (Reservation currentReservation : reservationList){
 			expiry = currentReservation.getIsExpired();
 			if(expiry==true){
-				reservationList.remove(currentReservation);
+				removalList.add(currentReservation);
 			}
 		}
+
+		for (Reservation expiredReservation : removalList){
+			reservationList.remove(expiredReservation);
+		}
+		
 		//throw new UnsupportedOperationException();
 	}
 
