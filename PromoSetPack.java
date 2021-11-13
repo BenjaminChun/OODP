@@ -71,6 +71,29 @@ public class PromoSetPack extends MenuItem {
 	}
 	public void addPromoItem(){
 		Scanner sc = new Scanner(System.in);
+		try {
+			int i = 0;
+			System.out.println();
+			System.out.println("----------------------------------------------");
+			while (RestaurantApp.globalMenuManager.getMenuItem(i).Type != type.PROMO){
+				System.out.println((i+1)+". ");
+				RestaurantApp.globalMenuManager.getMenuItem(i).print();
+				System.out.println("----------------------------------------------");
+				i++;
+			}
+			//RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
+			System.out.println("Which item would you like to add?");
+			int menuIndex = sc.nextInt();
+			sc.nextLine();
+			if(menuIndex <= 0 || menuIndex >i){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+i);
+			}
+			this.promo.add(RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+			System.out.println("program exiting...");
+			System.exit(0);
+		}
 		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
 		System.out.println("Which item would you like to add?");
 		int menuIndex = sc.nextInt();
