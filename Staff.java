@@ -60,7 +60,7 @@ public class Staff {
 	}
 
 	/**
-	 * Set the name of the Staff.
+	 * Set the name of this Staff.
 	 * @param name Name to be set
 	 */
 	public void setName(String name) {
@@ -68,7 +68,7 @@ public class Staff {
 	}
 
 	/**
-	 * Get the gender of the Staff.
+	 * Get the gender of this Staff.
 	 * @return This Staff's gender.
 	 */
 	public char getGender() {
@@ -76,7 +76,7 @@ public class Staff {
 	}
 
 	/**
-	 * Set the gender of the Staff.
+	 * Set the gender of this Staff.
 	 * @param gender Gender to be set.
 	 */
 	public void setGender(char gender) {
@@ -84,28 +84,32 @@ public class Staff {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Get the staffID of this Staff.
+	 * @return This Staff's staffID.
 	 */
 	public int getStaffID() {
 		return this.staffID;
 	}
 
 	/**
-	 * 
-	 * @param staffID
+	 * Set the staffID of this Staff.
+	 * @param staffID staffID to be set.
 	 */
 	public void setStaffID(int staffID) {
 		this.staffID = staffID;
 	}
 
+	/**
+	 * Get the job of this Staff.
+	 * @return This Staff's job.
+	 */
 	public jobTitle getJobTitle() {
 		return this.job;
 	}
 
 	/**
-	 * 
-	 * @param jobTitle
+	 * Set the job of this Staff.
+	 * @param jobTitle jobTitle to be set.
 	 */
 	public void setJobTitle(String jobPosition) {
 		switch(jobPosition){
@@ -115,6 +119,12 @@ public class Staff {
 			case "CHEF": this.job = jobTitle.CHEF;
 		}
 	}
+
+	/**
+	 * Checks this Staff's ID with an input ID.
+	 * @param ID ID to be compared with.
+	 * @return true if the IDs match.
+	 */
 	public boolean checkID(int ID){
 		boolean idMatch=false;
 		if(this.staffID==ID){
