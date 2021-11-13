@@ -41,6 +41,7 @@ public class Order {
 		System.out.println("What would you like to do?");
 		System.out.println("1. add order item 2. remove order item");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		if (choice == 1) this.addToOrder();
 		else this.deleteFromOrder();
 	}
@@ -56,6 +57,7 @@ public class Order {
 		this.printOrder();
 		System.out.println("Which order item would you like to delete?");
 		int orderItemIndex = sc.nextInt();
+		sc.nextLine();
 		this.orderItemList.remove(orderItemIndex - 1); //delete the index - 1 orderItem from this order
 	}
 
@@ -72,12 +74,14 @@ public class Order {
 		int orderSize = this.orderItemList.size();
 		//System.out.println("Staff EID: " + this.s.getEmployeeID());
 		System.out.println("Staff Name: " + this.s.getName());//should this be a print function of staff?
-
+		System.out.println("----------------------------------------------");
+		System.out.println("   Qty   Name			Price");
 		for(int i = 0; i<orderSize; i++){
 			System.out.print((i+1) + ". ");
 			this.orderItemList.get(i).printOrderItem();
 			System.out.println("----------------------------------------------");
 		}
+		System.out.println();
 	}
 
 	// public void updateOrder() { 
