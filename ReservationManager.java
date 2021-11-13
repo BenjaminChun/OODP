@@ -3,9 +3,9 @@ import java.util.Scanner;
 /**
  * Represents a Reservation Manager in the restaurant.
  * A Reservation Manager can create, check and cancel reservations.
- * @author
- * @version
- * @since 
+ * @author Tan Zheng Kai
+ * @version 11
+ * @since 2021-11-13
  */
 public class ReservationManager {
 	/**
@@ -13,6 +13,9 @@ public class ReservationManager {
 	 */
 	private ArrayList<Reservation> reservationList;
 
+	/**
+	 * Create ReservationManager with a Reservation ArrayList
+	 */
 	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
 		// reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
@@ -23,7 +26,8 @@ public class ReservationManager {
 
 	/**
 	 * Prints a selection of choices for user to pick. 
-	 * User can either create a reservation, check their reservation status or cancel their current reservation.
+	 * User can either create a reservation, check their reservation status 
+	 * or cancel their current reservation.
 	 * Reservation manager can also remove expired reservations present in the list.
 	 */
 
@@ -65,8 +69,11 @@ public class ReservationManager {
 	}
 
 	/**
-	 * Creating a Reservation with a customer's contact number, date of reservation to be made, expected time of arrival and 
-	 * 
+	 * Creating a Reservation with a customer's contact number, 
+	 * date of reservation to be made, expected time of arrival and
+	 * number of pax.
+	 * Checks for available table with right number of seats to be reserved.
+	 * Reservation will fail if a table cannot be found.
 	 * @param contact Contact number of person creating the reservation.
 	 * @param date Date of reservation.
 	 * @param arrivalTime Time to arrive for reservation.
@@ -104,9 +111,8 @@ public class ReservationManager {
 		System.out.println("Reservation created successfully.");
 	}
 
-		/**
+	/**
 	 * Checking reservation using contact number of person who booked it.
-	 * @param contact Contact number of person whose reservation is booked under. 
 	 */
 	public void checkReservation(){
 		//TODO - implement ReservationManager.checkReservation
@@ -144,8 +150,8 @@ public class ReservationManager {
 	}
 
 	
-	/** Removing a reservation from reservationList
-	 * @param contactNumber Contact number to be checked with reservationList
+	/** 
+	 * Removing a reservation from reservationList with an input contactNumber
 	 */
 	public void removeReservation() {
 		Scanner sc = new Scanner(System.in);
@@ -166,6 +172,9 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Checks and remove expired Reservations
+	 */
 	public void checkAndRemoveExpired() {
 
 		int reservationListSize = reservationList.size();
@@ -189,9 +198,9 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 	}
 
-	/**Getting Reservation
-	 * 
-	 * @param contact
+	/**
+	 * Getting Reservation object
+	 * @param contact the reservation made by this contact number.
 	 */
 	public Reservation getReservation(int contact) {
 		// TODO - implement ReservationManager.getReservation
@@ -206,6 +215,9 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Prints the reservationList.
+	 */
 	public void printReservationList(){
 		System.out.println("Reservation List");
 		for (Reservation reservation : reservationList){
