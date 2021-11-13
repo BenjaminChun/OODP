@@ -20,9 +20,9 @@ public class SaleItem {
 
 	/**
 	 * 
-	 * @param menuItem
+	 * @param orderItem
 	 */
-	public void setMenuItem(MenuItem menuItem) {
+	public void setOrderItem(OrderItem orderItem) {
 		this.orderItem = orderItem;
 	}
 
