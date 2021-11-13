@@ -38,11 +38,20 @@ public class MenuManager {
 	 */
 	public void removeItem() {
 		Scanner sc = new Scanner(System.in);
-		this.printMenu();
-		System.out.println("Which item would you like to delete?");
-		int menuIndex = sc.nextInt();
-		sc.nextLine();
-		this.menuList.remove(menuIndex - 1); //delete the index - 1 menuItem from menu
+		try {
+			this.printMenu();
+			System.out.println("Which item would you like to delete?");
+			int menuIndex = sc.nextInt();
+			sc.nextLine();
+			if (menuIndex <= 0 || menuIndex > this.getSizeOfMenu()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.getSizeOfMenu());
+			}
+			this.menuList.remove(menuIndex - 1); //delete the index - 1 menuItem from menu
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	/**
@@ -52,11 +61,20 @@ public class MenuManager {
 	public void updateItem() {
 		Scanner sc = new Scanner(System.in);
 		this.printMenu();
-		System.out.println("Which item would you like to update");
-		int updateChoice = sc.nextInt();
-		sc.nextLine();
-		MenuItem temp = this.menuList.get(updateChoice-1);
-		temp.update(); //call the correct update method in respective subclasses, not sure if you need to re insert into arraylist. 
+		try {
+			System.out.println("Which item would you like to update");
+			int updateChoice = sc.nextInt();
+			sc.nextLine();
+			if (updateChoice <= 0 || updateChoice > this.getSizeOfMenu()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+this.getSizeOfMenu());
+			}
+			MenuItem temp = this.menuList.get(updateChoice-1);
+			temp.update(); //call the correct update method in respective subclasses, not sure if you need to re insert into arraylist.
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		} 
 	}
 
 	public void printMenu() {
