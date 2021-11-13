@@ -42,15 +42,24 @@ public class OrderItem {
 	public void createOrderItem() {
 		Scanner sc = new Scanner(System.in);
 		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
-		System.out.println("Which item would you like to order?");
-		int menuIndex = sc.nextInt();
-		sc.nextLine();
-		this.menuItem = RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1);
-		System.out.println("How many of this are you ordering?");
-		this.quantity = sc.nextInt();
-		sc.nextLine();
-		System.out.println("Order item added. printing details...");
-		this.printOrderItem();
+		try {
+			System.out.println("Which item would you like to order?");
+			int menuIndex = sc.nextInt();
+			sc.nextLine();
+			if (menuIndex <= 0 || menuIndex > RestaurantApp.globalMenuManager.getSizeOfMenu()){
+				throw new ArrayIndexOutOfBoundsException("Please input a valid index from 1 to "+RestaurantApp.globalMenuManager.getSizeOfMenu());
+			}
+			this.menuItem = RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1);
+			System.out.println("How many of this are you ordering?");
+			this.quantity = sc.nextInt();
+			sc.nextLine();
+			System.out.println("Order item added. printing details...");
+			this.printOrderItem();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e.getMessage()); 
+			System.out.println("program exiting ...");
+			System.exit(0);
+		}
 	}
 
 	public double calculatePrice() {
