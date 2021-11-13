@@ -10,9 +10,9 @@ public class ReservationManager {
 		//throw new UnsupportedOperationException();
 		reservationList = new ArrayList<Reservation>();
 		reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
-		reservationList.add(new Reservation(91550027, "19-03-2021 18:15", 4, "Tan Han Kang"));
-		reservationList.add(new Reservation(91550026, "03-01-2021 18:15", 4, "Chun Wei Jie"));
-		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 4, "Tan Zheng Kai"));
+		reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
+		reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
+		reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
 	}
 
 	public void printInterface(){
@@ -42,9 +42,12 @@ public class ReservationManager {
 					//int contNo=UserInput.getPhoneNumber(inputPrompt, errorPrompt);
 					
 					//System.out.print("\t Please enter date(dd/MM/yyyy) between "+DateHandling.DateNoTimetoString(DateHandling.getCurrentDate())+" and "+DateHandling.DateNoTimetoString(DateHandling.getMonthLaterDate())+": ");
-					System.out.print("\t Please enter date and time(dd-MM-yyyy HH:mm): ");
+					System.out.print("\t Please enter date (dd-MM-yyyy): ");
 					sc.nextLine();
-					String dateTime = sc.nextLine();
+					String date = sc.nextLine();
+
+					System.out.print("\t Please enter time (HH:mm): ");
+					String time = sc.nextLine();
 					/*while(!DateHandling.isThisDateValid(dateTime)) {
 						System.out.print("\t Please enter a valid date in the format (dd/MM/yyyy): ");
 						dateTime = sc.nextLine();
@@ -75,7 +78,7 @@ public class ReservationManager {
 					//String inPrompt = "\t Please enter Number of pax: ";
 					//int pax = UserInput.getIntFromRange(1, 10, inPrompt, null);
 					
-					this.createReservation(contactNumber, dateTime, pax, name);
+					this.createReservation(contactNumber, date + " " + time, pax, name);
 					break;
 					
 				case 2:
@@ -200,8 +203,8 @@ public class ReservationManager {
 
 	public void printReservationList(){
 		System.out.println("Reservation List");
-		for (Reservation res : reservationList){
-			res.printReservation();
+		for (Reservation reservation : reservationList){
+			reservation.printReservation();
 		}
 	}
 }

@@ -35,8 +35,7 @@ public class Reservation {
 	    Date curDateTime = new Date(); 
 	    //curDateTime = formatter.format(curDateTime);
 	    long minDiff = getDateDiff(this.expiryDateTime, curDateTime, TimeUnit.MINUTES);
-	    
-	    if (minDiff > 15) {
+	    if (minDiff > 0) {
 	    	this.isExpired = true;
 	    }
 	    
@@ -67,8 +66,8 @@ public class Reservation {
 	
 	public Date convertExpiryDateTime(Date DateTime) {
 		long timeInSecs = DateTime.getTime();
-		Date Add10Mins = new Date (timeInSecs + (15*60*1000));
-		return Add10Mins;
+		Date Add15Mins = new Date (timeInSecs + (15*60*1000));
+		return Add15Mins;
 	}
 	
 	public void printReservation() {
