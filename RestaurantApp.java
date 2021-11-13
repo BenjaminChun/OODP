@@ -50,6 +50,7 @@ public class RestaurantApp {
 					"ENTER 0 TO QUIT\n");
 					int menuChoice = 0;
 					menuChoice = sc.nextInt();
+					sc.nextLine();
 					switch (menuChoice) {
 						case 1:
 							globalMenuManager.printMenu();
@@ -106,9 +107,10 @@ public class RestaurantApp {
 						"ENTER 0 TO QUIT\n");
 						
 						orderChoice = sc.nextInt();
+						sc.nextLine();
 						switch (orderChoice) {
 							case 1:
-								//globalOrderManager.createOrder(s);
+								globalOrderManager.createOrder();
 								break;
 							case 2:
 								globalOrderManager.cancelOrder();
