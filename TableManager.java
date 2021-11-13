@@ -131,19 +131,6 @@ public class TableManager {
 	public void setTableToReserved(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.RESERVED);
 		System.out.println("Table "+ tableID + " set to Reserved");
-		// TODO - implement TableManager.setTableToReserved
-		//throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param reservation
-	 * @param table
-	 */
-	public void allocateTableToReservation(Reservation reservation, Table table) {
-		
-		// TODO - implement TableManager.allocateTableToReservation
-		//throw new UnsupportedOperationException();
 	}
 	
 	public void printTables(ArrayList<Table> tableList){
