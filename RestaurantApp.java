@@ -103,7 +103,8 @@ public class RestaurantApp {
 						"1. Create Order\n" +
 						"2. Cancel Order\n" +
 						"3. Change Order\n" +
-						"4. Print Order List\n\n"+
+						"4. Print Order List\n"+
+						"5. Print Order Invoice\n\n" +
 						"ENTER 0 TO QUIT\n");
 						
 						orderChoice = sc.nextInt();
@@ -120,6 +121,9 @@ public class RestaurantApp {
 								break;
 							case 4:
 								globalOrderManager.printOrderList();
+								break;
+							case 5:
+								globalInvoiceManager.chooseInvoice();
 								break;
 							}
 					} while (orderChoice!=0);
