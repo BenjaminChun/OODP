@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class InvoiceManager {
 	
 	public static double GST = 0.8;
-	private PrintOrderInvoice printOrderInvoice;
 	private ArrayList<Invoice> invoiceList;
 	private Invoice currentInvoice;
 	
 	public InvoiceManager() {
 		ArrayList<Invoice> invoiceList = new ArrayList<Invoice>();
-		PrintOrderInvoice printer = new PrintOrderInvoice();
 		currentInvoice = null;
 	}
 	
@@ -80,6 +78,18 @@ public class InvoiceManager {
 	//need a way to add to invoicelist
 	public void addToInvoiceList(Invoice newInvoice) {
 		invoiceList.add(newInvoice);
+	}
+
+	public void printInvoiceList(){
+		if (this.invoiceList.isEmpty()){
+			System.out.println("Empty Invoice List");
+			return;
+		}
+		else {
+			for (int i = 0; i<invoiceList.size(); i++){
+				System.out.print(i + ". ");
+			}
+		}
 	}
 
 }
