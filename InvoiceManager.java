@@ -70,7 +70,6 @@ public class InvoiceManager {
 			currentInvoice = invoiceList.get(index-1);
 			//print invoice here
 			currentInvoice.printInvoice();
-			RestaurantApp.globalTableManager.setTableToAvailable(currentInvoice.getOrderDetails().getTableID());
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println(e.getMessage()); 
 			System.out.println("program exiting ...");
