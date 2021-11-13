@@ -154,14 +154,14 @@ public class ReservationManager {
 		return contactFound;
 	}
 
-	public void removeReservation(int contact) {
+	public void removeReservation(int contactNumber) {
 		// TODO - implement ReservationManager.removeReservation
-		Reservation contactFound=checkExist(contact);
-		if(contactFound==null){
+		Reservation reservationFound=checkExist(contactNumber);
+		if(reservationFound==null){
 			System.out.println("No such reservation found!");
 		}
 		else{
-			reservationList.remove(contactFound);	
+			reservationList.remove(reservationFound);	
 		}
 		//throw new UnsupportedOperationException();
 	}
