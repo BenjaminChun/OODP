@@ -115,16 +115,34 @@ public class Reservation {
 	}
 	
 	/**
-	 * Adds 15minutes to a Date object to get the expiry time of a Reservation.
-	 * @param DateTime
-	 * @return
+	 * Adds 15minutes to a Date object to get the expiry date and time of a Reservation.
+	 * @param DateTime The date and time of the Reservation.
+	 * @return the expiry date and time.
 	 */
 	public Date convertExpiryDateTime(Date DateTime) {
 		long timeInSecs = DateTime.getTime();
 		Date Add15Mins = new Date (timeInSecs + (15*60*1000));
 		return Add15Mins;
 	}
+
+	/**
+	 * Given an contactNumber input, check if this Reservation's contact
+	 * matches the input.
+	 * @param contactNumber the contact number to check with Reservation's contact
+	 * @return true if the contact number matches.
+	 */	
+	public boolean checkContact(int contactNumber){
+		boolean contactMatch=false;
+		if(this.contact==contactNumber){
+			contactMatch=true;
+		}
+		return contactMatch;
+	}
 	
+	/**
+	 * Prints the Reservation details (name, contact number, 
+	 * date and arrival time, number of pax).
+	 */
 	public void printReservation() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm"); 
 		
@@ -134,18 +152,19 @@ public class Reservation {
 				+ "Number of Pax: " + numPax + "\r\n");
 	}
 
+	/**
+	 * Get the expiry date and time of Reservation.
+	 * @return the expiry date and time.
+	 */
 	public Date getExpiryDateTime() {
 		return this.expiryDateTime;
 	}
 	
+	/**
+	 * Get the contact number of the person who made the Reservation.
+	 * @return contact number of person.
+	 */
 	public int getContact() {
 		return this.contact;
-	}
-	public boolean checkContact(int contactNumber){
-		boolean contactMatch=false;
-		if(this.contact==contactNumber){
-			contactMatch=true;
-		}
-		return contactMatch;
 	}
 }

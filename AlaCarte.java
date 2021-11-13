@@ -1,14 +1,28 @@
 import java.util.Scanner;
-
+/**
+ * Represents an Ala Carte Item in the Restaurant's Menu.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class AlaCarte extends MenuItem {
 	public AlaCarte(){}
+	/**
+	 * Creates a new Ala Carte item with the given name. 
+	 * @param type This Ala Carte item's meal type.
+	 * @param description This Ala Carte item's desciption.
+	 * @param name This Ala Carte item's name.
+	 * @param price This Ala Carte item's price.
+	 */
 	public AlaCarte(type type, String description, String name, double price) {
 		this.Type = type; 
 		this.description = description;
 		this.name = name;
 		this.price = price;
 	}
-
+	/**
+	 * Scan and updates the attributes of this Ala Carte item.
+	 */
 	public void update() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What would you like to update?");
@@ -43,6 +57,9 @@ public class AlaCarte extends MenuItem {
 		System.out.println("Ala Carte item updated, printing updated item...");
 		this.print();
 	}
+	/**
+	 * Prints out the attributes of this Ala Carte item.
+	 */
 	public void print(){
 		System.out.println("Type: "+this.Type);
 		System.out.println("Name: "+this.name);
@@ -51,9 +68,7 @@ public class AlaCarte extends MenuItem {
 		System.out.println();
 	}
 	/**
-	 * 
-	 * @param choice
-	 * @param item
+	 * Scan inputs to set attributes for this Ala Carte item.
 	 */
 	public void createAlacarte() {
 		Scanner sc = new Scanner(System.in);
@@ -81,50 +96,63 @@ public class AlaCarte extends MenuItem {
 		System.out.println("New Ala Carte item added. printing new item...");
 		this.print();
 	}
-
+	/**
+	 * Gets the type of this Ala Carte item.
+	 * @return this Ala Carte item's type.
+	 */
 	public type getType() {
 		return this.Type;
 	}
 
 	/**
-	 * 
-	 * @param type
+	 * Changes the type of this Ala Carte item.
+	 * @param type this Ala Carte item's type.
 	 */
 	public void setType(type type) {
 		this.Type = type;
 	}
 
+	/**
+	 * Gets the name of this Ala Carte item.
+	 * @return this Ala Carte item's name.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * 
-	 * @param name
+	 * Changes the name of this Ala Carte item.
+	 * @param name this Ala Carte item's name.
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	/**
+	 * Gets the description of this Ala Carte item.
+	 * @return this Ala Carte item's description.
+	 */
 	public String getDescription() {
 		return this.description;
 	}
 
 	/**
-	 * 
-	 * @param description
+	 * Changes the description of this Ala Carte item.
+	 * @param description this Ala Carte item's description.
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	/**
+	 * Gets the price of this Ala Carte item.
+	 * @return this Ala Carte item's price.
+	 */
 	public double getPrice() {
 		return this.price;
 	}
 
 	/**
-	 * 
-	 * @param price
+	 * Changes the price of this Ala Carte item.
+	 * @param price this Ala Carte item's price.
 	 */
 	public void setPrice(double price) {
 		this.price = price;
