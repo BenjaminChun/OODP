@@ -44,13 +44,13 @@ public class OrderItem {
 		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
 		System.out.println("Which item would you like to order?");
 		int menuIndex = sc.nextInt();
+		sc.nextLine();
 		this.menuItem = RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1);
 		System.out.println("How many of this are you ordering?");
-		int qty = sc.nextInt();
 		this.quantity = sc.nextInt();
+		sc.nextLine();
 		System.out.println("Order item added. printing details...");
 		this.printOrderItem();
-		sc.close();
 	}
 
 	public double calculatePrice() {
