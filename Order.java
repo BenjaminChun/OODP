@@ -75,7 +75,6 @@ public class Order {
 		//System.out.println("Staff EID: " + this.s.getEmployeeID());
 		System.out.println("Staff Name: " + this.s.getName());//should this be a print function of staff?
 		System.out.println("----------------------------------------------");
-		System.out.println("   Qty   Name			Price");
 		for(int i = 0; i<orderSize; i++){
 			System.out.print((i+1) + ". ");
 			this.orderItemList.get(i).printOrderItem();

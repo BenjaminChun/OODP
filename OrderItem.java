@@ -58,6 +58,7 @@ public class OrderItem {
 	}
 
 	public void printOrderItem(){
-		System.out.println(this.quantity+" x "+this.menuItem.getName()+" ---- $"+this.calculatePrice()+"0");
+		System.out.print(this.quantity+" x "+this.menuItem.getName()+" ---- ");
+		System.out.printf("$%.2f\n",this.calculatePrice());
 	}
 }
