@@ -5,16 +5,33 @@ import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents order details in a restaurant.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class OrderDetails {
-
+	/**
+	 * The table id of this order details. 
+	 */
 	private int tableID;
+	/**
+	 * The order of this order details.
+	 */
 	private Order order;
+	/**
+	 * The local time of this order details.
+	 */
 	private LocalTime time;
+	/**
+	 * The local time of this order details.
+	 */
 	private LocalDate date;
 
 	/**
-	 * 
-	 * @param order
+	 * Creates Order Details through taking in an order.
+	 * @param order The order of this order details.
 	 */
 	public OrderDetails(Order order) {
 		Scanner sc = new Scanner(System.in);
@@ -65,28 +82,40 @@ public class OrderDetails {
 		}
 	}
 
+	/**
+	 * Gets the table id of this order details.
+	 * @return the table id of this order details.
+	 */
 	public int getTableID() {
 		return this.tableID;
 	}
 
 	/**
-	 * 
-	 * @param tableID
+	 * Changes the table id of this order details.
+	 * @param tableID The table id of this order details
 	 */
 	public void setTableID(int tableID) {
 		this.tableID = tableID;
 	}
 
+	/**
+	 * Gets the order item of this order details.
+	 * @return the order of this order details.
+	 */
 	public Order getOrder() {
 		return this.order;
 	}
 
+	/**
+	 * Changes the order of this order details.
+	 * @param o returns the order of this order details.
+	 */
 	public void setOrder(Order o) {
 		this.order = o;
 	}
 
 	/**
-	 * 
+	 *
 	 * @param tableID
 	 * @param date
 	 * @param time
@@ -97,30 +126,42 @@ public class OrderDetails {
 	// 	throw new UnsupportedOperationException();
 	// } since orderDetails objects are only created in Order class, i don't think we need this
 
+
+	/**
+	 * Gets the local time of this order details.
+	 * @return the local time of this order details.
+	 */
 	public LocalTime getTime() {
 		return this.time;
 	}
 
 	/**
-	 * 
-	 * @param time
+	 * Changes the local time of this order details.
+	 * @param time the time of this order details.
 	 */
 	public void setTime(LocalTime time) {
 		this.time = time;
 	}
 
+	/**
+	 * Gets the date of this order details.
+	 * @return the date of this order details.
+	 */
 	public LocalDate getDate() {
 		return this.date;
 	}
 
 	/**
-	 * 
-	 * @param date
+	 * Changes the local time of this order details.
+	 * @param date the date of this order details.
 	 */
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
+	/**
+	 * Prints the attributes of this order details.
+	 */
 	public void printOrderDetails() {
 		System.out.println("Date of Order: "+this.date);
 		System.out.println("Time of Order: "+this.time);
@@ -129,6 +170,10 @@ public class OrderDetails {
 		this.order.printOrder();
 	}
 
+	/**
+	 * Calculates the base price of the order in this order details.
+	 * @return the calculated base price of this order details.
+	 */
 	public double calculatePrice() {
 		return this.order.calculateBasePrice(); // return the basePrice of a particular order
 	}
