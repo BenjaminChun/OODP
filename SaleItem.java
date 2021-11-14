@@ -23,8 +23,6 @@ public class SaleItem {
 	public SaleItem(OrderItem orderItem , int quantity) {
 		this.orderItem = orderItem;
 		this.quantity = quantity;
-		// TODO - implement SaleItem.SaleItem
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -62,7 +60,6 @@ public class SaleItem {
 	/**
 	 * Increase the quantity by a specified value.
 	 * @param addition The specified value to be added.
-	 * @param quantity The quantity of this sale value.
 	 */
     public void incrementQuantity(int addition) {
 		this.quantity += addition;
