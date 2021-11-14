@@ -61,8 +61,6 @@ public class TableManager {
 			}
 		}
 		return toReturnList;
-		// TODO - implement TableManager.getAvailableTables
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -79,8 +77,6 @@ public class TableManager {
 			}
 		}
 		return toReturnList;
-		// TODO - implement TableManager.getOccupiedTables
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -97,8 +93,6 @@ public class TableManager {
 			}
 		}
 		return toReturnList;
-		// TODO - implement TableManager.getReservedTables
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -226,8 +220,6 @@ public class TableManager {
 		Table table = tableList.get(tableID-1);
 		table.setStatus(Status.AVAILABLE);
 		System.out.println("Table "+ tableID + " set to Available");
-		// TODO - implement TableManager.setTableToAvailable
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -237,8 +229,6 @@ public class TableManager {
 	public void setTableToOccupied(int tableID) {
 		tableList.get(tableID-1).setStatus(Status.OCCUPIED);
 		System.out.println("Table "+ tableID + " set to Occupied");
-		// TODO - implement TableManager.setTableToOccupied
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
