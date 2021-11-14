@@ -35,7 +35,7 @@ public class SaleItem {
 
 	/**
 	 * Changes the order item of this sale item.
-	 * @param orderItem
+	 * @param orderItem this sale item's order item.
 	 */
 	public void setOrderItem(OrderItem orderItem) {
 		this.orderItem = orderItem;
