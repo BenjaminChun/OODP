@@ -1,15 +1,43 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
+/**
+ * Represents the Promotional Set Package on the menu in a restaurant.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class PromoSetPack extends MenuItem {
+	/**
+	 * The list of promotional items in this Promotional set package.
+	 */
 	private ArrayList<MenuItem> promo;
+	/**
+	 * The description of this promotional set package.
+	 */
 	private String description;
+	/**
+	 * The name of this promotional set package.
+	 */
 	private String name;
+	/**
+	 * The price of this promotional set package.
+	 */
 	private double price;
 
+	/**
+	 * Creates a new promotional set package.
+	 */
 	public PromoSetPack(){
 		this.Type = type.PROMO;
 		this.promo = new ArrayList<	>();
 	}
+	/**
+	 * Creates a new promotional set package with given name.
+	 * @param description The description of this promotional set package.
+	 * @param name The name of this promotional set package.
+	 * @param price The price of this promotional set package.
+	 */
 	public PromoSetPack(String description, String name, double price){ 
 		this.Type = type.PROMO; 
 		this.description = description;
@@ -18,6 +46,9 @@ public class PromoSetPack extends MenuItem {
 		this.promo = new ArrayList<MenuItem>();
 	}
 
+	/**
+	 * Update the attributes of the Promotional Set Package.
+	 */
 	public void update() {
 		Scanner sc = new Scanner(System.in); // maybe can implement a while loop
 		System.out.println("What would you like to update?");
@@ -56,6 +87,9 @@ public class PromoSetPack extends MenuItem {
 		this.print();
 	}
 
+	/**
+	 * Prints out the attributes of the promotional set package. 
+	 */
 	public void print(){
 		int ListLength = this.promo.size();
 		System.out.println("Type: "+this.Type);
@@ -69,6 +103,10 @@ public class PromoSetPack extends MenuItem {
 		}
 		System.out.println();
 	}
+
+	/**
+	 * Adds a promotional set item into the promotional item list.
+	 */
 	public void addPromoItem(){
 		Scanner sc = new Scanner(System.in);
 		try {
@@ -101,11 +139,9 @@ public class PromoSetPack extends MenuItem {
 		this.promo.add(RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
 	}
 	/**
-	 * 
-	 * @param choice
-	 * @param item
+	 * A new promotional set package is made through asking for each attribute.
+	 * @param choice Choice the user makes to proceed with creation of the promo.
 	 */
-
 	public void createPromo() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Whats the new promo's name?");
@@ -126,48 +162,62 @@ public class PromoSetPack extends MenuItem {
 		}
 	}
 
+	/**
+	 * Gets the type of this promotional set package.
+	 * @return the type of the promotional set package.
+	 */
 	public type getType() {
 		return this.Type;
 	}
 
 	/**
-	 * 
-	 * @param type
+	 * Changes the type of this promotional set package.
+	 * @param type The type of this promotional set package.
 	 */
 	public void setType(type type) {
 		this.Type = type;
 	}
 
+	/**
+	 * Gets the name of this promotional set package.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * 
-	 * @param name
+	 * Changes the name of this promotional set package.
+	 * @param name The name of this promotional set package.
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Get the name of this promotional set package.
+	 * @return
+	 */
 	public String getDescription() {
 		return this.description;
 	}
 
 	/**
-	 * 
-	 * @param description
+	 * Changes the name of this promotional set package.
+	 * @param description The description of this promotional set package.
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * Gets the price of this promotional set package.
+	 */
 	public double getPrice() {
 		return this.price;
 	}
 
 	/**
-	 * 
+	 * Changes the price of this promotional set package.
 	 * @param price
 	 */
 	public void setPrice(double price) {
