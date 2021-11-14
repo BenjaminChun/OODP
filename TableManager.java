@@ -161,11 +161,12 @@ public class TableManager {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
 		}
 		for (int i = 0; i < reservedTables.size(); i++) {
-			if (reservedTables.get(i).getSeatingCapacity() >= minSeats) {
+			int seatingCapacity = reservedTables.get(i).getSeatingCapacity();
+			if (seatingCapacity >= minSeats) {
 				if (chosenTableNo == -1) {//guard against chosen == -1
 					chosenTableNo = i;
 				}
-				else if (reservedTables.get(i).getSeatingCapacity() < reservedTables.get(chosenTableNo).getSeatingCapacity()){
+				else if (seatingCapacity < reservedTables.get(chosenTableNo).getSeatingCapacity()){
 					chosenTableNo = i; //it is more than seats required and less than prev chosen tables
 				}
 			}
