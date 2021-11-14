@@ -118,10 +118,11 @@ public class Invoice {
 	 * @param result String of formatted text to print.
 	 */
 	public void printInvoice(){
+		System.out.println("========================================");
 		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() +" "+ this.orderDetails.getTime();
 		System.out.println(result); //print heading
 		System.out.println("Menu Item Name : Quantity * Price");
-		System.out.println("=====================================");
+		System.out.println("------------------------------------");
 		for (int i = 0; i<this.getOrderDetails().getOrder().getOrderItemList().size(); i++) {
 			result = this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getName() + " : "+ this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() + " * $" ;
 			System.out.print(result);

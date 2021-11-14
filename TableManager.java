@@ -129,6 +129,7 @@ public class TableManager {
 		int chosenTableNo = -1; //set this to be updated, and returned
 		if (minSeats > maxCapacity) {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
+			return -1;
 		}
 		for (int i = 0; i < availableTables.size(); i++) {
 			if (availableTables.get(i).getSeatingCapacity() >= minSeats) {
@@ -159,6 +160,7 @@ public class TableManager {
 		int chosenTableNo = -1; //set this to be updated, and returned
 		if (minSeats > maxCapacity) {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
+			return -1;
 		}
 		for (int i = 0; i < reservedTables.size(); i++) {
 			int seatingCapacity = reservedTables.get(i).getSeatingCapacity();
@@ -193,6 +195,7 @@ public class TableManager {
 		int chosenTableNo = -1; //set this to be updated, and returned
 		if (minSeats > maxCapacity) {
 			System.out.println("No suitable Table found, max Capacity per table is only 10!");
+			return -1;
 		}
 		for (int i = 0; i < occupiedTables.size(); i++) {
 			if (occupiedTables.get(i).getSeatingCapacity() >= minSeats) {
