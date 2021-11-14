@@ -8,7 +8,7 @@ import java.time.format.DateTimeParseException;
 /**
  * Represents order details in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class OrderDetails {
@@ -21,11 +21,11 @@ public class OrderDetails {
 	 */
 	private Order order;
 	/**
-	 * The local time of this order details.
+	 * The time of this order details.
 	 */
 	private LocalTime time;
 	/**
-	 * The local time of this order details.
+	 * The date of this order details.
 	 */
 	private LocalDate date;
 
@@ -127,28 +127,15 @@ public class OrderDetails {
 	}
 
 	/**
-	 *
-	 * @param tableID
-	 * @param date
-	 * @param time
-	 * @param order
-	 */
-	// public OrderDetails(int tableID, Date date, Time time, Order order) {
-	// 	// TODO - implement OrderDetails.OrderDetails
-	// 	throw new UnsupportedOperationException();
-	// } since orderDetails objects are only created in Order class, i don't think we need this
-
-
-	/**
-	 * Gets the local time of this order details.
-	 * @return the local time of this order details.
+	 * Gets the time of this order details.
+	 * @return the time of this order details.
 	 */
 	public LocalTime getTime() {
 		return this.time;
 	}
 
 	/**
-	 * Changes the local time of this order details.
+	 * Changes the time of this order details.
 	 * @param time the time of this order details.
 	 */
 	public void setTime(LocalTime time) {

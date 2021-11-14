@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Represents an Order in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class Order {
@@ -97,7 +97,7 @@ public class Order {
 
 	/**
 	 * Calculates the base price of all order items.
-	 * @return
+	 * @return the base price of all order items.
 	 */
 	public double calculateBasePrice() {
 		int orderSize = this.orderItemList.size();
@@ -113,7 +113,6 @@ public class Order {
 	 */
 	public void printOrder() {
 		int orderSize = this.orderItemList.size();
-		//System.out.println("Staff EID: " + this.s.getEmployeeID());
 		System.out.println("Staff Name: " + this.s.getName());//should this be a print function of staff?
 		System.out.println("----------------------------------------------");
 		for(int i = 0; i<orderSize; i++){
@@ -123,28 +122,6 @@ public class Order {
 		}
 		System.out.println();
 	}
-
-	// public void updateOrder() { 
-	// 	// TODO - implement Order.updateOrder
-	// 	this.printOrder();
-	// 	Scanner sc = new Scanner(System.in);
-	// 	System.out.println("Which Order item would you like to update?");
-	// 	int updateChoice = sc.nextInt();
-	// 	OrderItem temp = this.orderItemList.get(updateChoice-1);
-	// 	temp.update(); //call the correct update method in respective subclasses, not sure if you need to re insert into arraylist. 
-	// 	sc.close();
-	// 	throw new UnsupportedOperationException();
-	// } not specified in question, dunno if need
-
-	// public Date getDate() {
-	// 	// TODO - implement Order.getDate
-	// 	throw new UnsupportedOperationException();
-	// } not sure if date is needed
-
-	// public void setDate() {
-	// 	// TODO - implement Order.setDate
-	// 	throw new UnsupportedOperationException();
-	// }
 	
 	/**
 	 * Gets order details of this order.

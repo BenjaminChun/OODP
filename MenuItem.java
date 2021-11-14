@@ -25,26 +25,40 @@ public class MenuItem {
 
 	public MenuItem(){}
 
+	/**
+	 * Will be overridden.
+	 */
 	public void print(){ 
 		System.out.println("Debug: wrong");
 		return;
 	}
+	/**
+	 * Gets name of this menu item.
+	 * @return
+	 */
 	public String getName(){
 		System.out.println("Debug: wrong");
 		return name;
 	}
+	/**
+	 * Gets price of this menu item.
+	 * @return
+	 */
 	public double getPrice(){
 		System.out.println("Debug: wrong");
 		return price;
 	}
+	/**
+	 * Will be overidden.
+	 */
 	public void update(){ 
 		System.out.println("Debug: wrong");
 		return;
 	}
 	/**
-	 * 
-	 * @param choice
-	 * @param item
+	 * Creates a new menu item.
+	 * Menu item can be an Ala Carte or Promotional Set Package.
+	 * @param choice The kind of menu item to be made.
 	 */
 	public MenuItem create(){ //menumanager creates a new menu item object, and call menuItem.create()
 		Scanner sc = new Scanner(System.in);

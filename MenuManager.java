@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Represents a Menu Manager in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class MenuManager {

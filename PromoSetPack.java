@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Represents the Promotional Set Package on the menu in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class PromoSetPack extends MenuItem {
@@ -132,13 +132,6 @@ public class PromoSetPack extends MenuItem {
 			System.out.println("program exiting...");
 			System.exit(0);
 		}
-		/*
-		RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
-		System.out.println("Which item would you like to add?");
-		int menuIndex = sc.nextInt();
-		sc.nextLine();
-		this.promo.add(RestaurantApp.globalMenuManager.getMenuItem(menuIndex-1)); //add the index - 1 menuItem to promoPackage
-		*/
 	}
 	/**
 	 * A new promotional set package is made through asking for each attribute.
