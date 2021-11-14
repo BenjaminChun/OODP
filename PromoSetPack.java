@@ -135,7 +135,6 @@ public class PromoSetPack extends MenuItem {
 	}
 	/**
 	 * A new promotional set package is made through asking for each attribute.
-	 * @param choice Choice the user makes to proceed with creation of the promo.
 	 */
 	public void createPromo() {
 		Scanner sc = new Scanner(System.in);
@@ -190,7 +189,7 @@ public class PromoSetPack extends MenuItem {
 
 	/**
 	 * Get the name of this promotional set package.
-	 * @return
+	 * @return this promotional set package's name.
 	 */
 	public String getDescription() {
 		return this.description;
@@ -213,7 +212,7 @@ public class PromoSetPack extends MenuItem {
 
 	/**
 	 * Changes the price of this promotional set package.
-	 * @param price
+	 * @param price this price of the promotional set package.
 	 */
 	public void setPrice(double price) {
 		this.price = price;
