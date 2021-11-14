@@ -113,6 +113,7 @@ public class Reservation {
 			System.out.println("program exiting...");
 			System.exit(0);
 		}
+		return date;
 
 		
 	}
