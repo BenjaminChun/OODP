@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Represents the Invoice Manager in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class MenuItem {
@@ -23,10 +23,9 @@ public class MenuItem {
 	 */
 	protected double price;
 
-	public MenuItem(){ }
+	public MenuItem(){}
 
-
-	public void print(){ //should be overridden
+	public void print(){ 
 		System.out.println("Debug: wrong");
 		return;
 	}
@@ -38,7 +37,7 @@ public class MenuItem {
 		System.out.println("Debug: wrong");
 		return price;
 	}
-	public void update(){ //should be overridden
+	public void update(){ 
 		System.out.println("Debug: wrong");
 		return;
 	}
@@ -64,7 +63,4 @@ public class MenuItem {
 			return temp;
 		}
 	}
-
-	//public abstract void remove(); //do we need this, if java have garbage collector
-
 }
