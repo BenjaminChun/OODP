@@ -48,8 +48,14 @@ public class Staff {
 	public void printStaffInformation(){
 		System.out.println("Staff information for " + name + ":\r\n"
 				+ "Staff ID: " + staffID + "\r\n"
-				+ "Gender: " + gender + "\r\n"
-				+ "Job Title: " + job + "\r\n");
+				+ "Gender: " + gender + "\r\n");
+		switch(job){
+			case MANAGER: System.out.println("Job Title: MANAGER"); break;
+			case CASHIER:  System.out.println("Job Title: CASHIER"); break;
+			case SERVER:  System.out.println("Job Title: SERVER"); break;
+			case CHEF:  System.out.println("Job Title: CHEF"); break;
+		}
+		System.out.println();
 	}
 
 	/**
@@ -114,10 +120,10 @@ public class Staff {
 	 */
 	public void setJobTitle(String jobPosition) {
 		switch(jobPosition){
-			case "MANAGER": this.job = jobTitle.MANAGER;
-			case "CASHIER": this.job = jobTitle.CASHIER;
-			case "SERVER": this.job = jobTitle.SERVER;
-			case "CHEF": this.job = jobTitle.CHEF;
+			case "MANAGER": this.job = jobTitle.MANAGER; break;
+			case "CASHIER": this.job = jobTitle.CASHIER; break;
+			case "SERVER": this.job = jobTitle.SERVER; break;
+			case "CHEF": this.job = jobTitle.CHEF; break;
 		}
 	}
 

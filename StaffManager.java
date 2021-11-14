@@ -67,7 +67,7 @@ public class StaffManager {
 						validJob = checkValidJob(job);
 					}
 					
-					addStaff(name, gender, job, staffID);;
+					addStaff(name, gender, job, staffID);
 					break;
 					
 				case 2:
