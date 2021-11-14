@@ -42,7 +42,6 @@ public class MenuManager {
 
 	/**
 	 * Removes a menu item from this menu manager's menu list based on user's choice.
-	 * @param choice The choice of menu item to be removed.
 	 */
 	public void removeItem() {
 		Scanner sc = new Scanner(System.in);
@@ -64,7 +63,6 @@ public class MenuManager {
 
 	/**
 	 * Update a menu item in this menu manager's manu list.
-	 * @param choice The choice of menu item to update.
 	 */
 	public void updateItem() {
 		Scanner sc = new Scanner(System.in);
@@ -103,6 +101,7 @@ public class MenuManager {
 	/**
 	 * Gets a menu item in the list with given index.
 	 * @param index The index of the menu item to get.
+	 * @return menu item in the list of given index.
 	 */
 	public MenuItem getMenuItem(int index) {
 		MenuItem menuItem = this.menuList.get(index);
