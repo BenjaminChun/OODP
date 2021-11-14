@@ -113,7 +113,7 @@ public class PromoSetPack extends MenuItem {
 			int i = 0;
 			System.out.println();
 			System.out.println("----------------------------------------------");
-			while (RestaurantApp.globalMenuManager.getMenuItem(i).Type != type.PROMO){
+			while (RestaurantApp.globalMenuManager.getSizeOfMenu()!=i && RestaurantApp.globalMenuManager.getMenuItem(i).Type != type.PROMO){
 				System.out.println((i+1)+". ");
 				RestaurantApp.globalMenuManager.getMenuItem(i).print();
 				System.out.println("----------------------------------------------");

@@ -261,7 +261,7 @@ public class TableManager {
 		else{
 			System.out.println("\nHere is the list of " + tableList.get(0).getStatus() + " tables : ");
 			for (int i=0; i<tableList.size(); i++){
-				System.out.println("Table " + tableList.get(i).getId());
+				System.out.println("Table " + tableList.get(i).getId() + " seats = " + tableList.get(i).getSeatingCapacity());
 			}
 			
 		}
