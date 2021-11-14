@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Represents the Order Item in a restaurant.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 2.0
  * @since 2021-11-13
  */
 public class OrderItem {
@@ -16,6 +16,9 @@ public class OrderItem {
 	 */
 	private int quantity;
 	
+	/**
+	 * Empty Constructor.
+	 */
 	public OrderItem() {
 	}
 	/**
@@ -34,7 +37,6 @@ public class OrderItem {
 	 */
 	public MenuItem getMenuItem() {
 		return menuItem;
-		// TODO - implement OrderItem.getMenuItem
 	}
 
 	/**
