@@ -62,6 +62,7 @@ public class Customer {
 
 	
 	/** Gets the discount of this customer.
+	 * Discount is only received if customer is a member. 
 	 * @return this Customer's discount price.
 	 */
 	public double getDiscount() {
@@ -77,15 +78,16 @@ public class Customer {
 	
 	/** 
 	 * Gets the contact number of this Customer.
-	 * @return int
+	 * @return this Customer's contact.
 	 */
 	public int getContact() {
 		return this.contact;
 	}
 
 	/**
+	 * Changes this Customer's contact
 	 * Sets the contact number of this Customer.
-	 * @param contact
+	 * @param contact This Customer's contact.
 	 */
 	public void setContact(int contact) {
 		this.contact = contact;
