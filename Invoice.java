@@ -72,7 +72,7 @@ public class Invoice {
 	}
 
 	/**
-	 * 
+	 * Prints this Invoice's order details.
 	 */
 	public void print(){
 		System.out.println(this.orderDetails.getTableID());
@@ -80,8 +80,8 @@ public class Invoice {
 
 	
 	/** 
-	 * 
-	 * @return 
+	 * Calculates the base total of the order
+	 * @return the base total of the list of order items.
 	 */
 	private double calculateBaseTotal() {
 		double baseTotal = 0;
@@ -91,13 +91,12 @@ public class Invoice {
 			baseTotal +=  this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() * this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice();
 		}
 		return baseTotal;
-		// TODO - implement InvoiceManager.calculateBaseTotal
 		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * Gets the base price of this Invoice.  
-	 * @param basePrice
+	 * @param basePrice base price of 
 	 */
 	private double getPriceAfterDiscount(double basePrice) {
 		basePrice *= (1-this.getCustomer().getDiscount());
@@ -105,8 +104,8 @@ public class Invoice {
 	}
 
 	/**
-	 * Gets the final price of this Invoice. 
-	 * @param discountedPrice
+	 * Gets this Invoice's discounted bill. 
+	 * @param discountedPrice This
 	 */
 	public double getFinalPrice() {
 		double finalPrice = (1 + GST + ServiceCharge) * getPriceAfterDiscount(calculateBaseTotal());
@@ -114,6 +113,9 @@ public class Invoice {
 		return finalPrice;
 	}
 
+	/**
+	 * Prints the Invoice for the a table.
+	 */
 	public void printInvoice(){
 		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() +" "+ this.orderDetails.getTime();
 		System.out.println(result); //print heading
