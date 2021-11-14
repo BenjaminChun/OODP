@@ -63,16 +63,15 @@ public class Customer {
 	
 	/** Gets the discount of this customer.
 	 * Discount is only received if customer is a member. 
+	 * Members receive 10% discount off basePrice.
 	 * @return this Customer's discount price.
 	 */
 	public double getDiscount() {
-		// TODO - implement Customer.getDiscount
-		// assuming members receive 10% discount off basePrice
+		// 
 		if (this.membership == true){
 			return 0.1;
 		}
 		else return 1;
-		//throw new UnsupportedOperationException();
 	}
 
 	
