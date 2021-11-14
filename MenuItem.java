@@ -1,4 +1,7 @@
 import java.util.Scanner;
+/**
+ * 
+ */
 public class MenuItem {
 	protected type Type; //cannot have same name as enum type
 	protected String description;
