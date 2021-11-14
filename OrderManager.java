@@ -1,15 +1,30 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Represents an order manager in a restaurant.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class OrderManager {
 
+	/**
+	 * The list of orders of this order manager.
+	 */
 	private ArrayList<Order> orderList;
 	//private Customer customer; do we need this?
 
+	/**
+	 * Creates a new order manager.
+	 */
 	public OrderManager(){ 
 		orderList = new ArrayList<Order>();
 	}
 
+	/**
+	 * Removes an order from the list of orders of this order manager.
+	 */
 	public void cancelOrder() {
 		Scanner sc = new Scanner(System.in);
 		this.printOrderList();
@@ -30,8 +45,8 @@ public class OrderManager {
 	}
 
 	/**
-	 * 
-	 * @param s
+	 * Creates an order and adds it into the order list.
+	 * @param s 
 	 */
 	public void createOrder() { //either we take in a Staff argument or ask for user input here to indicate staff eid and check from globalStaffManager
 		Order temp = new Order();
@@ -43,6 +58,9 @@ public class OrderManager {
 		//throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Change the order in the list of orders of this order manager.
+	 */
 	public void changeOrder() {
 		Scanner sc = new Scanner(System.in);
 		this.printOrderList();
@@ -55,7 +73,7 @@ public class OrderManager {
 			}
 			Order temp = this.orderList.get(changeChoice-1);
 			temp.updateOrder();
-			System.out.println("Order ipdated. printing updated order...");
+			System.out.println("Order Updated. printing updated order...");
 			temp.printOrder();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println(e.getMessage()); 
@@ -65,6 +83,9 @@ public class OrderManager {
 		
 	}
 
+	/**
+	 * Prints out the order list in this order manager.
+	 */
 	public void printOrderList() {
 		int orderListSize = this.orderList.size();
 		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
@@ -78,12 +99,21 @@ public class OrderManager {
 		// TODO - implement OrderManager.viewOrderList
 	}
 
+	/**
+	 * Gets an order item from the order list of this Order Manager with a given index.
+	 * @param index The index of the order in the order list.
+	 * @return the order of the given index.
+	 */
 	public Order getOrderListItem(int index) {
 		Order order = this.orderList.get(index);
 		return order;
 		// TODO - implement MenuManager.getMenuItem
 	}
 
+	/**
+	 * Gets the size of the orderlist of this order manager.
+	 * @return the size of the order list.
+	 */
 	public int getSizeOfOrderList() {
 		return this.orderList.size();
 		// TODO - implement MenuManager.getSizeOfMenu
