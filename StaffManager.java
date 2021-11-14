@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Represents the StaffManager.
+ * Represents the Staff Manager at the restaurant.
  * Manages the Staff in the restaurant.
  * @author Tan Zheng Kai
  * @version 16.0
