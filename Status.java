@@ -6,7 +6,16 @@
  * @since 2021-11-13
  */
 public enum Status {
+	/*
+	 * Status is Available.
+	 */
 	AVAILABLE,
+	/*
+	 * Status is Occupied.
+	 */
 	OCCUPIED,
+	/*
+	 * Status is Reserved.
+	 */
 	RESERVED
 }
