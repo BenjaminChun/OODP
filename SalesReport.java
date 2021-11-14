@@ -83,7 +83,7 @@ public class SalesReport {
 		for (int i = 0; i < arrSize; i++) {
 			//check if the current invoice fits requirement which is in start and end date
 			//AREA FOR IMPROVEMENT if order details change attribute then this cannot work
-			if (invoiceList.get(i).getOrderDetails().getDate().isAfter(startDate) && invoiceList.get(i).getOrderDetails().getDate().isBefore(endDate)) {
+			if ((invoiceList.get(i).getOrderDetails().getDate().isAfter(startDate) || invoiceList.get(i).getOrderDetails().getDate().equals(startDate)) && (invoiceList.get(i).getOrderDetails().getDate().isBefore(endDate)||invoiceList.get(i).getOrderDetails().getDate().equals(endDate))) {
 				//then add it into new returnList
 				returnList.add(invoiceList.get(i));
 			}
@@ -118,9 +118,6 @@ public class SalesReport {
 				//if it is, add to quantity, if isnt then add to saleitem list
 				finishedForLoop = true;
 				for (int indexOfSaleItem = 0; indexOfSaleItem < returnList.size(); indexOfSaleItem++) {
-					System.out.println(indexOfSaleItem);
-					System.out.println(orderItemList.get(indexOfOrderItem).getMenuItem().getName());
-					System.out.println(returnList.get(indexOfSaleItem).getOrderItem().getMenuItem().getName());
 					if (orderItemList.get(indexOfOrderItem).getMenuItem().getName() == returnList.get(indexOfSaleItem).getOrderItem().getMenuItem().getName()) {//check if equal
 						returnList.get(indexOfSaleItem).incrementQuantity(orderItemList.get(indexOfOrderItem).getQuantity()); //increment by amt in orderitem
 						finishedForLoop = false;
@@ -158,9 +155,9 @@ public class SalesReport {
 	 * Prints the Sales Report for a specific time frame.
 	 */
 	public void printSalesReport(){
+		System.out.println("=====================================");
 		String result = "Sales Report: " + this.startDate + " - " + this.endDate;
 		System.out.println(result); //print heading
-		System.out.println("=====================================");
 		if (saleItemList != null){
 			for (int index=0; index < this.saleItemList.size(); index++) {
 				result = this.saleItemList.get(index).getOrderItem().getMenuItem().getName() + " - " +  this.saleItemList.get(index).getQuantity();
@@ -171,9 +168,11 @@ public class SalesReport {
 			System.out.println("No salesItem in salesItemList/n");
 			return;
 		}
+		System.out.println();
+		System.out.printf("Total Revenue for above timeframe: $%.2f",this.totalRevenue);
+		System.out.println();
 		System.out.println("=====================================");
-		result = "Revenue = $" + this.totalRevenue;
-		System.out.println(result + "\n");
+		System.out.println("\n");
 	}
 
 }
