@@ -1,10 +1,17 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
+/**
+ * 
+ */
 public class MenuManager {
-
+	/**
+	 * The menu list of this menu item.
+	 */
 	private ArrayList<MenuItem> menuList;
-
+	/**
+	 * Creates a menu manager with a base list of menu items in menu list.
+	 */
 	public MenuManager() {
 		menuList = new ArrayList<MenuItem>();
 		menuList.add(new AlaCarte(type.MAINCOURSE, "cow's testicles", "jewel of the plains", 69.00)); // can add default menu items when global MenuManager is created
@@ -14,8 +21,7 @@ public class MenuManager {
 	}
 
 	/**
-	 * 
-	 * 
+	 * Adds a menu item into the menu list.
 	 */
 	public void addItem() {
 		MenuItem temp = new MenuItem();
@@ -33,8 +39,8 @@ public class MenuManager {
 	}
 
 	/**
-	 * 
-	 * @param choice
+	 * Removes a menu item from this menu manager's menu list based on user's choice.
+	 * @param choice The choice of menu item to be removed.
 	 */
 	public void removeItem() {
 		Scanner sc = new Scanner(System.in);
@@ -55,7 +61,7 @@ public class MenuManager {
 	}
 
 	/**
-	 * 
+	 * Update a menu item in this menu manager's manu list.
 	 * @param choice
 	 */
 	public void updateItem() {
@@ -77,6 +83,9 @@ public class MenuManager {
 		} 
 	}
 
+	/**
+	 * Prints this menu manager's menu list.
+	 */
 	public void printMenu() {
 		int menuSize = this.menuList.size();
 		System.out.println();
@@ -90,14 +99,17 @@ public class MenuManager {
 	}
 
 	/**
-	 * 
+	 * Gets a menu item in the list with given index.
 	 * @param index
 	 */
 	public MenuItem getMenuItem(int index) {
 		MenuItem menuItem = this.menuList.get(index);
 		return menuItem;
 	}
-
+	/**
+	 * Gets the size of the menu list of this Menu Manager.
+	 * @return
+	 */
 	public int getSizeOfMenu() {
 		return this.menuList.size();
 	}
