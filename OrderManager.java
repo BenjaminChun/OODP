@@ -94,7 +94,7 @@ public class OrderManager {
 		}
 		System.out.println();
 		//throw new UnsupportedOperationException();
-		// TODO - implement OrderManager.viewOrderList
+
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class OrderManager {
 	public Order getOrderListItem(int index) {
 		Order order = this.orderList.get(index);
 		return order;
-		// TODO - implement MenuManager.getMenuItem
+
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class OrderManager {
 	 */
 	public int getSizeOfOrderList() {
 		return this.orderList.size();
-		// TODO - implement MenuManager.getSizeOfMenu
+
 	}
 
 }
