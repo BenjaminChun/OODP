@@ -180,9 +180,11 @@ public class TableManager {
 			System.out.println("No suitable Table for " + minSeats);
 			return chosenTableNo;
 		}
-		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats");
-		int tableID = reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found 
-		return tableID;
+		else {
+			System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats");
+			int tableID = reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found 
+			return tableID;
+		}
 	}
 
 	/**
