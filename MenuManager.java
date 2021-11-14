@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class MenuManager {
 	/**
-	 * The menu list of this menu item.
+	 * The menu list of this menu manager.
 	 */
 	private ArrayList<MenuItem> menuList;
 	/**
