@@ -1,6 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Represents an Order in a restaurant.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
+ */
 public class Order {
 
 	private ArrayList<OrderItem> orderItemList;
@@ -8,8 +14,8 @@ public class Order {
 	private OrderDetails orderDetails;
 
 	/**
-	 * 
-	 * @param s
+	 * Creates a new order after taking in name of staff. 
+	 * @param s This Order's staff.
 	 */
 	public Order() {
 		this.orderItemList = new ArrayList<OrderItem>();
@@ -30,7 +36,9 @@ public class Order {
 		}
 		this.orderDetails = new OrderDetails(this);
 	}
-
+	/**
+	 * Creates a new order item into the order list.
+	 */
 	public void makeNewOrder(){
 		Scanner sc = new Scanner(System.in);
 		int createChoice = 0;
@@ -45,6 +53,9 @@ public class Order {
 		}
 	}
 
+	/**
+	 * Adds or remove an order item into the list.
+	 */
 	public void updateOrder(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What would you like to do?");
@@ -54,13 +65,18 @@ public class Order {
 		if (choice == 1) this.addToOrder();
 		else this.deleteFromOrder();
 	}
-
+	/**
+	 * Calls creates order item and adds it into the order item list.
+	 */
 	public void addToOrder() { //calls createOrderItem from OrderItem and adds it to orderItemList
 		OrderItem temp = new OrderItem();
 		temp.createOrderItem();
 		this.orderItemList.add(temp);
 	}
 
+	/**
+	 * Deletes an order item from order item list.
+	 */
 	public void deleteFromOrder() {
 		Scanner sc = new Scanner(System.in);
 		this.printOrder();
@@ -79,6 +95,10 @@ public class Order {
 		}
 	}
 
+	/**
+	 * Calculates the base price of all order items.
+	 * @return
+	 */
 	public double calculateBasePrice() {
 		int orderSize = this.orderItemList.size();
 		double basePrice = 0;
@@ -88,6 +108,9 @@ public class Order {
 		return basePrice;
 	}
 
+	/**
+	 * Prints out every order item in this order.
+	 */
 	public void printOrder() {
 		int orderSize = this.orderItemList.size();
 		//System.out.println("Staff EID: " + this.s.getEmployeeID());
@@ -122,27 +145,43 @@ public class Order {
 	// 	// TODO - implement Order.setDate
 	// 	throw new UnsupportedOperationException();
 	// }
-
+	
+	/**
+	 * Gets order details of this order.
+	 * @return the order details of this Order.
+	 */
 	public OrderDetails getOrderDetails() {
 		return this.orderDetails;
 	}
 
 	/**
-	 * 
-	 * @param orderDetails
+	 * Changes order details of this order.
+	 * @param orderDetails The order details of this order 
 	 */
 	public void setOrderDetails(OrderDetails orderDetails) {
 		this.orderDetails = orderDetails;
 	}
 	
+	/**
+	 * Gets the staff of this order.
+	 * @return this order's staff.
+	 */
 	public Staff getStaff(){
 		return this.s;
 	}
 
+	/**
+	 * Changes the staff of this order.
+	 * @param staff This order's staff.
+	 */
 	public void setStaff(Staff staff){
 		this.s = staff;
 	}
 
+	/**
+	 * Gets the order item list of this order.
+	 * @return the order item list of this order.
+	 */
     public ArrayList<OrderItem> getOrderItemList() {
         return this.orderItemList;
     }
