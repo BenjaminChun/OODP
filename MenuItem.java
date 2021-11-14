@@ -1,14 +1,30 @@
 import java.util.Scanner;
 /**
- * 
+ * Represents the Invoice Manager in a restaurant.
+ * @author Tan Zheng Kai
+ * @version 1.0
+ * @since 2021-11-13
  */
 public class MenuItem {
+	/**
+	 * The type of this Menu Item.
+	 */
 	protected type Type; //cannot have same name as enum type
+	/**
+	 * The description of this menu item.
+	 */
 	protected String description;
+	/**
+	 * The name of this menu item.
+	 */
 	protected String name;
+	/**
+	 * The price of this menu item.
+	 */
 	protected double price;
 
 	public MenuItem(){ }
+
 
 	public void print(){ //should be overridden
 		System.out.println("Debug: wrong");
