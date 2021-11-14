@@ -167,7 +167,9 @@ public class ReservationManager {
 			System.out.println("Changing reserved table to available...");
 			int minSeats = reservationFound.getNumPax();
 			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(minSeats);
-			RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+			if (tableID != -1){
+				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+			}
 			reservationList.remove(reservationFound);	
 		}
 		System.out.println("Reservation removed successfully.");
@@ -190,7 +192,9 @@ public class ReservationManager {
 			if (expired == true){
 				System.out.println("Changing reserved table to available...");
 				int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(currentReservation.getNumPax());
-				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+				if (tableID != -1){
+					RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+				}
 				reservationList.remove(currentIndex);
 				continue;
 			}
