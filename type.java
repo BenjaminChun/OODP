@@ -5,7 +5,6 @@
  * @version 15.0
  * @since 2021-11-13
  */
-
 public enum type {
 	MAINCOURSE,
 	DRINKS,
