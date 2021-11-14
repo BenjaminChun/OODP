@@ -101,12 +101,12 @@ public class Reservation {
 	 * @param DateTime String to be converted into Date object.
 	 * @return The date object after conversion.
 	 */
-	public Date convertToDate(String DateTime) {
+	public Date convertToDate(String dateTime) {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		
 		try {
-			date = sdf.parse(DateTime);
+			date = sdf.parse(dateTime);
 			return date;
 		}catch(ParseException e){
 			System.out.println("Incorrect date time format.");
@@ -123,8 +123,8 @@ public class Reservation {
 	 * @param DateTime The date and time of the Reservation.
 	 * @return The expiry date and time.
 	 */
-	public Date convertExpiryDateTime(Date DateTime) {
-		long timeInSecs = DateTime.getTime();
+	public Date convertExpiryDateTime(Date dateTime) {
+		long timeInSecs = dateTime.getTime();
 		Date Add15Mins = new Date (timeInSecs + (15*60*1000));
 		return Add15Mins;
 	}
