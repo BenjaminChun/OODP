@@ -91,7 +91,6 @@ public class Invoice {
 			baseTotal +=  this.getOrderDetails().getOrder().getOrderItemList().get(i).getQuantity() * this.getOrderDetails().getOrder().getOrderItemList().get(i).getMenuItem().getPrice();
 		}
 		return baseTotal;
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
