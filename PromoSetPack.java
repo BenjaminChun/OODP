@@ -117,7 +117,6 @@ public class PromoSetPack extends MenuItem {
 				System.out.println((i+1)+". ");
 				RestaurantApp.globalMenuManager.getMenuItem(i).print();
 				System.out.println("----------------------------------------------");
-				System.out.println("i = " + i);
 				i++;
 			}
 			//RestaurantApp.globalMenuManager.printMenu(); //create a globalmenuManager so that other classes can access the menu
