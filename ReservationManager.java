@@ -71,11 +71,6 @@ public class ReservationManager {
 	 * number of pax.
 	 * Checks for available table with right number of seats to be reserved.
 	 * Reservation will fail if a table cannot be found.
-	 * @param contact Contact number of person creating the reservation.
-	 * @param date Date of reservation.
-	 * @param arrivalTime Time to arrive for reservation.
-	 * @param numPax Number of people for reservation to be booked for.
-	 * @param name Name of person booking the reservation.
 	 */
 	public void createReservation() {
 		Scanner sc = new Scanner(System.in);
@@ -199,6 +194,7 @@ public class ReservationManager {
 	/**
 	 * Getting Reservation object.
 	 * @param contact The reservation made by this contact number.
+	 * @return Reservation object.
 	 */
 	public Reservation getReservation(int contact) {
 		for (Reservation res : reservationList){
