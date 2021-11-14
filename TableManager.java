@@ -181,7 +181,8 @@ public class TableManager {
 			return chosenTableNo;
 		}
 		System.out.println("Table " + reservedTables.get(chosenTableNo).getId() + " found " + "with " + reservedTables.get(chosenTableNo).getSeatingCapacity() + " seats");
-		return reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found
+		int tableID = reservedTables.get(chosenTableNo).getId(); //returns tableNo or -1 when no tables are found 
+		return tableID;
 	}
 
 	/**
