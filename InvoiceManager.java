@@ -21,6 +21,9 @@ public class InvoiceManager {
 	 */
 	private Invoice currentInvoice;
 	
+	/*
+	 * Creates an Invoice Manager and set currentInvoice to null.
+	 */
 	public InvoiceManager() {
 		this.invoiceList = new ArrayList<Invoice>();
 		currentInvoice = null;
@@ -57,9 +60,7 @@ public class InvoiceManager {
 
 	/**
 	 * Prints out an interface to choose an invoice from the list of invoices.
-	 * @param price the price of the invoice chosen.
 	 */
-
 	public void chooseInvoice() {
 		System.out.println("List of Orders, please choose the invoice to be paid for based on index given: ");
 		for (int i=0; i<invoiceList.size(); i++){
@@ -96,6 +97,7 @@ public class InvoiceManager {
 	/**
 	 * Adds an invoice to this Invoice Manager's invoice list.
 	 * @param od Invoice to be added to invoice list.
+	 * @return Invoice to be added to invoice list.
 	 */
 	//need a way to add to invoicelist
 	public Invoice createInvoice(OrderDetails od) {
