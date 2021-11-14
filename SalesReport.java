@@ -172,7 +172,7 @@ public class SalesReport {
 			return;
 		}
 		System.out.println("=====================================");
-		result = "Revenue = " + this.totalRevenue;
+		result = "Revenue = $" + this.totalRevenue;
 		System.out.println(result + "\n");
 	}
 

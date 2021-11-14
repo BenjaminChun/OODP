@@ -75,7 +75,7 @@ public class Invoice {
 	 * Prints this Invoice's order details.
 	 */
 	public void print(){
-		System.out.println(this.orderDetails.getTableID());
+		System.out.println(this.orderDetails.getTableID() + " Date: " + this.orderDetails.getDate() + " Time: " + this.orderDetails.getTime());
 	}
 
 	
