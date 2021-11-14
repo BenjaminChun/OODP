@@ -164,7 +164,8 @@ public class ReservationManager {
 		}
 		else{
 			System.out.println("Changing reserved table to available...");
-			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(reservationFound.getNumPax());
+			int minSeats = reservationFound.getNumPax();
+			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(minSeats);
 			RestaurantApp.globalTableManager.setTableToAvailable(tableID);
 			reservationList.remove(reservationFound);	
 		}
