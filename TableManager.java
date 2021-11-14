@@ -223,7 +223,8 @@ public class TableManager {
 	 * @param tableID The ID of the table to be changed to available.
 	 */
 	public void setTableToAvailable(int tableID) {
-		tableList.get(tableID-1).setStatus(Status.AVAILABLE);
+		Table table = tableList.get(tableID-1);
+		table.setStatus(Status.AVAILABLE);
 		System.out.println("Table "+ tableID + " set to Available");
 		// TODO - implement TableManager.setTableToAvailable
 		//throw new UnsupportedOperationException();
