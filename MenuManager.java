@@ -17,10 +17,9 @@ public class MenuManager {
 	 */
 	public MenuManager() {
 		menuList = new ArrayList<MenuItem>();
-		menuList.add(new AlaCarte(type.MAINCOURSE, "cow's testicles", "jewel of the plains", 69.00)); // can add default menu items when global MenuManager is created
-		menuList.add(new AlaCarte(type.DESSERT, "cow herded from space, rare delicacy", "milkshake from space", 68.99));
-		menuList.add(new AlaCarte(type.DRINKS, "feels like i'm floating", "zero-gravity", 68.98));
-		menuList.add(new PromoSetPack("family-friendly lunch","sunday fun day",180));
+		menuList.add(new AlaCarte(type.MAINCOURSE, "Mildly spicy, lightly cooked pasta with shrimps and peppers", "Aglio Olio", 6.90)); // can add default menu items when global MenuManager is created
+		menuList.add(new AlaCarte(type.DESSERT, "Classic Banana and Vanilla ice-cream combo", "Banana Split", 7.00));
+		menuList.add(new AlaCarte(type.DRINKS, "Carbonated sweet drink", "Sprite", 2.10));
 	}
 
 	/**

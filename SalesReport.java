@@ -2,18 +2,38 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-public class SalesReport {
 
+/**
+ * Represents a sales report in the restaurant.
+ * @author Tan Zheng Kai
+ * @version 11.0
+ * @since 2021-11-13
+ */
+public class SalesReport {
+	/**
+	 * The start date of this Sales Report.
+	 */
 	private LocalDate startDate;
+	/**
+	 * The end date of this Sales Report.
+	 */
 	private LocalDate endDate;
+	/**
+	 * The end date of this Sales Report.
+	 */
 	private ArrayList<Invoice> invoiceList;
+	/**
+	 * The total revenue of this Sales Report.
+	 */
 	private double totalRevenue;
+	/**
+	 * The list of Sale Items in this Sales Report.
+	 */
 	private ArrayList<SaleItem> saleItemList;
 
 	/**
-	 * default Constructor for SalesReport Class
-	 * 
-	 * this constructor will initialise the Sales Report and ask for attributes in SalesReport in order to construct it
+	 * Creates a Sales Report based on user inputs.
+	 * Date taken it must match format required.
 	 */
 	public SalesReport(){
 		Scanner sc = new Scanner(System.in);
@@ -47,11 +67,9 @@ public class SalesReport {
 	
 
 	/**
-	 * selectRelevantInvoice will filter out from the invoices that are within our requested timeframe
-	 * 
-	 * the timeframe is dictated by the attributes of SalesReport instance
-	 * 
-	 * @return the arraylist of invoice objects which fit between the start and end Date
+	 * Filter invoices that fall within the requested time frames.
+	 * Time frame is measured by the start and end date.
+	 * @return the list of invoices which fall within the requested time frame.
 	 */
 	public ArrayList<Invoice> selectRelevantInvoice() {
 		//find array size and then loop thru
@@ -73,9 +91,9 @@ public class SalesReport {
 		return returnList;
 	}
 	/**
-	 * generateSaleItemList will collate and return the quantity of each orderItem that was purchased between the timeframe
-	 * 
-	 * @return the arraylist of sale items with their quantity sold throughout timeframe according to the attributes startDate and endDate
+	 * Generates a list of order items purchased within the timeframe.
+	 * @return the list of sale items with their quantities sold throughout
+	 * timeframe according to the attributes start date and end date.
 	 */
 	public ArrayList<SaleItem> generateSaleItemList() {
 		if (invoiceList == null) {
@@ -120,7 +138,7 @@ public class SalesReport {
 
 	}
 	/**
-	 * generateRevenue loops through the saleItems in the saleItemList and adds the price sold to calculate the total revenue in timeframe
+	 * Generates total revenue in a specific timeframe
 	 * 
 	 * @return revenue earned from the timeframe
 	 */
@@ -137,10 +155,7 @@ public class SalesReport {
 		return revenue;
 	}
 	/**
-	 * printSalesReport is the printer function for SalesReport instance
-	 * 
-	 * it loops through all the salesItems in the list and prints their name together with the quantity sold
-	 * before printing the total revenue in timeframe
+	 * Prints the Sales Report for a specific time frame.
 	 */
 	public void printSalesReport(){
 		String result = "Sales Report: " + this.startDate + " - " + this.endDate;
