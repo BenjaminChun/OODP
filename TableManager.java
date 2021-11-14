@@ -166,8 +166,11 @@ public class TableManager {
 				if (chosenTableNo == -1) {//guard against chosen == -1
 					chosenTableNo = i;
 				}
-				else if (seatingCapacity < reservedTables.get(chosenTableNo).getSeatingCapacity()){
-					chosenTableNo = i; //it is more than seats required and less than prev chosen tables
+				else {
+					int chosenTableSeatingCapacity = reservedTables.get(chosenTableNo).getSeatingCapacity();
+					if (seatingCapacity < chosenTableSeatingCapacity) {
+						chosenTableNo = i;
+					}
 				}
 			}
 		}
