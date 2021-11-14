@@ -28,10 +28,6 @@ public class MenuManager {
 	public void addItem() {
 		MenuItem temp = new MenuItem();
 		temp = temp.create(); //menuItem object calls create which promts for user inputs to create respective menuItem
-		if (menuList.contains(temp)){
-			System.out.println("Menu item already exists, exitting");
-			return;
-		}
 		if (temp instanceof AlaCarte){
 			this.menuList.add(0,temp); //add to front of list
 		}
