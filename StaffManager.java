@@ -42,36 +42,36 @@ public class StaffManager {
 			System.out.println("(1) Add Staff");
 			System.out.println("(2) Remove Staff");
 			System.out.println("(3) Print Staff List");
-			System.out.print("\t Enter the number of your choice: ");
+			System.out.print("Enter the number of your choice: ");
 			choice = sc.nextInt();
 			sc.nextLine();
 			switch (choice) {
 				case 1: 
-					System.out.println("\t Adding Staff ..");
-					System.out.print("\t Please enter Name: ");
+					System.out.println("Adding Staff ..");
+					System.out.print("Please enter Name: ");
 					String name = sc.nextLine();
 
-					System.out.println("\t Please enter Staff ID: ");
+					System.out.println("Please enter Staff ID: ");
 					staffID = sc.nextInt();
 					sc.nextLine();
 					
-					System.out.println("\t Please enter gender");
+					System.out.println("Please enter gender");
 					char gender = sc.nextLine().charAt(0);
 					
 
 					boolean validJob = false;
 					String job = new String();
 					while (validJob == false){
-						System.out.println("\t Please enter job position: ");
+						System.out.println("Please enter job position: ");
 						job = sc.nextLine();
 						validJob = checkValidJob(job);
 					}
 					
-					addStaff(name, gender, job, staffID);;
+					addStaff(name, gender, job, staffID);
 					break;
 					
 				case 2:
-					System.out.println("\t Please enter staff ID of the staff you wish to remove: ");
+					System.out.println("Please enter staff ID of the staff you wish to remove: ");
 					staffID = sc.nextInt();
 					sc.nextLine();
 					deleteStaff(staffID);
