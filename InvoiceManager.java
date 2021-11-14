@@ -106,9 +106,10 @@ public class InvoiceManager {
 	 * @param od Invoice to be added to invoice list.
 	 */
 	//need a way to add to invoicelist
-	public void createInvoice(OrderDetails od) {
+	public Invoice createInvoice(OrderDetails od) {
 		Invoice temp = new Invoice(od);
 		invoiceList.add(temp);
+		return temp;
 	}
 
 	/*public void printInvoice(){

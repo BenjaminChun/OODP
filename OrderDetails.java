@@ -57,9 +57,16 @@ public class OrderDetails {
 			System.exit(0);
 		}
 		this.order = order;
-		RestaurantApp.globalInvoiceManager.createInvoice(this);
+		Invoice newInvoice = RestaurantApp.globalInvoiceManager.createInvoice(this);
 		ArrayList<Table> availTables = RestaurantApp.globalTableManager.getAvailableTables(); //get a list of available table
-		RestaurantApp.globalTableManager.printTables(availTables);
+		ArrayList<Table> reservedTables = RestaurantApp.globalTableManager.getReservedTables(); 
+		if (RestaurantApp.globalReservationManager.checkExist(newInvoice.getCustomer().getContact()) == null){
+			RestaurantApp.globalTableManager.printTables(availTables);
+		}
+		else {
+			System.out.println("There is a reservation made with this contact...");
+			RestaurantApp.globalTableManager.printTables(reservedTables);
+		}
 		System.out.println("What table ID is this order for?");
 		try {
 			int id = sc.nextInt();
@@ -70,8 +77,13 @@ public class OrderDetails {
 					tableFound = true;
 				}
 			}
+			for (int i = 0; i < reservedTables.size(); i++){
+				if(reservedTables.get(i).getId() == id){
+					tableFound = true;
+				}
+			}
 			if (!tableFound){
-				throw new IncorrectTableIDException("Table ID "+id+" is not found in available table list!");
+				throw new IncorrectTableIDException("Table ID "+id+" is not found in available/reserved table list!");
 			}
 			this.tableID = id;
 			RestaurantApp.globalTableManager.setTableToOccupied(id);
