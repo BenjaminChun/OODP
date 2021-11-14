@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Represents an Ala Carte Item in the Restaurant's Menu.
  * @author Tan Zheng Kai
- * @version 1.0
+ * @version 3.0
  * @since 2021-11-13
  */
 public class AlaCarte extends MenuItem {
