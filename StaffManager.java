@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Represents the StaffManager.
+ * Represents the Staff Manager at the restaurant.
  * Manages the Staff in the restaurant.
- * @author Benjamin Chun Wei Jie
- * @version 15
+ * @author Tan Zheng Kai
+ * @version 16.0
  * @since 2021-11-13
  */
 public class StaffManager {
 
 	/**
-	 * ArrayList of Staff to store the Staff working
-	 * in the restaurant.
+	 * List of staffs working in the restaurant.
 	 */
 	private ArrayList<Staff> staffList;
 
@@ -21,8 +20,6 @@ public class StaffManager {
 	 * that works at the restaurant.
 	 */
 	public StaffManager() {
-		// TODO - implement StaffManager.StaffManager
-		//throw new UnsupportedOperationException();
 		this.staffList = new ArrayList<Staff>();
 		Staff staff1 = new Staff("Han Kang", 'M', "MANAGER", 1);
 		Staff staff2 = new Staff("Ming Jun", 'F', "CASHIER", 2);
@@ -104,25 +101,22 @@ public class StaffManager {
 	}
 
 	/**
-	 * Add new Staff to the ArrayList of Staff
+	 * Add new Staff to the list of Staffs
 	 * @param name The name of Staff to be added.
 	 * @param gender The gender of Staff to be added.
 	 * @param staffTitle The jobTitle of Staff to be added.
 	 * @param ID The staffID of Staff to be added.
 	 */
 	public void addStaff(String name, char gender, String staffTitle, int ID) {
-		// TODO - implement StaffManager.addStaff
-		//throw new UnsupportedOperationException();
 		Staff newStaff = new Staff(name, gender, staffTitle, ID);
 		staffList.add(newStaff);
 	}
 
 	/**
 	 * Delete Staff from the ArrayList of Staff.
-	 * @param ID The staffID of the Staff to be removed.
+	 * @param ID The staff ID of the Staff to be removed.
 	 */
 	public void deleteStaff(int ID) {
-		// TODO - implement StaffManager.deleteStaff
 		Staff staffFound=checkExist(ID);
 		if(staffFound==null){
 			System.out.println("No such staff found!");
@@ -131,15 +125,12 @@ public class StaffManager {
 			staffList.remove(staffFound);
 			System.out.println("Staff removed");	
 		}
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * Prints out the ArrayList of Staff.
 	 */
 	public void displayList() {
-		// TODO - implement StaffManager.displayList
-		//throw new UnsupportedOperationException();
 		System.out.println("Staff List:");
 		int index = 1;
 		for (Staff staff : staffList){
@@ -150,8 +141,13 @@ public class StaffManager {
 		}
 	}
 
+	/**
+	 * Checks if the Staff exists using the ID.
+	 * ID used to check must match the ID of the staff in the list.
+	 * @param ID ID used to check the list of staffs in this staff manager
+	 * @return staff in the staff list.
+	 */
 	public Staff checkExist(int ID){
-		// TODO - implement ReservationManager.checkExist
 		Staff staffFound = null;
 		boolean idMatch;
 		for(Staff currentStaff : staffList){
@@ -163,11 +159,19 @@ public class StaffManager {
 		}
 		return staffFound;
 	}
-
+	/**
+	 * Gets the staff of this staff manager.
+	 * @param index Index to look for the specific staff.
+	 * @return The Staff of this staff manager.
+	 */
 	public Staff getStaff(int index){
 		return this.staffList.get(index);
 	}
 
+	/**
+	 * Gets the size of the staff list.
+	 * @return the size of the staff list of this staff manager.
+	 */
 	public int getSizeOfStaffList(){
 		return this.staffList.size();
 	}

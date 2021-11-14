@@ -41,6 +41,7 @@ public class ReservationManager {
 			System.out.println("(3) Remove Reservation");
 			System.out.println("(4) Remove Expired Reservation(s)");
 			System.out.println("(5) Print Reservation List");
+			System.out.println("(6) Exit");
 			System.out.print("Enter the number of your choice: ");
 			choice = sc.nextInt();
 			System.out.println();
