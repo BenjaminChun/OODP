@@ -115,6 +115,7 @@ public class Invoice {
 
 	/**
 	 * Prints the Invoice for the a table.
+	 * @param result String of formatted text to print.
 	 */
 	public void printInvoice(){
 		String result = "Invoice Receipt for Table " + this.getOrderDetails().getTableID() + " for datetime = "+ this.getOrderDetails().getDate() +" "+ this.orderDetails.getTime();
