@@ -98,7 +98,7 @@ public class Reservation {
 	
 	/**
 	 * Converts a String in the format "dd-MM-yyyy HH:mm" into a Date object.
-	 * @param DateTime String to be converted into Date object.
+	 * @param dateTime String to be converted into Date object.
 	 * @return The date object after conversion.
 	 */
 	public Date convertToDate(String dateTime) {
@@ -120,7 +120,7 @@ public class Reservation {
 	
 	/**
 	 * Adds 15minutes to a Date object to get the expiry date and time of a Reservation.
-	 * @param DateTime The date and time of the Reservation.
+	 * @param dateTime The date and time of the Reservation.
 	 * @return The expiry date and time.
 	 */
 	public Date convertExpiryDateTime(Date dateTime) {
