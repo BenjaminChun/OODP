@@ -15,7 +15,6 @@ public class Order {
 
 	/**
 	 * Creates a new order after taking in name of staff. 
-	 * @param s This Order's staff.
 	 */
 	public Order() {
 		this.orderItemList = new ArrayList<OrderItem>();

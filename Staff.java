@@ -110,7 +110,7 @@ public class Staff {
 
 	/**
 	 * Changes the job of this Staff.
-	 * @param jobTitle jobTitle to be set.
+	 * @param jobPosition jobPosition to be set.
 	 */
 	public void setJobTitle(String jobPosition) {
 		switch(jobPosition){

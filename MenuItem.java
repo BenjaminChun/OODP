@@ -22,7 +22,10 @@ public class MenuItem {
 	 * The price of this menu item.
 	 */
 	protected double price;
-
+	
+	/*
+	 * Empty Constructor.
+	 */
 	public MenuItem(){}
 
 	/**
@@ -34,7 +37,7 @@ public class MenuItem {
 	}
 	/**
 	 * Gets name of this menu item.
-	 * @return
+	 * @return this menu's name.
 	 */
 	public String getName(){
 		System.out.println("Debug: wrong");
@@ -42,7 +45,7 @@ public class MenuItem {
 	}
 	/**
 	 * Gets price of this menu item.
-	 * @return
+	 * @return this menu's price.
 	 */
 	public double getPrice(){
 		System.out.println("Debug: wrong");
@@ -58,7 +61,7 @@ public class MenuItem {
 	/**
 	 * Creates a new menu item.
 	 * Menu item can be an Ala Carte or Promotional Set Package.
-	 * @param choice The kind of menu item to be made.
+	 * @return menu item created.
 	 */
 	public MenuItem create(){ //menumanager creates a new menu item object, and call menuItem.create()
 		Scanner sc = new Scanner(System.in);

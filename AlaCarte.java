@@ -6,6 +6,9 @@ import java.util.Scanner;
  * @since 2021-11-13
  */
 public class AlaCarte extends MenuItem {
+	/*
+	 * Empty Constructor
+	 */
 	public AlaCarte(){}
 	/**
 	 * Creates a new Ala Carte item with the given name. 
