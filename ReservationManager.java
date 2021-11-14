@@ -18,10 +18,6 @@ public class ReservationManager {
 	 */
 	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
-		// reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
-		// reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tang Han Kang"));
-		// reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
-		// reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
 	}
 
 	/**
@@ -116,7 +112,6 @@ public class ReservationManager {
 	 * Checking reservation using contact number of person who booked it.
 	 */
 	public void checkReservation(){
-		//TODO - implement ReservationManager.checkReservation
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter contact number to check reservation: ");		
 		int contactNumber = sc.nextInt();
@@ -149,7 +144,6 @@ public class ReservationManager {
 		}
 		return contactFound;
 	}
-
 	
 	/** 
 	 * Removing a reservation from reservationList with an input contactNumber.
@@ -173,7 +167,6 @@ public class ReservationManager {
 			reservationList.remove(reservationFound);	
 		}
 		System.out.println("Reservation removed successfully.");
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -201,7 +194,6 @@ public class ReservationManager {
 			currentIndex++;
 		}
 		System.out.println("Expired reservation(s) have been removed.");
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -209,7 +201,6 @@ public class ReservationManager {
 	 * @param contact The reservation made by this contact number.
 	 */
 	public Reservation getReservation(int contact) {
-		// TODO - implement ReservationManager.getReservation
 		for (Reservation res : reservationList){
 			if(res.getContact()==contact){
 				return res;
@@ -217,8 +208,6 @@ public class ReservationManager {
 		}
 		System.out.println("Reservation not found");
 		return null;
-
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
