@@ -1,34 +1,35 @@
 /**
  * Represents the Staff working at the restaurant.
- * @author Benjamin Chun Wei Jie
- * @version 13
+ * @author Tan Zheng Kai
+ * @version 14.0
  * @since 2021-11-13
  */
 public class Staff {
 
 	/**
-	 * The name of the Staff.
+	 * The name of this Staff.
 	 */
 	private String name;
 
 	/**
-	 * The gender of the Staff.
+	 * The gender of this Staff.
 	 */
 	private char gender;
 
 	/**
-	 * The ID of the staff.
+	 * The ID of this staff.
 	 */
 	private int staffID;
 
 	/**
-	 * The job title of the Staff.
+	 * The job title of this Staff.
 	 */
 	private jobTitle job;
 
 	/**
-	 * Creates Staff with name, gender, jobPosition and staffID inputs.
-	 * jobPosition must match the jobs in jobTitles class.
+	 * Creates a new Staff with the given name. 
+	 * Job position of staff must be a valid position 
+	 * present in the job title.
 	 * @param name This Staff's name.
 	 * @param gender This Staff's gender.
 	 * @param jobPosition This Staff's job.
@@ -42,7 +43,7 @@ public class Staff {
 	}
 
 	/**
-	 * Print this Staff's information (name, staffID, gender, job).
+	 * Prints this Staff's information.
 	 */
 	public void printStaffInformation(){
 		System.out.println("Staff information for " + name + ":\r\n"
@@ -52,7 +53,7 @@ public class Staff {
 	}
 
 	/**
-	 * Get the name of this Staff.
+	 * Gets the name of this Staff.
 	 * @return This Staff's name.
 	 */
 	public String getName() {
@@ -60,7 +61,7 @@ public class Staff {
 	}
 
 	/**
-	 * Set the name of this Staff.
+	 * Changes the name of this Staff.
 	 * @param name Name to be set
 	 */
 	public void setName(String name) {
@@ -68,7 +69,7 @@ public class Staff {
 	}
 
 	/**
-	 * Get the gender of this Staff.
+	 * Gets the gender of this Staff.
 	 * @return This Staff's gender.
 	 */
 	public char getGender() {
@@ -84,15 +85,15 @@ public class Staff {
 	}
 
 	/**
-	 * Get the staffID of this Staff.
-	 * @return This Staff's staffID.
+	 * Gets the staff ID of this Staff.
+	 * @return This Staff's staff ID.
 	 */
 	public int getStaffID() {
 		return this.staffID;
 	}
 
 	/**
-	 * Set the staffID of this Staff.
+	 * Changes the staffID of this Staff.
 	 * @param staffID staffID to be set.
 	 */
 	public void setStaffID(int staffID) {
@@ -100,7 +101,7 @@ public class Staff {
 	}
 
 	/**
-	 * Get the job of this Staff.
+	 * Gets the job of this Staff.
 	 * @return This Staff's job.
 	 */
 	public jobTitle getJobTitle() {
@@ -108,7 +109,7 @@ public class Staff {
 	}
 
 	/**
-	 * Set the job of this Staff.
+	 * Changes the job of this Staff.
 	 * @param jobTitle jobTitle to be set.
 	 */
 	public void setJobTitle(String jobPosition) {
@@ -121,7 +122,7 @@ public class Staff {
 	}
 
 	/**
-	 * Checks this Staff's ID with an input ID.
+	 * Checks this Staff's ID with an ID the user input.
 	 * @param ID ID to be compared with.
 	 * @return true if the IDs match.
 	 */
