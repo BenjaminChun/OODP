@@ -93,7 +93,6 @@ public class RestaurantApp {
 						"1. Print Available Tables\n" +
 						"2. Print Occupied Tables\n" +
 						"3. Print Reserved Tables\n" +
-						"4. Find and Assign a suitable Table\n\n"+
 						"ENTER 0 TO QUIT\n");
 						
 						tableChoice = sc.nextInt();
@@ -106,11 +105,6 @@ public class RestaurantApp {
 								break;
 							case 3:
 								globalTableManager.printTables(globalTableManager.getReservedTables());
-								break;
-							case 4:
-								int minSeats = globalTableManager.getUserInput();
-								int tableNum = globalTableManager.findSuitableTableFromReserved(minSeats);
-								globalTableManager.setTableToOccupied(tableNum);
 								break;
 							}
 					} while (tableChoice!=0);
