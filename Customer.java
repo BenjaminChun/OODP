@@ -84,7 +84,7 @@ public class Customer {
 	}
 
 	/**
-	 * Changes this Customer's contact
+	 * Changes this Customer's contact.
 	 * Sets the contact number of this Customer.
 	 * @param contact This Customer's contact.
 	 */
