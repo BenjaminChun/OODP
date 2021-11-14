@@ -46,16 +46,14 @@ public class OrderManager {
 
 	/**
 	 * Creates an order and adds it into the order list.
-	 * @param s 
 	 */
-	public void createOrder() { //either we take in a Staff argument or ask for user input here to indicate staff eid and check from globalStaffManager
+	public void createOrder() {
 		Order temp = new Order();
-		temp.makeNewOrder(); //order obj calls makeNewOrder that adds orderItems to the arrayList
+		//order obj calls makeNewOrder that adds orderItems to the arrayList
+		temp.makeNewOrder(); 
 		this.orderList.add(temp);
 		System.out.println("Order created. printing new order...");
 		temp.printOrder();
-		// TODO - implement OrderManager.createOrder
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
