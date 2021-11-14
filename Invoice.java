@@ -104,7 +104,7 @@ public class Invoice {
 
 	/**
 	 * Gets this Invoice's discounted bill. 
-	 * @param discountedPrice This
+	 * @return this Invoice's discounted bill.
 	 */
 	public double getFinalPrice() {
 		double finalPrice = (1 + GST + ServiceCharge) * getPriceAfterDiscount(calculateBaseTotal());
@@ -114,7 +114,6 @@ public class Invoice {
 
 	/**
 	 * Prints the Invoice for the a table.
-	 * @param result String of formatted text to print.
 	 */
 	public void printInvoice(){
 		System.out.println("========================================");
