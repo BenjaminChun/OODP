@@ -64,7 +64,7 @@ public class MenuManager {
 
 	/**
 	 * Update a menu item in this menu manager's manu list.
-	 * @param choice
+	 * @param choice The choice of menu item to update.
 	 */
 	public void updateItem() {
 		Scanner sc = new Scanner(System.in);
@@ -102,7 +102,7 @@ public class MenuManager {
 
 	/**
 	 * Gets a menu item in the list with given index.
-	 * @param index
+	 * @param index The index of the menu item to get.
 	 */
 	public MenuItem getMenuItem(int index) {
 		MenuItem menuItem = this.menuList.get(index);
@@ -110,7 +110,7 @@ public class MenuManager {
 	}
 	/**
 	 * Gets the size of the menu list of this Menu Manager.
-	 * @return
+	 * @return the size of the menu list.
 	 */
 	public int getSizeOfMenu() {
 		return this.menuList.size();

@@ -19,7 +19,7 @@ public class ReservationManager {
 	public ReservationManager() { 
 		reservationList = new ArrayList<Reservation>();
 		// reservationList.add(new Reservation(91550028, "22-03-2022 18:15", 4, "Beh Ming Jun"));
-		// reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tan Han Kang"));
+		// reservationList.add(new Reservation(91550027, "13-11-2021 12:04", 6, "Tang Han Kang"));
 		// reservationList.add(new Reservation(91550026, "13-11-2021 12:03", 8, "Chun Wei Jie"));
 		// reservationList.add(new Reservation(91550025, "22-03-2021 18:15", 2, "Tan Zheng Kai"));
 	}
@@ -167,7 +167,9 @@ public class ReservationManager {
 			System.out.println("Changing reserved table to available...");
 			int minSeats = reservationFound.getNumPax();
 			int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(minSeats);
-			RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+			if (tableID != -1){
+				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+			}
 			reservationList.remove(reservationFound);	
 		}
 		System.out.println("Reservation removed successfully.");
@@ -190,7 +192,9 @@ public class ReservationManager {
 			if (expired == true){
 				System.out.println("Changing reserved table to available...");
 				int tableID = RestaurantApp.globalTableManager.findSuitableTableFromReserved(currentReservation.getNumPax());
-				RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+				if (tableID != -1){
+					RestaurantApp.globalTableManager.setTableToAvailable(tableID);
+				}
 				reservationList.remove(currentIndex);
 				continue;
 			}

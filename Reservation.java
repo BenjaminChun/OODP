@@ -107,11 +107,14 @@ public class Reservation {
 		
 		try {
 			date = sdf.parse(DateTime);
-		}catch(Exception e){
-			System.out.println(e);
+			return date;
+		}catch(ParseException e){
+			System.out.println("Incorrect date time format.");
+			System.out.println("program exiting...");
+			System.exit(0);
 		}
 
-		return date;
+		
 	}
 	
 	/**
