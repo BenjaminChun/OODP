@@ -82,7 +82,6 @@ public class SalesReport {
 		ArrayList<Invoice> returnList = new ArrayList<Invoice>(); 
 		for (int i = 0; i < arrSize; i++) {
 			//check if the current invoice fits requirement which is in start and end date
-			//AREA FOR IMPROVEMENT if order details change attribute then this cannot work
 			if ((invoiceList.get(i).getOrderDetails().getDate().isAfter(startDate) || invoiceList.get(i).getOrderDetails().getDate().equals(startDate)) && (invoiceList.get(i).getOrderDetails().getDate().isBefore(endDate)||invoiceList.get(i).getOrderDetails().getDate().equals(endDate))) {
 				//then add it into new returnList
 				returnList.add(invoiceList.get(i));

@@ -1,17 +1,37 @@
 import java.util.Scanner;
 
+/**
+ * Represents a restaurant application for users to communicate with respective managers.
+ */
 public class RestaurantApp {
-
+	/**
+	 * Reservation manager of the restaurant.
+	 */
 	public static ReservationManager globalReservationManager;
+	/**
+	 * Order manager of the restaurant.
+	 */
 	public static OrderManager globalOrderManager;
+	/**
+	 * Table Manager of the restaurant.
+	 */
 	public static TableManager globalTableManager;
+	/**
+	 * Staff Manager of the restaurant.
+	 */
 	public static StaffManager globalStaffManager;
+	/**
+	 * Menu Manager of the restaurant.
+	 */
 	public static MenuManager globalMenuManager;
+	/**
+	 * Invoice manager of the restaurant.
+	 */
 	public static InvoiceManager globalInvoiceManager;
 
 	/**
-	 * 
-	 * @param args
+	 * Main function of the application.
+	 * @param args Program to run.
 	 */
 	public static void main(String[] args) {
 		globalMenuManager = new MenuManager();
@@ -143,34 +163,5 @@ public class RestaurantApp {
 		} while (choice != 0);
 
 		
-
-		// TODO - implement RestaurantApp.main
-		//throw new UnsupportedOperationException();
-	/*
-	public MenuManager MenuManager() {
-		// TODO - implement RestaurantApp.MenuManager
-		//throw new UnsupportedOperationException();
-	}
-
-	public OrderManager OrderManager() {
-		// TODO - implement RestaurantApp.OrderManager
-		//throw new UnsupportedOperationException();
-	}
-
-	public TableManager TableManager() {
-		// TODO - implement RestaurantApp.TableManager
-		//throw new UnsupportedOperationException();
-	}
-
-	public ReservationManager ReservationManager() {
-		// TODO - implement RestaurantApp.ReservationManager
-		throw new UnsupportedOperationException();
-	}
-
-	public StaffManager StaffManager() {
-		// TODO - implement RestaurantApp.StaffManager
-		throw new UnsupportedOperationException();
-	}
-	*/
 }
 }
